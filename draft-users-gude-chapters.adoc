@@ -1,0 +1,59 @@
+= Users Guide
+
+. Introduction
+  * What is zot?
+  * What can I do with zot?
+. Getting Started
+  * Prerequisites
+
+== Section 1 - Server Configuration
+
+. Get zot
+  * Downloading zot Releases
+  * Building zot from Source
+. The zot Command Tree
+. Logging Configuration
+. Network Configuration
+. Storage
+  * Working with Local Storage
+  * Working with s3 Storage
+. Authentication
+  * Authentication Options
+  * Working Local Authentication
+  * Working with LDAP Authentication
+  * Working with OAuth2 Authentication
+  * Preventing Automated Attacks with Failure Delay
+. Authorization
+  * Setup Identity-based Authorization
+. Metrics
+  * Metrics Catalog
+. Syncing Registries
+. Clustering zot
+  * Cluster zot With haproxy
+  * Cluster zot With s3
+
+
+== Section 2 - Working with zli
+
+. What is zli?
+. Get zli
+  * Downloading zli Releases
+  * Building zli From Source
+. The zli Command Tree
+. Add regtries to zli
+. Listing Images in a Registry
+. Scan Images for Known Vulnerabilities
+. The zli command tree
+
+== Section 3 - Working with zb
+
+. What is zb?
+. Get zb
+  * Downloading zb Binaries
+  * Building zb From Source
+. The zb Command Tree
+. Run Benchmarks with zb
+
+== Section 4 - Advanced Topics Cookbook
+
+. Create a trusted image pipeline with zot, cosign, and Notation
