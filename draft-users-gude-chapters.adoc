@@ -28,9 +28,14 @@
 . Metrics
   * Metrics Catalog
 . Syncing Registries
-. Clustering zot
-  * Cluster zot With haproxy
-  * Cluster zot With s3
+. Clustering zot with remote stared storage
+  * _haproxy_ configuration
+  * _s3_ configuration
+. Configuration Verification
+. Extensions
+  * Image query/search support
+  * Image scanning support
+  * Scrub image repository
 
 
 == Section 2 - Working with zli
