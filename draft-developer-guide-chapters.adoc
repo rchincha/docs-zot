@@ -1,0 +1,143 @@
+= Developer Guide
+
+. Introduction
+  * What is this document about?
+
+. Getting Started
+  * Supported Developer Platforms
+  * Prerequisites
+  * Cloning the Project
+  * Building zot
+  * Running zot
+
+. Code Of Conduct guidelines
+  * Code of Conduct document
+
+. Contributor guidelines
+  * License
+  * Developer Certificate of Origin (DCO)
+  * Submitting a pull request (PR)
+  * PR requirements
+  * CI/CD Checks
+
+. Reporting Issues
+  * Filing an issue
+  * Security Issues
+
+== Getting Started
+
+. Supported Developer Platforms
+
+Development is officially supported on `Linux` and `Apple MacOS` platforms. However note
+that development should be possible on all platforms where the golang toolchain
+is supported.
+
+. Prerequisites 
+
+  * Install golang (1.17+)
+
+zot project requires golang 1.17 or newer. You can follow
+https://go.dev/learn/[these instructions] to install `golang` toolchain.  Once
+installed, make sure that the path environment variable or your IDE can find
+the toolchain.
+
+  * Cloning zot
+
+zot registry code base is hosted on GitHub at https://github.com/project-zot/zot[https://github.com/project-zot/zot].
+
+`$ git clone https://github.com/project-zot/zot.git`
+
+  * Building zot
+
+`$ cd zot`
+
+For the full zot binary with all the extensions on the Linux/amd64 platform.
+
+`$ make OS=linux ARCH=amd64 binary`
+
+For the minimal zot binary without all the extensions on the Linux/amd64 platform.
+
+`$ make OS=linux ARCH=amd64 binary-minimal`
+
+Note that you can also build for the supported platforms and architectures as following.
+
+Linux/Intel-based platforms
+`$ make OS=linux ARCH=amd64 binary`
+
+Linux/ARM64-based platforms such as ARM64 servers and Raspberry Pi4
+`$ make OS=linux ARCH=arm64 binary`
+    
+Apple MacOS/Intel-based platforms
+`$ make OS=darwin ARCH=amd64 binary`
+
+Apple MacOS/ARM64-based platforms
+`$ make OS=darwin ARCH=arm64 binary`
+
+    * Running zot
+
+zot behavior is controlled via configuration only. The server can be launched as follows.
+
+`$ bin/zot-linux-amd64 serve examples/config-example.json`
+    
+
+== Code of Conduct
+
+zot project follows the https://github.com/cncf/foundation/blob/main/code-of-conduct.md[CNCF Code of Conduct]. 
+
+include::code-of-conduct.adoc[]
+
+ . Reporting
+
+For incidents occuring on the zot project, contact the zot project conduct
+committee at `conduct@zotproject.io`. You can expect a response within three
+business days.
+
+== Contributor Guidelines
+
+  . License
+
+Note that zot is released under the
+https://github.com/project-zot/zot/blob/main/LICENSE[Apache License 2.0]. So
+any contributions must adhere to this license.
+
+  . Developer Certificate of Origin (DCO)
+
+All commits require a Developer Certificate of Origin via the "Signed-off-by:"
+commit message and commit signatures using GPG keys.
+
+  . Submitting a Pull Request (PR)
+
+First, fork the zot project on GitHub and submit commit to your fork. After
+that open a new pull request (PR) to the zot project. 
+
+  . PR Requirements
+
+Any new PR requires a form to be filled out with details about the PR.
+Appropriate code owners are automatically identified and they will be notified
+of the new PR.
+
+  . CI/CD Checks
+
+We take code quality very very seriously. All PRs must pass various CI/CD
+checks which cover enforce code quality such as code coverage, security
+scanning, performance regressions, distribution spec conformance, ecosystem
+client tool compatibility, etc.
+
+== Reporting Issues
+
+Issues are broadly classified as functional bugs and security issues. The
+latter is treated a little differently considering the sensitive nature.
+
+  . Filing an Issue
+
+No software is perfect and we expect users to find issues with the zot code
+base. First, check if your issue is already filed by someone else by doing a
+https://github.com/project-zot/zot/issues[issue search]. If not found, then go
+ahead and file a new issue by answering the questions. The more information
+that is provided, the easier it becomes to triage the issue.
+
+  . Security Issues
+
+Security issues are best filed by send an email to `security@zotregistry.io`.
+We will make this issue public after 45 days and give credit to the original
+filer.
