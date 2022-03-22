@@ -10,6 +10,8 @@
   * Building zot
   * Running zot
 
+. Code Organization
+
 . Code Of Conduct guidelines
   * Code of Conduct document
 
@@ -79,6 +81,37 @@ zot behavior is controlled via configuration only. The server can be launched as
 
 `$ bin/zot-linux-amd64 serve examples/config-example.json`
     
+
+== Code Organization
+
+The codebase in the `zot` project is organized as follows:
+
+`
+/
+- pkg/              # Source code for all libraries
+  - api/            # Source code for HTTP APIs
+    - config/       # Global configuration model
+  - storage/        # Source code for storage backends
+  - cli/            # Source code for command line interface (cli)
+  - common/         # Source code for common utility routines
+  - compliance/     # Source code for dist-spec conformance tests
+  - log/            # Source code for logging framework
+  - test/           # Internal test scripts/data
+  - extensions/     # Source code for all extensions
+    - config/
+    - sync/
+    - monitoring/
+    - sync/
+  - exporter/       # Source code for metrics exporter
+- cmd/              # Source code for binary main()s
+  - zot/            # Source code for zot binary
+  - zli/            # Source code for zot cli
+  - zb/             # Source code for zb which is the dist-spec benchmarking tool
+- errors/           # Source code for error codes
+- examples/         # Configuration examples
+- swagger/          # Swagger integration
+- docs/             # Documentation
+`
 
 == Code of Conduct
 
