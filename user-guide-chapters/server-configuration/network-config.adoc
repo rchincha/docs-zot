@@ -1,0 +1,40 @@
+== Network
+
+Use the `http` attribute in the configuration file to configure the {zotLowerName}
+network settings, as shown in the following example.
+
+----
+"http": {
+  "address":"127.0.0.1",
+  "port":"8080",
+  "realm":"zot",
+  "tls": {
+    "cert":"test/data/server.cert",
+    "key":"test/data/server.key"
+  }}
+----
+
+The following table lists the configurable attributes.
+
+[%autowidth]
+|===
+| Attribute | Description
+
+|`address` | The IP address of the {zotLowerName} server.
+|`port` | The port number of the {zotLowerName} server.
+|`realm` | The security policy domain defined for the server.
+|`tls` | The included attributes in this section specify the Transport Layer
+Security (TLS) settings for the server.
+|`cert` | The path and filename of the server's SSL/TLS certificate.
+|`key` | The path and filename of the server's registry key.
+|===
+
+
+.MIKE'S QUESTIONS
+****
+. Are these the only attributes?
+. Are there defaults?
+. Should `allowReadAccess` be documented here?
+. What's the difference between `allowReadAccess` and `ReadOnly`?  Both appear in examples.
+. Should `Ratelimit` be documented here?
+****

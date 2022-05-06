@@ -1,0 +1,67 @@
+== Why {zotLowerName}?
+
+Unlike {zotUpperName}, many commonly-used image registries do not fully conform to the
+https://github.com/opencontainers/distribution-spec[OCI Distribution Specification].
+
+The following table compares the capabilities of {zotLowerName} with another common
+image registry.
+
+|===
+| | {zotLowerName} | https://github.com/distribution/distribution[Docker distribution] |
+
+| **Last stable release** | v1.3.0 (Sep 1, 2021) | v2.7.1 (Jan 17, 2019) |
+| **License** | Apache 2.0 | Apache 2.0 |
+| **On-premise deployment** | yes | yes |
+| **Minimal build*** | yes | no |
+| **Storage Layout** | ociv1 image layout [2] | project-specific layout [1] |
+| **Authentication** | built-in | auxiliary [3] |
+| **Authorization** | built-in | auxiliary [3] |
+| **Garbage collection** | inline | requires server shutdown |
+| **Storage deduplication** | inline | none |
+| **Cloud storage support** | yes | yes |
+| **Delete by tag** | yes | unsupported [4][5] |
+| **Vulnerability scanning** | built-in | none |
+| **cli** | yes | yes |
+| **ui** | yes [8] | auxiliary [3][4] |
+| **External contributions** | yes | yes |
+| **CNCF project** | no | yes [9] |
+| **dist-spec conformance** | yes [12] | pending 3.x release [10][11] |
+| **Image Signatures** | built-in [14][15] | auxiliary [13] |
+|===
+
+
+NOTE: * The *minimal build* feature is the ability to build a minimal
+distribution-spec compliant registry in order to reduce library dependencies
+and the possible attack surface.
+
+=== Table References
+
+[1] https://github.com/distribution/distribution/tree/main/registry/storage
+
+[2] https://github.com/opencontainers/image-spec
+
+[3] https://github.com/cesanta/docker_auth
+
+[4] https://github.com/distribution/distribution/issues/3234
+
+[5] https://github.com/distribution/distribution/issues/2747
+
+[6] https://github.com/Joxit/docker-registry-ui
+
+[7] https://github.com/parabuzzle/craneoperator
+
+[8] https://github.com/project-zot/zot-ui
+
+[9] https://www.docker.com/blog/donating-docker-distribution-to-the-cncf/
+
+[10] https://github.com/distribution/distribution/issues/3203
+
+[11] https://github.com/opencontainers/oci-conformance/tree/main/distribution-spec#distributiondistribution
+
+[12] https://github.com/opencontainers/oci-conformance/tree/main/distribution-spec#project-zotzot
+
+[13] https://docs.docker.com/engine/security/trust/
+
+[14] https://github.com/notaryproject/notation
+
+[15] https://github.com/sigstore/cosign

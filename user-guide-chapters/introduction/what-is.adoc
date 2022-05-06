@@ -1,0 +1,14 @@
+== What is {zotLowerName}
+
+{zotUpperName} is an open-source, vendor-neutral image registry application based purely
+on the https://github.com/opencontainers/distribution-spec[OCI Distribution Specification]
+published by the Open Container Initiative (OCI).
+
+An OCI image registry is a server-based application that allows you to store, manage, and share
+container images.  A developer uploads (pushes) an image to the registry for distribution. Users can
+then download (pull) the image to run on their systems.  The OCI Distribution Specification
+defines a standard API protocol for these and other image registry operations.
+
+You can host an OCI image repository by installing {zotUpperName} on your public
+or private server.  You can download or clone the {zotLowerName} project from
+GitHub at https://github.com/project-zot/zot[project-zot].

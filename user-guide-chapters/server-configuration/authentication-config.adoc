@@ -1,0 +1,156 @@
+== Authentication
+
+{zotUpperName} supports authentication by the following methods:
+
+- TLS mutual authentication
+- Local authentication using an htpasswd file
+- LDAP authentication
+- OAuth2 authentication using an HTTP Bearer token
+
+{zotUpperName} also provides the ability to delay response to an authentication
+failure in order to prevent automated attacks.
+
+=== TLS Mutual Authentication
+
+Use the `tls` attribute under `http` in the configuration file to enable and
+configure TLS mutual authentication, as shown in the following example.
+
+----
+"http": {
+  "tls": {
+    "cert":"test/data/server.cert",
+    "key":"test/data/server.key",
+    "cacert":"test/data/cacert.cert"
+  }}
+----
+
+The following table lists the configurable attributes.
+
+[%autowidth]
+|===
+| Attribute | Description
+
+|`cert` | The path and filename of the server's SSL/TLS certificate.
+|`key` | The path and filename of the server's registry key.
+|`cacert` | The path and filename of the server's `cacerts` file, which contains
+trusted certificate authority (CA) certificates. Specifying the `cacert` field
+enables TLS mutual authentication
+|===
+
+=== Local Authentication
+
+Use the `auth` and `htpasswd` attributes under `http` in the configuration file
+to enable and configure local authentication, as shown in the following example.
+
+----
+"http": {
+  "auth": {
+    "htpasswd": {
+      "path": "test/data/htpasswd"
+    }}}
+----
+
+The `path` attribute specifies the path and filename of the `.htpasswd` file, which
+contains user names and hashed passwords.
+
+NOTE: When both htpasswd and LDAP configuration are specified, LDAP authentication
+is given preference.
+
+=== LDAP Authentication
+
+Use the `auth` and `ldap` attributes under `http` in the configuration file
+to enable and configure LDAP authentication, as shown in the following example.
+
+----
+"http": {
+  "auth": {
+    "ldap": {
+      "address":"ldap.example.org",
+      "port":389,
+      "startTLS":false,
+      "baseDN":"ou=Users,dc=example,dc=org",
+      "userAttribute":"uid",
+      "bindDN":"cn=ldap-searcher,ou=Users,dc=example,dc=org",
+      "bindPassword":"ldap-searcher-password",
+      "skipVerify":false,
+      "subtreeSearch":true
+    }}}
+----
+
+The following table lists the configurable attributes.
+
+[%autowidth]
+|===
+| Attribute | Description
+
+| `address` | The IP address or hostname of the LDAP server
+| `port` | The port number used by the LDAP service
+| `startTLS` |
+| `baseDN` |
+| `userAttribute` |
+| `bindDN` | Base Distinguished Name for the LDAP search
+| `bindPassword` |
+| `skipVerify` |
+| `subtreeSearch` |
+|===
+
+NOTE: When both htpasswd and LDAP configuration are specified, LDAP authentication
+is given preference.
+
+.MIKE'S QUESTIONS
+****
+. Need attribute definitions
+****
+
+=== OAuth2 Authentication
+
+{zotUpperName} supports OAuth2 by using a Bearer Token.  Use the `auth` and `bearer`
+attributes under `http` in the configuration file to enable and configure OAuth2
+authentication, as shown in the following example.
+
+----
+"http": {
+  "auth": {
+    "bearer": {
+      "realm": "https://auth.myreg.io/auth/token",
+      "service": "myauth",
+      "cert": "/etc/zot/auth.crt"
+    }}}
+----
+
+The following table lists the configurable attributes.
+
+[%autowidth]
+|===
+| Attribute | Description
+
+| `realm` |
+| `service` |
+| `cert` | The path and filename of the server's SSL/TLS certificate.
+|===
+
+.MIKE'S QUESTIONS
+****
+. Need attribute definitions
+****
+
+=== Preventing Automated Attacks with Failure Delay
+
+Use the `auth` and `failDelay` attributes under `http` in the configuration file
+to delay the response to an authentication failure. A delayed response helps to
+prevent automated attacks. The configuration is shown in the following example.
+
+----
+"http": {
+  "auth": {
+    "failDelay": 5
+  }}
+----
+
+The `failDelay` attribute specifies a waiting time, in seconds, before {zotLowerName}
+sends a failure notification to an authenticating user who has been denied accress.
+
+.MIKE'S QUESTIONS
+****
+. What are the units, range, recommended value?
+****

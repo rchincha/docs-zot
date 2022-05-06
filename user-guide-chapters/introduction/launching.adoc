@@ -1,0 +1,53 @@
+== Launching {zotLowerName} with a Configuration File
+
+The {zotLowerName} service is initiated from the command line using the following
+command format:
+
+``$ *bin/zot* *serve* _configfile_``
+
+The configuration file is a JSON or YAML file that contains all configuration
+settings for {zotLowerName} functions such as:
+
+- network
+- logging
+- storage
+- authentication
+- authorization
+- metrics
+- synchronization with other registries
+- clustering
+
+A simple JSON configuration file is shown in the following example.
+
+----
+{
+    "distSpecVersion": "1.0.1",
+    "storage": {
+        "rootDirectory": "/tmp/zot"
+    },
+    "http": {
+        "address": "127.0.0.1",
+        "port": "8080",
+        "ReadOnly": false
+    },
+    "log": {
+        "level": "debug"
+    }
+}
+----
+
+The first attribute of the JSON data is the distribution specification version
+(`distSpecVersion`). The structure and content of other attributes are described
+in the later sections of this guide.
+
+Using the information in this guide, compose a configuration file with the
+settings and features you require for your {zotLowerName} registry server.
+Before deploying {zotLowerName}, verify the syntax of your configuration file by
+using the following command:
+
+``$ *bin/zot* *verify* _configfile_``
+
+After verifying your configuration file, launch {zotLowerName} with the following
+command:
+
+``$ *bin/zot* *serve* _configfile_``

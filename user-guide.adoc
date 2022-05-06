@@ -1,0 +1,98 @@
+= {zotUpperName} User Guide
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:imagesdir: images
+:title-logo-image: {imagesdir}/zot-01.png
+:sectlinks:
+:zotUpperName: Zot
+:zotLowerName: zot
+
+//Revised: 2022-05-02
+
+//<<<
+
+//include::../../../common/copyright.adoc[]
+
+== Introduction
+
+:leveloffset: +1
+
+include::user-guide-chapters/introduction/what-is.adoc[]
+
+include::user-guide-chapters/introduction/why.adoc[]
+
+:leveloffset: -1
+
+
+== Getting Started
+
+:leveloffset: +1
+
+include::user-guide-chapters/introduction/building.adoc[]
+
+include::user-guide-chapters/introduction/launching.adoc[]
+
+:leveloffset: -1
+
+== {zotUpperName} Server Configuration
+
+:leveloffset: +1
+
+//include::user-guide-chapters/server-configuration/server.adoc[]
+
+include::user-guide-chapters/server-configuration/network-config.adoc[]
+
+include::user-guide-chapters/server-configuration/logging-config.adoc[]
+
+include::user-guide-chapters/server-configuration/storage-config.adoc[]
+
+include::user-guide-chapters/server-configuration/authentication-config.adoc[]
+
+include::user-guide-chapters/server-configuration/authorization-config.adoc[]
+
+include::user-guide-chapters/server-configuration/metrics-config.adoc[]
+
+include::user-guide-chapters/server-configuration/sync-registries.adoc[]
+
+include::user-guide-chapters/server-configuration/clustering.adoc[]
+
+:leveloffset: -1
+
+
+== Working with zli
+
+:leveloffset: +1
+
+include::user-guide-chapters/zli/zli.adoc[]
+
+:leveloffset: -1
+
+
+== Working with zb
+
+:leveloffset: +1
+
+include::user-guide-chapters/zb/zb.adoc[]
+
+:leveloffset: -1
+
+
+== Advanced Topics Cookbook
+
+:leveloffset: +1
+
+include::user-guide-chapters/cookbook/advanced.adoc[]
+
+:leveloffset: -1
+
+
+== Notices
+
+:leveloffset: +1
+
+include::common/bias-free.adoc[]
+
+:leveloffset: -1

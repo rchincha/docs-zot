@@ -1,0 +1,167 @@
+== Storage
+
+With {zotLowerName}, you have the option to store your registry image files either
+in local filesystem storage or in cloud storage, such as in an Amazon Simple Storage
+Service (S3) bucket.
+
+=== Configuring Local Storage
+
+Local filesystem storage for {zotLowerName} is configured with the `storage`
+attribute in the configuration file, as shown in the following example.
+
+----
+"storage":{
+  "rootDirectory":"/tmp/zot"
+  "dedupe": true,
+  "gc": true,
+  "gcDelay": "1h",
+  "gcInterval": "24h"
+}
+----
+
+The following table lists the configurable attributes.
+
+[%autowidth]
+|===
+| Attribute | Description
+
+|`rootDirectory` |
+Location  of the images stored in the server file system.
+|`dedupe` |
+If the server filesystem supports hard links, you can enable inline
+deduplication of layers and blobs that are shared among multiple container images.
+|`gc` |
+When an image is deleted (either by tag or reference), orphaned blobs
+can lead to wasted storage.  Set to `true` to enable background garbage collection to
+reclaim this space.
+|`gcDelay` | (Optional) If configured, causes garbage collection to run once after
+the specified delay time. Requires the `gc` attribute to be `true.`
+|`gcInterval` | (Optional) If configured, causes garbage collection to run periodically
+at the specified interval. Requires the `gc` attribute to be `true.`
+|`subpaths` a|
+You can store and serve images from multiple filesystems, each with
+their own repository paths and settings. The following example shows three subpaths.
+
+----
+"storage":{
+  "subPaths": {
+    "/a": {
+      "rootDirectory": "/tmp/zot1",
+      "dedupe": true,
+      "gc": true
+    },
+    "/b": {
+      "rootDirectory": "/tmp/zot2",
+      "dedupe": true
+    },
+    "/c": {
+      "rootDirectory": "/tmp/zot3",
+      "dedupe": false
+    }
+  }
+}
+----
+
+|===
+
+
+.MIKE'S QUESTIONS
+****
+. Are these the only attributes?
+. Are the dedupe and gc attributes optional and are the defaults FALSE if not specified?
+. What values are allowed for gcDelay and gcInterval?
+****
+
+=== Configuring S3 Storage
+
+Amazon Simple Storage Service (S3) for {zotLowerName} can be configured with the
+`storageDriver` attribute in the configuration file, as shown in the following example.
+
+----
+"storageDriver": {
+    "name": "s3",
+    "region": "us-east-2",
+    "bucket": "zot-storage",
+    "secure": true,
+    "skipverify": false,
+    "accesskey": "<YOUR_ACCESS_KEY_ID>",
+    "secretkey": "<YOUR_SECRET_ACCESS_KEY>"
+}
+----
+
+As in the case with local filesystem storage, you can use multiple storage
+locations using the `subpath` attribute, as in the following example.
+
+----
+"subPaths": {
+    "/a": {
+        "rootDirectory": "/zot-a",
+        "storageDriver": {
+            "name": "s3",
+            "region": "us-east-2",
+            "bucket": "zot-storage",
+            "secure": true,
+            "skipverify": false
+        }
+    },
+    "/b": {
+
+[continue]
+----
+
+==== S3 Credentials
+
+In the first configuration file example, the S3 credentials were configured with the
+attributes `accesskey` and `secretkey.` As an alternative, you can omit these attributes
+from the configuration file and you can configure them using environment variables or a
+credential file.
+
+- Environment variables
++
+{zotUpperName} looks for credentials in the following environment variables:
++
+----
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+AWS_SESSION_TOKEN (optional)
+----
+
+- Credential file
++
+A credential file is a plaintext file that contains your access keys, as shown in
+the following example.
++
+----
+[default]
+aws_access_key_id = <YOUR_DEFAULT_ACCESS_KEY_ID>
+aws_secret_access_key = <YOUR_DEFAULT_SECRET_ACCESS_KEY>
+
+[test-account]
+aws_access_key_id = <YOUR_TEST_ACCESS_KEY_ID>
+aws_secret_access_key = <YOUR_TEST_SECRET_ACCESS_KEY>
+
+[prod-account]
+; work profile
+aws_access_key_id = <YOUR_PROD_ACCESS_KEY_ID>
+aws_secret_access_key = <YOUR_PROD_SECRET_ACCESS_KEY>
+----
++
+The `[default]` heading defines credentials for the default profile, which {zotLowerName}
+will use unless you configure it to use another profile.  You can specify a profile using the
+`AWS_PROFILE` environment variable as in this example:
++
+----
+AWS_PROFILE=test-account
+----
++
+The credential file must be named `credentials.` It must be located in the
+`.aws/` folder in the home directory of the same server that is running your {zotLowerName}
+application.
+
+For more details about specifying S3 credentials, see the
+https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html#specifying-credentials[AWS documentation].
+
+.MIKE'S QUESTIONS
+****
+. Do I need to define the S3 config attributes?
+****

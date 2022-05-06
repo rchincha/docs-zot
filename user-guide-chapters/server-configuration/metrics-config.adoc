@@ -1,0 +1,47 @@
+== Metrics
+
+The available methods for collecting metrics varies depending on whether your {zotLowerName}
+installation is the minimal (dist-spec-only) build or the full build including extensions.
+
+=== Collecting Metrics Using a Node Exporter
+
+The minimal {zotLowerName} installation exposes internal metrics in a Prometheus format
+through a node exporter. The configuration of the node exporter contains connection
+details for the {zotLowerName} server from which it will scrape metrics. Metrics
+are automatically enabled in the {zotLowerName} server upon first scrape from the
+node exporter.  No extra configuration option is needed. Similarly, the metrics
+are automatically disabled when the node exporter has not performed any scrapings
+for some period.
+
+=== Enabling Metrics for {zotLowerName} with Extensions
+
+Use the `metrics` attribute in the `extensions` section of the configuration file
+to enable and configure metrics, as shown in the following example.
+
+----
+"extensions": {
+  "metrics":{
+    "enable":"true",
+    "prometheus": {
+      "path": "/metrics"
+    }
+  }
+}
+----
+
+The following table lists the configurable attributes.
+
+[%autowidth]
+|===
+| Attribute | Description
+
+| `enable` | Set to `true` to enable metrics collection.
+| `prometheus` |
+| `path` | The server path on which metrics will be exposed.
+|===
+
+.MIKE'S QUESTIONS
+****
+. Are these the only attributes?
+. What additional info do we need about prometheus, etc?
+****

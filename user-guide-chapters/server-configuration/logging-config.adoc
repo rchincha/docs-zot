@@ -1,0 +1,34 @@
+== Logging
+
+Logging for {zotLowerName} operations is configured with the `log` attribute in the
+configuration file, as shown in the following example.
+
+----
+"log":{
+  "level":"debug",
+  "output":"/tmp/zot.log",
+  "audit": "/tmp/zot-audit.log"
+}
+----
+
+The following table lists the configurable attributes.
+
+[%autowidth]
+|===
+| Attribute | Description
+
+|`level` a| The minimum level for logged events. The levels are: +
+`emergency,`
+`alert,` `critical,` `error,` `warning,` `notification,` `informational,`
+and `debug.`
+|`output` |The filesystem path for the log output file. The default is `stdout`.
+|`audit` |(Optional) If a filesystem path is specified for audit logging, an audit log is
+enabled and will be stored at the specified path.
+|===
+
+
+.MIKE'S QUESTIONS
+****
+. Are these the only attributes?
+. Are the correct levels shown?  Is there a default level?
+****

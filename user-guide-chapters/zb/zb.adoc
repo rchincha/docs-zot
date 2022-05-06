@@ -1,0 +1,17 @@
+== What is zb?
+
+You can benchmark a {zotLowerName} registry or any other dist-spec conformant registry with zb.
+
+. What is zb?
+. Get zb
+  * Downloading zb Binaries
+  * Building zb From Source
+. The zb Command Tree
+. Run Benchmarks with zb
+
+.MIKE'S QUESTIONS
+****
+. How to download binaries?
+. Where is the zb Command Tree?
+. How to run Benchmarks with zb?
+****

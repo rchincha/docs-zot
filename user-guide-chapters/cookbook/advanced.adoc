@@ -1,0 +1,5 @@
+== Advanced Topics Cookbook
+
+*This is a placeholder for the Advanced Topics Cookbook.*
+
+. Create a trusted image pipeline with zot, cosign, and Notation

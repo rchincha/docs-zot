@@ -1,0 +1,41 @@
+== Clustering {zotLowerName}
+
+{zotUpperName} supports a clustering scheme with stateless {zotLowerName} instances/replicas and a
+shared remote storage to ensure high-availability of the {zotLowerName} registry.  With
+this scheme, should a few replicas fail or become unavailable, the registry
+service remains available. In addition, this scheme can increase
+aggregate network throughput by load balancing across the many {zotLowerName} replicas.
+
+Clustering is supported both in bare-metal and Kubernetes environments.
+
+=== Bare-metal Deployment
+
+==== Prerequisites
+
+* A highly-available loadbalancer such as HaProxy configured to point to backend
+{zotLowerName} replicas
+* Remote storage (mounted locally or S3-compatible)
+* {zotUpperName} configuration using above remote storage and with deduplication
+and garbage-collection disabled
+
+=== Kubernetes Deployment
+
+==== Prerequisites
+
+* `helm` version X.Y.Z
+* `Kubernetes` version A.B.C
+* Ingress controller
+* Remote storage (S3-compatible)
+* {zotUpperName} configuration (as a ConfigMap) using above remote storage and
+with deduplication and garbage-collection disabled
+
+NOTE: If authentication is enabled on {zotLowerName} itself, that configuration
+must also be identical across all replicas.
+
+=== Solution Overview
+
+clients <--> loadbalancer <--> [zot replicas] <--> [[remote storage]]
+
+All incoming requests from clients are first intercepted at the load balancer
+and are then routed to one of the {zotLowerName} replicas, which then interfaces
+with the remote storage.
