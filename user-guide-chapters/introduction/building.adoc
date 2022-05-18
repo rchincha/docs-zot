@@ -1,10 +1,79 @@
-== Building {zotLowerName} from Source
+== How to Get {zotLowerName}
 
+The {zotLowerName} project is hosted on GitHub at https://github.com/project-zot/zot[project-zot].
+From GitHub, you can download {zotLowerName} executable binary images or full source code.
 
 === Supported Platforms
 
-{zotUpperName} is officially supported on `Linux` and `Apple MacOS` platforms. However,
-development should be possible on any platform that supports the `golang` toolchain.
+{zotUpperName} is officially supported on Linux and Apple MacOS platforms, using
+Intel or ARM processors. However, development
+should be possible on any platform that supports the `golang` toolchain.
+
+[supported-platforms-and-architectures-table-zot]
+.Supported Platforms and Architectures
+[%autowidth]
+|===
+| OS | ARCH | Platform
+
+| linux | amd64 | Intel-based Linux servers
+| linux | arm64 | ARM-based servers and Raspberry Pi4
+| darwin | amd64 | Intel-based MacOS
+| darwin | arm64 | ARM-based MacOS
+|===
+
+An executable binary image for {zotLowerName} is named using the platform and architecture from the
+ <<supported-platforms-and-architectures-table-zot, Supported Platforms and Architectures>>
+ table. The format of an image name is:
+
+``zot-_os_-_architecture_``
+
+For example, the binary image for an Intel-based linux server is
+`zot-linux-amd64.`
+
+=== Deployment Methods
+
+Several options exist for deploying {zotLowerName}:
+
+- You can launch a {zotLowerName} binary as a container service using a container
+management tool such as Docker, Podman, or Helm.
+
+- You can launch {zotLowerName} as a host-level service by downloading a binary image
+and running it as a systemd service.
+
+- You can copy or clone the full {zotLowerName} source code and build an image
+with custom build flags.
+
+== Deploying a {zotLowerName} Binary Image
+
+Executable binary images for supported server platforms and architectures are
+available from the
+https://github.com/orgs/project-zot/packages?repo_name=zot[zot package repository]
+in GitHub.
+
+You can download the appropriate binary image and run it directly on your server, or
+you can use a container management tool such as Docker, Podman, or Helm to fetch
+and deploy the image in a container on your server.
+
+TIP: For convenience, you can rename the binary image file to simply `zot.`
+
+=== Example: Deploying with Docker
+
+Using Docker, you can install a {zotLowerName} image from the GitHub
+Container Registry (ghcr.io) with the following command:
+
+----
+$ docker run -p 5000:5000 ghcr.io/project-zot/zot-linux-amd64:latest
+----
+
+This command gets the {zotLowerName} image and launches a {zotLowerName} image
+registry at http://localhost:5000.
+
+.MIKE'S QUESTIONS
+****
+. Does this work, or are other steps needed?
+****
+
+== Building {zotLowerName} from Source
 
 === Prerequisites
 
@@ -15,76 +84,93 @@ https://go.dev/learn/[these instructions] to install the `golang` toolchain.  Af
 installation, make sure that the `path` environment variable or your IDE can find
 the toolchain.
 
-=== Cloning {zotLowerName}
+=== Building an Executable Binary from Source
 
-You can download or clone the full {zotLowerName} project from GitHub at
+Download or clone the full {zotLowerName} project from GitHub at
 https://github.com/project-zot/zot[project-zot].
-To clone the {zotLowerName} project, use this command:
+To clone the {zotLowerName} project from GitHub, use this command:
 
 ----
 $ git clone https://github.com/project-zot/zot.git
 ----
-
-=== Building zot
 
 To build {zotLowerName}, execute the `make` command in the {zotLowerName} directory
 using the following general syntax:
 
 ``$ make OS=_os_ ARCH=_architecture_ {binary | binary-minimal}``
 
-The `binary` option builds the full {zotLowerName} binary with all extensions. +
-The `binary-minimal` option builds the minimal {zotLowerName} binary without extensions.
+====
+- The operating system and architecture options are listed in the
+ <<supported-platforms-and-architectures-table-zot, Supported Platforms and Architectures>>
+ table. If an option is not specified, the defaults are `linux` and `amd64.`
 
-Extensions include functions such as:
+- The `binary` option builds the full {zotLowerName} binary image with all extensions.
+Extensions include functions such as metrics, registry synchronization, search,
+and scrub.
 
-- metrics
-- synchronization
-- search
-- scrub
+- The `binary-minimal` option builds the minimal {zotLowerName} binary image without
+extensions. This option might be optimal for a registry embedded in a shipping
+product.
+====
 
-==== Examples
+For example, to build a {zotLowerName} image with extensions for an Intel-based
+linux server, use the following command:
 
-The following are examples of the `make` command for several supported platforms
-and architectures:
-
-- Linux/Intel-based platforms
-+
 ----
 $ make OS=linux ARCH=amd64 binary
 ----
 
-- Linux/amd64 platform
-+
+The `make` command builds an executable image in the `zot/bin` directory.
+The original filename of the {zotLowerName} executable image will indicate the
+build options. For example, the filename of an Intel-based linux image will be
+`zot-linux-amd64.`
+
+TIP: For convenience, you can rename the binary image file to simply `zot.`
+
+=== Building and Deploying a {zotLowerName} Container Image from Source
+
+A sample Docker file is provided on the https://github.com/project-zot/zot/blob/main/Dockerfile[zot project page]
+in GitHub. Using this Docker file, you can build a container image that runs
+the latest {zotLowerName} by running the following command:
+
 ----
-$ make OS=linux ARCH=amd64 binary
+$ make image
 ----
 
-- Linux/ARM64-based platforms such as ARM64 servers and Raspberry Pi4
-+
-----
-$ make OS=linux ARCH=arm64 binary
-----
+Deploy the image using your container manager, such as with Docker:
 
-- Apple MacOS/Intel-based platforms
-+
 ----
-$ make OS=darwin ARCH=amd64 binary
+$ docker run --rm -it -p 5000:5000 -v $(pwd)/registry:/var/lib/registry zot:latest
 ----
 
-- Apple MacOS/ARM64-based platforms
-+
+or with podman:
+
 ----
-$ make OS=darwin ARCH=arm64 binary
+$ podman run --rm -it -p 5000:5000 -v $(pwd)/registry:/var/lib/registry zot:latest
 ----
 
-After running `make`, you can find the resulting executable file in the
-`zot/bin` directory.
+A container image built with the sample Docker file and deployed with the example
+command results in a running registry at `http://localhost:5000.`  Registry content
+is stored at `.registry,` which is bind mounted to `/var/lib/registry` in
+the container. By default, auth is disabled.  As part of the build, a YAML
+configuration file is created at `/etc/zot/config.yml` in the container.
 
-NOTE: The filename of the executable file will reflect the build options.
-For example, a linux build will result in a file named
-`zot-darwin-amd64.` For convenience, you can rename the file to simply `zot.`
+You can override the configuration file with custom configuration settings in the
+deployment command and in a local configuration file as shown in this example:
 
-=== Additional Details
+----
+$ podman run --rm -p 8080:8080 \
+  -v $(pwd)/custom-config.yml:/etc/zot/config.yml \
+  -v $(pwd)/registry:/tmp/zot \
+  zot:latest
+----
 
-For detailed instructions, see the _{zotUpperName} Developers Guide_ on the GitHub
-https://github.com/project-zot/docs-zot[docs-zot] page.
+This command causes the registry to listen on port 8080 and to use `/tmp/zot` for
+content storage.
+
+.MIKE'S QUESTIONS
+****
+. Where OS, ARCH, and binary/binary-minimal options specified? They are arguments
+in the Dockerfile, so should the `make image` command be: +
+`make OS=_os_ ARCH=_architecture_ {binary | binary-minimal} image` ?
+****

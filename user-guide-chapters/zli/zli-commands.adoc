@@ -1,0 +1,129 @@
+[#_zli-command-reference]
+== zli Command Reference
+
+[#_zli]
+=== zli
+
+----
+$ bin/zli --help
+
+Usage:
+  zli [flags]
+  zli [command]
+
+Available Commands:
+  completion  Generate the autocompletion script for the specified shell
+  config      Configure zot registry parameters for CLI
+  cve         Lookup CVEs in images hosted on the zot registry
+  help        Help about any command
+  images      List images hosted on the zot registry
+
+Flags:
+  -h, --help      help for zli
+  -v, --version   show the version and exit
+
+Use "zli [command] --help" for more information about a command.
+----
+
+[#_zli-completion]
+=== zli completion
+
+This command generates the autocompletion script for `zli` for the specified shell.
+See each sub-command's help for details on how to use the generated script.
+
+----
+$ bin/zli completion --help
+
+Usage:
+  zli completion [command]
+
+Available Commands:
+  bash        Generate the autocompletion script for bash
+  fish        Generate the autocompletion script for fish
+  powershell  Generate the autocompletion script for powershell
+  zsh         Generate the autocompletion script for zsh
+
+Flags:
+  -h, --help   help for completion
+
+Use "zli completion [command] --help" for more information about a command.
+----
+
+[#_zli-config]
+=== zli config
+
+This command modifies and lists modified settings for a running zot registry.
+
+----
+$ bin/zli config --help
+
+Usage:
+  zli config <config-name> [variable] [value] [flags]
+  zli config [command]
+
+Examples:
+  zli config add main https://zot-foo.com:8080
+  zli config main url
+  zli config main --list
+  zli config --list
+
+Available Commands:
+  add         Add configuration for a zot registry
+
+Flags:
+  -h, --help    help for config
+  -l, --list    List configurations
+      --reset   Reset a variable value
+
+Use "zli config [command] --help" for more information about a command.
+
+Useful variables:
+  url		zot server URL
+  showspinner	show spinner while loading data [true/false]
+  verify-tls	enable TLS certificate verification of the server [default: true]
+----
+
+[#_zli-cve]
+=== zli cve
+
+This command lists CVEs (Common Vulnerabilities and Exposures) of images hosted
+on the zot registry
+
+----
+$ ./zli cve --help
+
+Usage:
+  zli cve [config-name] [flags]
+
+Flags:
+  -i, --cve-id string   List images affected by a CVE
+      --fixed           List tags which have fixed a CVE
+  -h, --help            help for cve
+  -I, --image string    List CVEs by IMAGENAME[:TAG]
+  -o, --output string   Specify output format [text/json/yaml]. JSON and YAML format return all info for CVEs
+      --url string      Specify zot server URL if config-name is not mentioned
+  -u, --user string     User Credentials of zot server in USERNAME:PASSWORD format
+----
+
+[#_zli-images]
+=== zli images
+
+This command lists images hosted on the zot registry.
+
+----
+$ ./zli images --help
+
+Usage:
+  zli images [config-name] [flags]
+
+Flags:
+  -d, --digest string   List images containing a specific manifest, config, or layer digest
+  -h, --help            help for images
+  -n, --name string     List image details by name
+  -o, --output string   Specify output format [text/json/yaml]
+      --url string      Specify zot server URL if config-name is not mentioned
+  -u, --user string     User Credentials of zot server in "username:password" format
+      --verbose         Show verbose output
+
+Run 'zli config -h' for details on [config-name] argument
+----

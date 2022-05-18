@@ -1,18 +1,25 @@
-== Launching {zotLowerName} with a Configuration File
+== Configuring and Launching {zotLowerName}
 
-The {zotLowerName} service is initiated from the command line using the following
-command format:
+NOTE: The instructions and examples in this guide use `zot` as the name of the
+{zotLowerName} executable file. The examples do not include the path to the
+executable file. When you build `zot` from source files, the resulting path/file is
+`bin/zot` relative to the top-level directory of the `zot` project in GitHub.
 
-``$ *bin/zot* *serve* _configfile_``
+The {zotLowerName} service is initiated with the `zot serve` command followed by
+the name of a configuration file:
+
+``$ *zot* *serve* _configfile_``
+
+=== The {zotLowerName} Configuration File
 
 The configuration file is a JSON or YAML file that contains all configuration
 settings for {zotLowerName} functions such as:
 
 - network
-- logging
 - storage
 - authentication
 - authorization
+- logging
 - metrics
 - synchronization with other registries
 - clustering
@@ -36,18 +43,22 @@ A simple JSON configuration file is shown in the following example.
 }
 ----
 
-The first attribute of the JSON data is the distribution specification version
+The configuration file contains the distribution specification version
 (`distSpecVersion`). The structure and content of other attributes are described
 in the later sections of this guide.
 
-Using the information in this guide, compose a configuration file with the
+Using the information in this guide, you can compose a configuration file with the
 settings and features you require for your {zotLowerName} registry server.
+
+
+=== Verifying the Configuration and Launching {zotLowerName}
+
 Before deploying {zotLowerName}, verify the syntax of your configuration file by
 using the following command:
 
-``$ *bin/zot* *verify* _configfile_``
+``$ *zot* *verify* _configfile_``
 
 After verifying your configuration file, launch {zotLowerName} with the following
 command:
 
-``$ *bin/zot* *serve* _configfile_``
+``$ *zot* *serve* _configfile_``

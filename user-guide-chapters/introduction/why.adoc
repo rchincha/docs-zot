@@ -65,3 +65,8 @@ and the possible attack surface.
 [14] https://github.com/notaryproject/notation
 
 [15] https://github.com/sigstore/cosign
+
+.MIKE'S QUESTIONS
+****
+. Is this comparison table outdated?
+****

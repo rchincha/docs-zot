@@ -11,7 +11,8 @@ network settings, as shown in the following example.
   "tls": {
     "cert":"test/data/server.cert",
     "key":"test/data/server.key"
-  }}
+  }
+}
 ----
 
 The following table lists the configurable attributes.
@@ -36,5 +37,4 @@ Security (TLS) settings for the server.
 . Are there defaults?
 . Should `allowReadAccess` be documented here?
 . What's the difference between `allowReadAccess` and `ReadOnly`?  Both appear in examples.
-. Should `Ratelimit` be documented here?
 ****

@@ -1,0 +1,25 @@
+== {zotUpperName} Security and Hardening
+
+=== Rate Limiting
+
+----
+"http": {
+    "address": "127.0.0.1",
+    "port": "8080",
+    "ReadOnly": false,
+    "Ratelimit": {
+        "Rate": 10,
+        "Methods": [
+            {
+                "Method": "GET",
+                "Rate": 5
+            }
+        ]
+    }
+}
+----
+
+.MIKE'S QUESTIONS
+****
+. Need more info about rate limiting and other security features.
+****

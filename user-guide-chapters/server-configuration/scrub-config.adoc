@@ -1,0 +1,11 @@
+== Scrub
+
+----
+"extensions": {
+  "scrub": {
+    "interval": "1h"
+  }
+}
+----
+
+Interval must be 2h or more.

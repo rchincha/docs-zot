@@ -21,7 +21,8 @@ configure TLS mutual authentication, as shown in the following example.
     "cert":"test/data/server.cert",
     "key":"test/data/server.key",
     "cacert":"test/data/cacert.cert"
-  }}
+  }
+}
 ----
 
 The following table lists the configurable attributes.
@@ -47,7 +48,9 @@ to enable and configure local authentication, as shown in the following example.
   "auth": {
     "htpasswd": {
       "path": "test/data/htpasswd"
-    }}}
+    }
+  }
+}
 ----
 
 The `path` attribute specifies the path and filename of the `.htpasswd` file, which
@@ -74,7 +77,9 @@ to enable and configure LDAP authentication, as shown in the following example.
       "bindPassword":"ldap-searcher-password",
       "skipVerify":false,
       "subtreeSearch":true
-    }}}
+    }
+  }
+}
 ----
 
 The following table lists the configurable attributes.
@@ -115,7 +120,9 @@ authentication, as shown in the following example.
       "realm": "https://auth.myreg.io/auth/token",
       "service": "myauth",
       "cert": "/etc/zot/auth.crt"
-    }}}
+    }
+  }
+}
 ----
 
 The following table lists the configurable attributes.
@@ -144,7 +151,8 @@ prevent automated attacks. The configuration is shown in the following example.
 "http": {
   "auth": {
     "failDelay": 5
-  }}
+  }
+}
 ----
 
 The `failDelay` attribute specifies a waiting time, in seconds, before {zotLowerName}

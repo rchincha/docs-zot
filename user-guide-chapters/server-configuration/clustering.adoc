@@ -39,3 +39,8 @@ clients <--> loadbalancer <--> [zot replicas] <--> [[remote storage]]
 All incoming requests from clients are first intercepted at the load balancer
 and are then routed to one of the {zotLowerName} replicas, which then interfaces
 with the remote storage.
+
+.MIKE'S QUESTIONS
+****
+. Need Helm and Kubernetes versions.
+****

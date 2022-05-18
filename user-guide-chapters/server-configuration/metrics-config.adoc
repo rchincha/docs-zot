@@ -44,4 +44,5 @@ The following table lists the configurable attributes.
 ****
 . Are these the only attributes?
 . What additional info do we need about prometheus, etc?
+. Do we need a chapter about zxp?
 ****
