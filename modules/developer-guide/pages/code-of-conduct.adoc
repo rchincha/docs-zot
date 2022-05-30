@@ -1,24 +1,24 @@
 == CNCF Community Code of Conduct v1.1
 
 Other languages available: -
-xref:code-of-conduct-languages/ar.adoc[Arabic/العربية] -
-xref:code-of-conduct-languages/bg.adoc[Bulgarian/Български] -
-xref:code-of-conduct-languages/zh.adoc[Chinese/中文] -
-xref:code-of-conduct-languages/cs.adoc[Czech/Česky] -
-xref:code-of-conduct-languages/fa.adoc[Farsi/فارسی] -
-xref:code-of-conduct-languages/fr.adoc[French/Français] -
-xref:code-of-conduct-languages/de.adoc[German/Deutsch] - xref:code-of-conduct-languages/id.adoc[Indonesian/Bahasa
-Indonesia] -
-xref:code-of-conduct-languages/it.adoc[Italian/Italiano] -
-xref:code-of-conduct-languages/jp.adoc[Japanese/日本語] -
-xref:code-of-conduct-languages/ko.adoc[Korean/한국어] -
-xref:code-of-conduct-languages/pl.adoc[Polish/Polski] -
-xref:code-of-conduct-languages/pt.adoc[Portuguese/Português] -
-xref:code-of-conduct-languages/ru.adoc[Russian/Русский] -
-xref:code-of-conduct-languages/es.adoc[Spanish/Español] -
-xref:code-of-conduct-languages/tr.adoc[Turkish/Türkçe] -
-xref:code-of-conduct-languages/uk.adoc[Ukrainian/Українська] -
-xref:code-of-conduct-languages/vi.adoc[Vietnamese/Tiếng Việt]
+// xref:code-of-conduct-languages/ar.adoc[Arabic/العربية] -
+// xref:code-of-conduct-languages/bg.adoc[Bulgarian/Български] -
+// xref:code-of-conduct-languages/zh.adoc[Chinese/中文] -
+// xref:code-of-conduct-languages/cs.adoc[Czech/Česky] -
+// xref:code-of-conduct-languages/fa.adoc[Farsi/فارسی] -
+// xref:code-of-conduct-languages/fr.adoc[French/Français] -
+// xref:code-of-conduct-languages/de.adoc[German/Deutsch] - xref:code-of-conduct-languages/id.adoc[Indonesian/Bahasa
+// Indonesia] -
+// xref:code-of-conduct-languages/it.adoc[Italian/Italiano] -
+// xref:code-of-conduct-languages/jp.adoc[Japanese/日本語] -
+// xref:code-of-conduct-languages/ko.adoc[Korean/한국어] -
+// xref:code-of-conduct-languages/pl.adoc[Polish/Polski] -
+// xref:code-of-conduct-languages/pt.adoc[Portuguese/Português] -
+// xref:code-of-conduct-languages/ru.adoc[Russian/Русский] -
+// xref:code-of-conduct-languages/es.adoc[Spanish/Español] -
+// xref:code-of-conduct-languages/tr.adoc[Turkish/Türkçe] -
+// xref:code-of-conduct-languages/uk.adoc[Ukrainian/Українська] -
+// xref:code-of-conduct-languages/vi.adoc[Vietnamese/Tiếng Việt]
 
 === Contributor Code of Conduct
 
