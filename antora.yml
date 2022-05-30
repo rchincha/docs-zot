@@ -1,6 +1,6 @@
 name: zot-docs-1
 title: Zot-Documentation
-version: 1.0
+version: '1.0'
 start_page: developer-guide:draft-developer-guide-chapters.adoc
 nav: 
   - modules/developer-guide/draft-developer-guide-chapters.adoc
