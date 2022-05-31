@@ -3,5 +3,5 @@ title: Zot-Documentation
 version: '1.0'
 start_page: developer-guide:draft-developer-guide-chapters.adoc
 nav: 
-  - modules/developer-guide/draft-developer-guide-chapters.adoc
-  - modules/user-guide/user-guide-chapters.adoc
+  - modules/developer-guide/nav.adoc
+  - modules/user-guide/nav.adoc
