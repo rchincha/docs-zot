@@ -1,7 +1,7 @@
 == Metrics
 
 The available methods for collecting metrics varies depending on whether your {zotLowerName}
-installation is the minimal (dist-spec-only) build or the full build including extensions.
+installation is the minimal (distribution-spec-only) build or the full build including extensions.
 
 === Collecting Metrics Using a Node Exporter
 

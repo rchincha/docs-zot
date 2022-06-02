@@ -83,9 +83,3 @@ policies.
 
 NOTE: Always include the read action in any policy that you define.  The create,
 update, and delete actions cannot be used without the read action.
-
-.MIKE'S QUESTIONS
-****
-. Should `allowReadAccess` be documented here?
-. What's the difference between `allowReadAccess` and `ReadOnly`?  Both appear in examples.
-****

@@ -175,7 +175,7 @@ https://github.com/cncf/foundation/blob/main/code-of-conduct.md[CNCF Code of Con
 
 :leveloffset: +1
 
-include::code-of-conduct.adoc[]
+include::code-of-conduct.md[]
 
 :leveloffset: -1
 

@@ -35,6 +35,4 @@ Security (TLS) settings for the server.
 ****
 . Are these the only attributes?
 . Are there defaults?
-. Should `allowReadAccess` be documented here?
-. What's the difference between `allowReadAccess` and `ReadOnly`?  Both appear in examples.
 ****

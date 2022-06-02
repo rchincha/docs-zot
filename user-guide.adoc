@@ -1,105 +1,23 @@
-= {zotUpperName} User Guide
+= {zotUpperName} Registry User Guide
 :doctype: book
 :icons: font
 :source-highlighter: highlightjs
 :toc: left
-:toclevels: 3
+:toclevels: 2
 :imagesdir: images
 :title-logo-image: {imagesdir}/zot-01.png
 :sectlinks:
 :zotUpperName: Zot
 :zotLowerName: zot
 
-Revised: 2022-05-16
+Revised: 2022-06-02
 
 //<<<
 
 //include::../../../common/copyright.adoc[]
 
-== Introduction
+This is the top level file for the future User Guide.
 
-:leveloffset: +1
+The previously-titled User Guide is now the Administrator Guide.
 
-include::user-guide-chapters/introduction/what-is.adoc[]
-
-include::user-guide-chapters/introduction/why.adoc[]
-
-:leveloffset: -1
-
-
-== Getting Started
-
-:leveloffset: +1
-
-include::user-guide-chapters/introduction/building.adoc[]
-
-:leveloffset: -1
-
-== Configuring {zotLowerName}
-
-:leveloffset: +1
-
-include::user-guide-chapters/introduction/launching.adoc[]
-
-include::user-guide-chapters/server-configuration/network-config.adoc[]
-
-include::user-guide-chapters/server-configuration/storage-config.adoc[]
-
-
-include::user-guide-chapters/server-configuration/authentication-config.adoc[]
-
-include::user-guide-chapters/server-configuration/authorization-config.adoc[]
-
-include::user-guide-chapters/server-configuration/logging-config.adoc[]
-
-include::user-guide-chapters/server-configuration/metrics-config.adoc[]
-
-include::user-guide-chapters/server-configuration/sync-registries.adoc[]
-
-
-:leveloffset: -1
-
-
-== Using the Command Line Interface (zli)
-
-:leveloffset: +1
-
-include::user-guide-chapters/zli/zli.adoc[]
-
-include::user-guide-chapters/zli/zli-commands.adoc[]
-
-:leveloffset: -1
-
-
-== Securing zot
-
-:leveloffset: +1
-
-include::user-guide-chapters/server-configuration/security.adoc[]
-
-include::user-guide-chapters/zb/zb.adoc[]
-
-:leveloffset: -1
-
-== Enterprise Wide zot
-
-include::user-guide-chapters/server-configuration/clustering.adoc[]
-
-include::user-guide-chapters/server-configuration/extensions.adoc[]
-
-== Advanced Topics Cookbook
-
-:leveloffset: +1
-
-include::user-guide-chapters/cookbook/advanced.adoc[]
-
-:leveloffset: -1
-
-
-== Notices
-
-:leveloffset: +1
-
-include::common/bias-free.adoc[]
-
-:leveloffset: -1
+See the admin-guide file.

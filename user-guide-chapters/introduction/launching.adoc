@@ -1,64 +1,26 @@
-== Configuring and Launching {zotLowerName}
+== Additional Recommended Steps
+
+We recommend that, when deploying {zotLowerName}, you also install the command
+line (<<#_zli_chapter, zli>>) and benchmarking (<<#_zb_chapter, zb>>) packages.
+
+== Launching {zotLowerName}
 
 NOTE: The instructions and examples in this guide use `zot` as the name of the
-{zotLowerName} executable file. The examples do not include the path to the
-executable file. When you build `zot` from source files, the resulting path/file is
-`bin/zot` relative to the top-level directory of the `zot` project in GitHub.
+{zotLowerName} executable file and do not include the path to the
+executable file.
 
 The {zotLowerName} service is initiated with the `zot serve` command followed by
-the name of a configuration file:
-
-``$ *zot* *serve* _configfile_``
-
-=== The {zotLowerName} Configuration File
+the name of a configuration file.
 
 The configuration file is a JSON or YAML file that contains all configuration
-settings for {zotLowerName} functions such as:
+settings for {zotLowerName} functions. Using the information in this guide, you
+can compose a configuration file with the settings and features you require for
+your {zotLowerName} registry server.
 
-- network
-- storage
-- authentication
-- authorization
-- logging
-- metrics
-- synchronization with other registries
-- clustering
+TIP: Before launching {zotLowerName}, you can check your configuration file
+for errors or conflicts using the procedure described in
+<<#_verifying_config, Verifying the Configuration File>>.
 
-A simple JSON configuration file is shown in the following example.
-
-----
-{
-    "distSpecVersion": "1.0.1",
-    "storage": {
-        "rootDirectory": "/tmp/zot"
-    },
-    "http": {
-        "address": "127.0.0.1",
-        "port": "8080",
-        "ReadOnly": false
-    },
-    "log": {
-        "level": "debug"
-    }
-}
-----
-
-The configuration file contains the distribution specification version
-(`distSpecVersion`). The structure and content of other attributes are described
-in the later sections of this guide.
-
-Using the information in this guide, you can compose a configuration file with the
-settings and features you require for your {zotLowerName} registry server.
-
-
-=== Verifying the Configuration and Launching {zotLowerName}
-
-Before deploying {zotLowerName}, verify the syntax of your configuration file by
-using the following command:
-
-``$ *zot* *verify* _configfile_``
-
-After verifying your configuration file, launch {zotLowerName} with the following
-command:
+When ready, you can launch {zotLowerName} using the following command:
 
 ``$ *zot* *serve* _configfile_``

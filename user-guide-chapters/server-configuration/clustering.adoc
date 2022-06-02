@@ -22,11 +22,11 @@ and garbage-collection disabled
 
 ==== Prerequisites
 
-* `helm` version X.Y.Z
-* `Kubernetes` version A.B.C
+* Helm version X.Y.Z
+* Kubernetes version A.B.C
 * Ingress controller
 * Remote storage (S3-compatible)
-* {zotUpperName} configuration (as a ConfigMap) using above remote storage and
+* {zotUpperName} configuration file specifying the above remote storage and
 with deduplication and garbage-collection disabled
 
 NOTE: If authentication is enabled on {zotLowerName} itself, that configuration

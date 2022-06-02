@@ -21,21 +21,43 @@ should be possible on any platform that supports the `golang` toolchain.
 | darwin | arm64 | ARM-based MacOS
 |===
 
-An executable binary image for {zotLowerName} is named using the platform and architecture from the
+=== Full and Minimal Binary Images
+
+In addition to variations for specific platforms and architectures, images
+are also available in full and minimal implementations:
+
+- A full {zotLowerName} binary image is compiled with all extensions. Extensions
+include functions such as metrics, registry synchronization, search, and scrub.
+
+- A minimal distribution-spec conformant {zotLowerName} binary image is compiled with
+only a minimal set of code and libraries, reducing the attack surface. This
+option might be optimal for a registry embedded in a shipping product.
+
+=== Binary Image File Naming
+
+An executable binary image for {zotLowerName} is named using the platform and
+architecture from the
  <<supported-platforms-and-architectures-table-zot, Supported Platforms and Architectures>>
- table. The format of an image name is:
+ table. The general format of a binary image file name is one of these two:
 
 ``zot-_os_-_architecture_``
 
-For example, the binary image for an Intel-based linux server is
-`zot-linux-amd64.`
+- A full {zotLowerName} binary image with all extensions has a filename of the
+form ``zot-_os_-_architecture_.`` For example, the full binary image for an
+Intel-based linux server is `zot-linux-amd64.`
+
+``zot-_os_-_architecture_-minimal``
+
+- A minimal distribution-spec conformant {zotLowerName} binary image has a filename of
+the form ``zot-_os_-_architecture_-minimal.`` For example, the minimal binary
+image for an Intel-based linux server is `zot-linux-amd64-minimal.`
 
 === Deployment Methods
 
 Several options exist for deploying {zotLowerName}:
 
 - You can launch a {zotLowerName} binary as a container service using a container
-management tool such as Docker, Podman, or Helm.
+management tool such as Podman, Docker, or Helm.
 
 - You can launch {zotLowerName} as a host-level service by downloading a binary image
 and running it as a systemd service.
@@ -51,27 +73,34 @@ https://github.com/orgs/project-zot/packages?repo_name=zot[zot package repositor
 in GitHub.
 
 You can download the appropriate binary image and run it directly on your server, or
-you can use a container management tool such as Docker, Podman, or Helm to fetch
-and deploy the image in a container on your server.
+you can use a container management tool such as Podman, runc, Helm, or Docker to
+fetch and deploy the image in a container on your server.
 
 TIP: For convenience, you can rename the binary image file to simply `zot.`
 
-=== Example: Deploying with Docker
+=== Example: Deploying with a Container Manager:
 
-Using Docker, you can install a {zotLowerName} image from the GitHub
-Container Registry (ghcr.io) with the following command:
+Using a container manager such as Podman, runc, Helm, or Docker, you can install
+a {zotLowerName} binary image, as in these examples:
 
+.Using Podman
+----
+$ podman run -p 5000:5000 ghcr.io/project-zot/zot-linux-amd64:latest
+----
+
+----
+$ podman run -p 5000:5000 ghcr.io/project-zot/zot-linux-amd64-minimal:latest
+----
+
+.Using Docker
 ----
 $ docker run -p 5000:5000 ghcr.io/project-zot/zot-linux-amd64:latest
 ----
 
-This command gets the {zotLowerName} image and launches a {zotLowerName} image
-registry at http://localhost:5000.
+Each of these example commands pulls a {zotLowerName} binary image from the GitHub
+Container Registry (ghcr.io) and launches a {zotLowerName} image registry
+at http://localhost:5000.
 
-.MIKE'S QUESTIONS
-****
-. Does this work, or are other steps needed?
-****
 
 == Building {zotLowerName} from Source
 
@@ -105,12 +134,9 @@ using the following general syntax:
  table. If an option is not specified, the defaults are `linux` and `amd64.`
 
 - The `binary` option builds the full {zotLowerName} binary image with all extensions.
-Extensions include functions such as metrics, registry synchronization, search,
-and scrub.
 
-- The `binary-minimal` option builds the minimal {zotLowerName} binary image without
-extensions. This option might be optimal for a registry embedded in a shipping
-product.
+- The `binary-minimal` option builds the minimal distribution-spec conformant {zotLowerName}
+binary image without extensions, reducing the attack surface.
 ====
 
 For example, to build a {zotLowerName} image with extensions for an Intel-based
@@ -122,8 +148,8 @@ $ make OS=linux ARCH=amd64 binary
 
 The `make` command builds an executable image in the `zot/bin` directory.
 The original filename of the {zotLowerName} executable image will indicate the
-build options. For example, the filename of an Intel-based linux image will be
-`zot-linux-amd64.`
+build options. For example, the filename of an Intel-based linux minimal image is
+`zot-linux-amd64-minimal.`
 
 TIP: For convenience, you can rename the binary image file to simply `zot.`
 
@@ -137,16 +163,17 @@ the latest {zotLowerName} by running the following command:
 $ make image
 ----
 
-Deploy the image using your container manager, such as with Docker:
+Deploy the image using your container manager, such as Podman, runc, Helm, or Docker,
+as in these examples:
 
-----
-$ docker run --rm -it -p 5000:5000 -v $(pwd)/registry:/var/lib/registry zot:latest
-----
-
-or with podman:
-
+.with Podman
 ----
 $ podman run --rm -it -p 5000:5000 -v $(pwd)/registry:/var/lib/registry zot:latest
+----
+
+.with Docker
+----
+$ docker run --rm -it -p 5000:5000 -v $(pwd)/registry:/var/lib/registry zot:latest
 ----
 
 A container image built with the sample Docker file and deployed with the example
@@ -170,7 +197,7 @@ content storage.
 
 .MIKE'S QUESTIONS
 ****
-. Where OS, ARCH, and binary/binary-minimal options specified? They are arguments
+. Where are OS, ARCH, and binary/binary-minimal options specified? They are arguments
 in the Dockerfile, so should the `make image` command be: +
 `make OS=_os_ ARCH=_architecture_ {binary | binary-minimal} image` ?
 ****

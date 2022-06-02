@@ -1,3 +1,4 @@
+[#_zb_chapter]
 == Benchmarking {zotLowerName} with zb
 
 With the `zb` tool, you can benchmark a {zotLowerName} registry or any other container
@@ -5,9 +6,19 @@ image registry that conforms to the
 https://github.com/opencontainers/distribution-spec[OCI Distribution Specification]
 published by the Open Container Initiative (OCI).
 
-== How to Get zb
+TIP: We recommend installing zb when you install {zotLowerName}.
 
-The zb project is hosted on GitHub at https://github.com/project-zot/zot[project-zot].
+The zb tool is useful for testing workloads in scenarios such as the following:
+
+- comparing configuration changes
+- comparing software versions
+- comparing hardware/deployment environments
+- comparing with other registries
+
+=== How to Get zb
+
+The zb project is hosted with {zotLowerName} on GitHub at
+https://github.com/project-zot/zot[project-zot].
 From GitHub, you can download the zb binary or you can build zb from the source.
 
 === Supported Platforms
@@ -55,7 +66,7 @@ $ make OS=darwin ARCH=amd64 bench
 In this example, the resulting executable file is `zb-darwin-amd64` in the
 zot/bin directory.
 
-== Running zb
+=== Running zb
 
 [TIP]
 ====

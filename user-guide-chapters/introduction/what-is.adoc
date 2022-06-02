@@ -1,4 +1,4 @@
-== What is {zotLowerName}
+== What is {zotLowerName}?
 
 {zotUpperName} is an open-source, vendor-neutral container image registry application based purely
 on the https://github.com/opencontainers/distribution-spec[OCI Distribution Specification]

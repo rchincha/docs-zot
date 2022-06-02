@@ -1,12 +1,14 @@
-== {zotUpperName} Security and Hardening
+== {zotUpperName} Hardening
 
 === Rate Limiting
+
+You can limit the rate of API calls from users by configuring the `Ratelimit`
+attribute in the configuration file, as shown in the following example:
 
 ----
 "http": {
     "address": "127.0.0.1",
     "port": "8080",
-    "ReadOnly": false,
     "Ratelimit": {
         "Rate": 10,
         "Methods": [
@@ -19,7 +21,6 @@
 }
 ----
 
-.MIKE'S QUESTIONS
-****
-. Need more info about rate limiting and other security features.
-****
+In this example, the `Rate` attribute directly under `Ratelimit` sets a global
+rate limit of 10 API calls per second. You can optionally override the global limit for
+specific API `Methods`. In this example, API `GET` calls are limited to five per second.

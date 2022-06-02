@@ -1,0 +1,70 @@
+== Configuration File
+
+NOTE: The instructions and examples in this guide use `zot` as the name of the
+{zotLowerName} executable file. The examples do not include the path to the
+executable file.
+
+The {zotLowerName} service is initiated with the `zot serve` command followed by
+the name of a configuration file. The configuration file is a JSON or YAML file
+that contains all configuration settings for {zotLowerName} functions such as:
+
+- network
+- storage
+- authentication
+- authorization
+- logging
+- metrics
+- synchronization with other registries
+- clustering
+
+A simple JSON configuration file is shown in the following example:
+
+----
+{
+    "distSpecVersion": "1.0.1",
+    "storage": {
+        "rootDirectory": "/tmp/zot"
+    },
+    "http": {
+        "address": "127.0.0.1",
+        "port": "8080"
+    },
+    "log": {
+        "level": "debug"
+    },
+    "extensions": {
+        "metrics": {},
+        "sync": {},
+        "search": {},
+        "scrub": {}
+    }
+}
+----
+
+The configuration file contains the distribution specification version
+(`distSpecVersion`). The structure and content of other attributes are described
+in the later sections of this guide.
+
+Using the information in this guide, you can compose a configuration file with the
+settings and features you require for your {zotLowerName} registry server.
+
+TIP: When deploying a full {zotLowerName} image, you can enable or disable
+extensions individually. With a minimal image, the extensions section is
+ignored if present.
+
+
+[#_verifying_config]
+=== Verifying the Configuration File
+
+Before launching {zotLowerName}, verify the syntax of your configuration file
+using the following command:
+
+``$ *zot* *verify* _configfile_``
+
+NOTE: Verifying the configuration file protects against operator errors and any
+conflicts arising from {zotLowerName} release version changes.
+
+After verifying your configuration file, you can launch {zotLowerName} with the
+following command:
+
+``$ *zot* *serve* _configfile_``

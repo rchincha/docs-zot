@@ -2,4 +2,11 @@
 
 *This is a placeholder for the Advanced Topics Cookbook.*
 
-. Create a trusted image pipeline with zot, cosign, and Notation
+----
+Create a trusted image pipeline with zot, cosign, and Notation
+----
+
+.MIKE'S QUESTIONS
+****
+. Need the workflow
+****
