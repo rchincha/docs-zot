@@ -8,7 +8,7 @@ aggregate network throughput by load balancing across the many {zotLowerName} re
 
 Clustering is supported both in bare-metal and Kubernetes environments.
 
-=== Bare-metal Deployment
+=== Bare-metal deployment
 
 ==== Prerequisites
 
@@ -18,7 +18,7 @@ Clustering is supported both in bare-metal and Kubernetes environments.
 * {zotUpperName} configuration using above remote storage and with deduplication
 and garbage-collection disabled
 
-=== Kubernetes Deployment
+=== Kubernetes deployment
 
 ==== Prerequisites
 
@@ -32,7 +32,7 @@ with deduplication and garbage-collection disabled
 NOTE: If authentication is enabled on {zotLowerName} itself, that configuration
 must also be identical across all replicas.
 
-=== Solution Overview
+=== Solution overview
 
 clients <--> loadbalancer <--> [zot replicas] <--> [[remote storage]]
 

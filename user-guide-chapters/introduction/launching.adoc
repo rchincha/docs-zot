@@ -1,4 +1,4 @@
-== Additional Recommended Steps
+== Additional recommended steps
 
 We recommend that, when deploying {zotLowerName}, you also install the command
 line (<<#_zli_chapter, zli>>) and benchmarking (<<#_zb_chapter, zb>>) packages.
@@ -19,8 +19,8 @@ your {zotLowerName} registry server.
 
 TIP: Before launching {zotLowerName}, you can check your configuration file
 for errors or conflicts using the procedure described in
-<<#_verifying_config, Verifying the Configuration File>>.
+<<#_verifying_config, Verifying the configuration file>>.
 
 When ready, you can launch {zotLowerName} using the following command:
 
-``$ *zot* *serve* _configfile_``
+``*zot* *serve* _configfile_``

@@ -1,139 +1,152 @@
-== Synchronizing Registries
+[#_sync_registries]
+== Synchronizing registries
 
-Use the `sync` attribute in the configuration file to configure the periodic or
-on-demand synchronization of your {zotLowerName} image registry with other image
-registries, as shown in the following example.
+Add the `sync` attribute under `extensions` in the configuration file to enable
+and configure the periodic or on-demand synchronization of your {zotLowerName}
+image registry with other image registries, as shown in the following example.
 
 ----
-"sync": {
-    "credentialsFile": "./examples/sync-auth-filepath.json",
-    "registries": [
-    {
-        "urls": ["https://registry1:5000"],
-        "onDemand": false,
-        "pollInterval": "6h",
-        "tlsVerify": true,
-        "certDir": "/home/user/certs",
-        "maxRetries": 5,
-        "retryDelay": "10m",
-        "onlySigned": true,
-        "content": [
+"extensions": {
+    "sync": {
+        "enable": true,
+        "credentialsFile": "./examples/sync-auth-filepath.json",
+        "registries": [
         {
-            "prefix": "/repo1/repo",
-            "tags":
+            "urls": [
+                "https://registry1:5000"
+            ],
+            "onDemand": false,
+            "pollInterval": "6h",
+            "tlsVerify": true,
+            "certDir": "/home/user/certs",
+            "maxRetries": 5,
+            "retryDelay": "10m",
+            "onlySigned": true,
+            "content": [
             {
-                "regex": "4.*",
-                "semver": true
-            }
-        },
-        {
-            "prefix": "/repo2/repo*"
-        },
-        {
-            "prefix": "/repo3/**"
-        },
-        {
-            "prefix": "/repo1/repo",
-            "destination": "/localrepo",
-            "stripPrefix": true
-        },
-        {
-            "prefix": "/repo1/**",
-            "destination": "/localrepo",
-            "stripPrefix": true
-        }]
-    },
-    {
-        "urls": ["https://registry2:5000", "https://registry3:5000"],
-        "pollInterval": "12h",
-        "tlsVerify": false,
-        "onDemand": false,
-        "content": [
-        {
-            "prefix": "/repo2",
-            "tags":
+                "prefix": "/repo1/repo",
+                "tags":
+                {
+                    "regex": "4.*",
+                    "semver": true
+                }
+            },
             {
-                "semver": true
-            }
+                "prefix": "/repo1/repo",
+                "destination": "/localrepo",
+                "stripPrefix": true
+            },
+            {
+                "prefix": "/repo1/**",
+                "destination": "/localrepo",
+                "stripPrefix": true
+            },
+            {
+                "prefix": "/repo2/repo*"
+            },
+            {
+                "prefix": "/repo3/**"
+            }]
+        },
+        {
+            "urls": [
+                "https://registry2:5000",
+                "https://registry3:5000"
+            ],
+            "pollInterval": "12h",
+            "tlsVerify": false,
+            "onDemand": false,
+            "content": [
+            {
+                "prefix": "/repo2",
+                "tags":
+                {
+                    "semver": true
+                }
+            }]
+        },
+        {
+            "urls": [
+                "https://docker.io/library"
+            ],
+            "onDemand": true,
+            "tlsVerify": true,
+            "maxRetries": 6,
+            "retryDelay": "5m"
         }]
-    },
-    {
-        "urls": ["https://docker.io/library"],
-        "onDemand": true,
-        "tlsVerify": true,
-        "maxRetries": 3,
-        "retryDelay": "15m"
-    }]
+    }
 }
 ----
 
-The following table lists the configurable attributes.
+The following table lists the configurable attributes for registry synchronization.
 
 [%autowidth]
 |===
 | Attribute | Description
 
-| credentialsFile |
+| `enable` |
+If this attribute is missing, registry synchronization is enabled by default.
+Registry synchronization can be disabled by setting this attribute to `false`.
+| `credentialsFile` |
 The location of a local credentials file containing credentials for other registries.
-| urls a|
+| `urls` a|
 The URL of an upstream image registry.  You can specify a comma-separated list of
 multiple URLs for the same registry in case one or more fails.
-| onDemand a|
-- False: Pull all images not found in the local registry.
-- True: Pull any image not found in the local registry only when needed.
-| pollInterval | The period between polling of remote registries. If no value is
-specified, no preiodic polling will occur.
-| tlsVerify a|
-- False: TLS will not be verified.
-- True: (Default) TLS will be verified.
-| certDir | If a path is specified, use certificates at this path. If no path is
+| `onDemand` a|
+- `false`: Pull all images not found in the local registry.
+- `true`: Pull any image not found in the local registry only when needed.
+| `pollInterval` | The period between polling of remote registries. If no value is
+specified, no periodic polling will occur.
+| `tlsVerify` a|
+- `false`: TLS will not be verified.
+- `true`: (Default) TLS will be verified.
+| `certDir` | If a path is specified, use certificates at this path. If no path is
 specified, use the default certificates directory.
-| maxRetries | The maximum number of retries if an error occurs during either an
+| `maxRetries` | The maximum number of retries if an error occurs during either an
 on-demand or periodic synchronization.
 If no value is specified, no retries will occur.
-| retryDelay | The interval between retries. This attribute is mandatory when
+| `retryDelay` | The interval between retries. This attribute is mandatory when
 maxRetries is configured.
-| onlySigned a|
-- False: Synchronize signed or unsigned images.
-- True: Synchronize only signed images (either notary or cosigned).
-| content |
+| `onlySigned` a|
+- `false`: Synchronize signed or unsigned images.
+- `true`: Synchronize only signed images (either notary or cosigned).
+| `content` |
 The included attributes in this section specify which content will be periodically
 pulled.
 If this section is not populated, periodically polling will not occur.
  The included attributes can also filter which on-demand images are pulled.
-| prefix | On the remote server, the path from which images will be pulled. This
+| `prefix` | On the remote server, the path from which images will be pulled. This
 path can be a string that exactly matches the remote path, or it can be a `glob` pattern.
 For example, the path can include a wildcard (*pass:[*]*) or a recursive wildcard (*pass:[**]*).
-| destination | Specifies the path under which pulled images are to be stored.
-| stripPrefix a| Specifies whether the prefix path from the source registry will be
+| `destination` | Specifies the path under which pulled images are to be stored.
+| `stripPrefix` a| Specifies whether the prefix path from the source registry will be
 retained or replaced when the image is stored in the [zotLowerName] registry.
 
-- False: Retain the source prefix, append it to the destination path.
-- True: Remove the source prefix.
+- `false`: Retain the source prefix, append it to the destination path.
+- `true`: Remove the source prefix.
 +
 NOTE: If the source prefix was specified with
 meta-characters (such as *pass:[**]*), only the prefix segments that precede the
 meta-characters are removed. Any remaining path segments are appended to the
 destination path.
 
-| tags | The included attributes in this optional section specify how remote
+| `tags` | The included attributes in this optional section specify how remote
 images will be selected for synchronization based on image tags.
-| regex | Specifies a regular expression for matching image tags. Images whose tags
+| `regex` | Specifies a regular expression for matching image tags. Images whose tags
 do not match the expression are not pulled.
-| semver a|
+| `semver` a|
 Specifies whether image tags are to be filtered by semantic versioning (semver)
 compliance.
 
-- False: Do not filter by semantic versioning
-- True: Filter by semantic versioning
+- `false`: Do not filter by semantic versioning
+- `true`: Filter by semantic versioning
 |===
 
 
 .MIKE'S QUESTIONS
 ****
-. Is `sync` under `extensions`?
 . Are these the only attributes?
 . What are the defaults?
 . What are the units and ranges for intervals and retries?
-. Should we expand on semver compliance? Does it use the regex or are the separate?
+. Should we expand on semver compliance? Does it use the regex or are they separate?
 ****

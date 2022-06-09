@@ -1,0 +1,34 @@
+[#_bearer_authentication]
+== Bearer authentication
+
+{zotUpperName} supports OAuth2 by using a Bearer Token.  Use the `auth` and `bearer`
+attributes under `http` in the configuration file to enable and configure OAuth2
+authentication, as shown in the following example.
+
+----
+"http": {
+  "auth": {
+    "bearer": {
+      "realm": "https://auth.myreg.io/auth/token",
+      "service": "myauth",
+      "cert": "/etc/zot/auth.crt"
+    }
+  }
+}
+----
+
+The following table lists the configurable attributes.
+
+[%autowidth]
+|===
+| Attribute | Description
+
+| `realm` |
+| `service` |
+| `cert` | The path and filename of the server's SSL/TLS certificate.
+|===
+
+.MIKE'S QUESTIONS
+****
+. Need attribute definitions
+****

@@ -1,4 +1,5 @@
-== Configuration File
+[#_config_file]
+== Configuration file
 
 NOTE: The instructions and examples in this guide use `zot` as the name of the
 {zotLowerName} executable file. The examples do not include the path to the
@@ -17,7 +18,7 @@ that contains all configuration settings for {zotLowerName} functions such as:
 - synchronization with other registries
 - clustering
 
-A simple JSON configuration file is shown in the following example:
+A simple JSON configuration file is shown in the following example.
 
 ----
 {
@@ -31,12 +32,6 @@ A simple JSON configuration file is shown in the following example:
     },
     "log": {
         "level": "debug"
-    },
-    "extensions": {
-        "metrics": {},
-        "sync": {},
-        "search": {},
-        "scrub": {}
     }
 }
 ----
@@ -48,18 +43,74 @@ in the later sections of this guide.
 Using the information in this guide, you can compose a configuration file with the
 settings and features you require for your {zotLowerName} registry server.
 
-TIP: When deploying a full {zotLowerName} image, you can enable or disable
-extensions individually. With a minimal image, the extensions section is
-ignored if present.
+[#_extensions]
+=== Extension features
 
+With a full {zotLowerName} image, additional extension features can be enabled and
+configured under an `extensions` attribute in the configuration file as shown in
+the following example.
+
+----
+{
+...
+  "extensions": {
+    "metrics": {},
+    "sync": {},
+    "search": {},
+    "scrub": {}
+  }
+}
+----
+
+TIP: The extension features are available only with a full {zotLowerName} image.
+With a minimal {zotLowerName} image, the `extensions` section is ignored if present.
+
+The following features are configured under the `extensions` attribute.
+
+- <<#_metrics_config, Metrics>>
+- <<#_sync_config, Sync>>
+- <<#_search_config, Search>>
+- <<#_scrub_config, Scrub>>
+
+An extension feature is enabled by the presence of the feature's attribute
+under `extensions`. An extension feature can be disabled by omitting the feature
+attribute or by including an `enable` attribute with a value of `false`.
+
+For example, the scrub feature is enabled in the following cases.
+
+----
+"extensions": {
+  "scrub": {}
+}
+----
+----
+"extensions": {
+  "scrub": {
+    "enable": true
+  }
+}
+----
+
+The scrub feature is disabled in the following cases.
+----
+"extensions": {
+}
+----
+----
+"extensions": {
+  "scrub": {
+    "enable": false
+  }
+}
+----
 
 [#_verifying_config]
-=== Verifying the Configuration File
+=== Verifying the configuration file
 
 Before launching {zotLowerName}, verify the syntax of your configuration file
 using the following command:
 
-``$ *zot* *verify* _configfile_``
+``*zot* *verify* _configfile_``
 
 NOTE: Verifying the configuration file protects against operator errors and any
 conflicts arising from {zotLowerName} release version changes.
@@ -67,4 +118,4 @@ conflicts arising from {zotLowerName} release version changes.
 After verifying your configuration file, you can launch {zotLowerName} with the
 following command:
 
-``$ *zot* *serve* _configfile_``
+``*zot* *serve* _configfile_``

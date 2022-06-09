@@ -15,18 +15,18 @@ The zb tool is useful for testing workloads in scenarios such as the following:
 - comparing hardware/deployment environments
 - comparing with other registries
 
-=== How to Get zb
+== How to get zb
 
 The zb project is hosted with {zotLowerName} on GitHub at
 https://github.com/project-zot/zot[project-zot].
 From GitHub, you can download the zb binary or you can build zb from the source.
 
-=== Supported Platforms
+=== Supported platforms
 
 `zb` is supported for the following operating systems and platform architectures:
 
 [#supported-platforms-and-architectures-table-zb]
-.Supported Platforms and Architectures
+.Supported platforms and architectures
 [%autowidth]
 |===
 | OS | ARCH | Platform
@@ -37,30 +37,30 @@ From GitHub, you can download the zb binary or you can build zb from the source.
 | darwin | arm64 | ARM-based MacOS
 |===
 
-=== Downloading zb Binaries
+=== Downloading zb binaries
 
 Download the executable binary for your server platform and architecture under
 "Assets" on the GitHub
 https://github.com/project-zot/zot/releases[zot releases] page.
 
 The binary image is named using the platform and architecture from the
- <<supported-platforms-and-architectures-table-zb, Supported Platforms and Architectures>>
+ <<supported-platforms-and-architectures-table-zb, Supported platforms and architectures>>
  table.  For example, the binary for an Intel-based MacOS server is
  `zb-darwin-amd64.`
 
 
-=== Building zb from Source
+=== Building zb from source
 
 To build the zb binary, copy or clone the {zotLowerName} project from GitHub
 and execute the `make bench` command in the zot directory.
 Use the same command options that you used to build zot, as shown:
 
-``$ make OS=_os_ ARCH=_architecture_ bench``
+``make OS=_os_ ARCH=_architecture_ bench``
 
 For example, the following command builds zb for an Intel-based MacOS server:
 
 ----
-$ make OS=darwin ARCH=amd64 bench
+make OS=darwin ARCH=amd64 bench
 ----
 
 In this example, the resulting executable file is `zb-darwin-amd64` in the
@@ -78,7 +78,12 @@ The original filename of the executable file will reflect the build options, suc
 
 To view the usage and options of `zb`, run the command with the `--help` option:
 ----
-$ bin/zb --help
+bin/zb --help
+----
+
+Command output:
+
+----
 `zb`
 
 Usage:
@@ -95,11 +100,15 @@ Flags:
   -d, --working-dir string     Use specified directory to store test data
 ----
 
-The following example shows a benchmark operation using zb.
+The following example executes a benchmark operation using zb.
 
 ----
-$ bin/zb http://localhost:8080 -c 10 -n 1000
+bin/zb http://localhost:8080 -c 10 -n 1000
+----
 
+Command output:
+
+----
 Registry URL: http://localhost:8080
 
 Concurrency Level: 2
@@ -144,6 +153,6 @@ p99: 26.375356ms
 
 .MIKE'S QUESTIONS
 ****
-. Where is the zb Command Tree?
+. Is there a zb Command Tree?
 . Do we need to describe the command output from the example?
 ****

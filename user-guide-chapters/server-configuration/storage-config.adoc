@@ -1,17 +1,20 @@
-== Storage
+[#_storage_config]
+== Storage options
 
 With {zotLowerName}, you have the option to store your registry image files either
-in local filesystem storage or in cloud storage, such as in an Amazon Simple Storage
+in local filesystem storage or in cloud storage, such as an Amazon Simple Storage
 Service (S3) bucket.
 
-=== Configuring Local Storage
+[#_local_storage_config]
+== Configuring local storage
 
 Local filesystem storage for {zotLowerName} is configured with the `storage`
 attribute in the configuration file, as shown in the following example.
 
 ----
 "storage":{
-  "rootDirectory":"/tmp/zot"
+  "rootDirectory":"/tmp/zot",
+  "commit": true,
   "dedupe": true,
   "gc": true,
   "gcDelay": "1h",
@@ -27,17 +30,23 @@ The following table lists the configurable attributes.
 
 |`rootDirectory` |
 Location  of the images stored in the server file system.
+|`commit` |
+For faster performance, data written by {zotLowerName} is retained in memory before
+being periodically committed to disk by the operating system. To eliminate this
+retention time and cause data to be written to disk immediately, set to `true`.
+This prevents data loss but reduces performance.
 |`dedupe` |
-If the server filesystem supports hard links, you can enable inline
-deduplication of layers and blobs that are shared among multiple container images.
+If the server filesystem supports hard links, you can optimize storage space by enabling
+inline deduplication of layers and blobs that are shared among multiple container images.
+Set to `true` to enable deduplication.
 |`gc` |
-When an image is deleted (either by tag or reference), orphaned blobs
+When an image is deleted, either by tag or by reference, orphaned blobs
 can lead to wasted storage.  Set to `true` to enable background garbage collection to
 reclaim this space.
-|`gcDelay` | (Optional) If configured, causes garbage collection to run once after
-the specified delay time. Requires the `gc` attribute to be `true.`
-|`gcInterval` | (Optional) If configured, causes garbage collection to run periodically
-at the specified interval. Requires the `gc` attribute to be `true.`
+|`gcDelay` | (Optional) If garbage collection is enabled, causes it to run once after
+the specified delay time. Requires the `gc` attribute to be `true`.
+|`gcInterval` | (Optional) If garbage collection is enabled, causes it to run periodically
+at the specified interval. Requires the `gc` attribute to be `true`.
 |`subpaths` a|
 You can store and serve images from multiple filesystems, each with
 their own repository paths and settings. The following example shows three subpaths.
@@ -69,13 +78,14 @@ their own repository paths and settings. The following example shows three subpa
 ****
 . Are these the only attributes?
 . Are the dedupe and gc attributes optional and are the defaults FALSE if not specified?
-. What values are allowed for gcDelay and gcInterval?
+. What values and ranges are allowed for gcDelay and gcInterval?
 ****
 
-=== Configuring S3 Storage
+[#_s3_storage_config]
+== Configuring S3 storage
 
 Amazon Simple Storage Service (S3) for {zotLowerName} can be configured with the
-`storageDriver` attribute in the configuration file, as shown in the following example.
+`storageDriver` attribute in the configuration file, as shown in the following example:
 
 ----
 "storageDriver": {
@@ -109,7 +119,8 @@ locations using the `subpath` attribute, as in the following example.
 [continue]
 ----
 
-==== S3 Credentials
+[#_s3_credentials]
+=== S3 Credentials
 
 In the first configuration file example, the S3 credentials were configured with the
 attributes `accesskey` and `secretkey.` As an alternative, you can omit these attributes
@@ -154,7 +165,7 @@ will use unless you configure it to use another profile.  You can specify a prof
 AWS_PROFILE=test-account
 ----
 +
-The credential file must be named `credentials.` It must be located in the
+The credential file must be named `credentials.` The file must be located in the
 `.aws/` folder in the home directory of the same server that is running your {zotLowerName}
 application.
 

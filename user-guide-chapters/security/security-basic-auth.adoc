@@ -1,0 +1,21 @@
+[#_basic_authentication]
+== Basic authentication
+
+Use the `auth` and `htpasswd` attributes under `http` in the configuration file
+to enable and configure local authentication, as shown in the following example.
+
+----
+"http": {
+  "auth": {
+    "htpasswd": {
+      "path": "test/data/htpasswd"
+    }
+  }
+}
+----
+
+The `path` attribute specifies the path and filename of the `.htpasswd` file, which
+contains user names and hashed passwords.
+
+NOTE: When both htpasswd and LDAP configuration are specified, LDAP authentication
+is given preference.

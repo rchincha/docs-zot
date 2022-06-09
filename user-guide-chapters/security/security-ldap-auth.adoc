@@ -1,0 +1,48 @@
+[#_ldap_authentication]
+== LDAP authentication
+
+Use the `auth` and `ldap` attributes under `http` in the configuration file
+to enable and configure LDAP authentication, as shown in the following example.
+
+----
+"http": {
+  "auth": {
+    "ldap": {
+      "address": "ldap.example.org",
+      "port": 389,
+      "startTLS": false,
+      "baseDN": "ou=Users,dc=example,dc=org",
+      "userAttribute": "uid",
+      "bindDN": "cn=ldap-searcher,ou=Users,dc=example,dc=org",
+      "bindPassword": "ldap-searcher-password",
+      "skipVerify": false,
+      "subtreeSearch": true
+    }
+  }
+}
+----
+
+The following table lists the configurable attributes for LDAP authentication.
+
+[%autowidth]
+|===
+| Attribute | Description
+
+| `address` | The IP address or hostname of the LDAP server.
+| `port` | The port number used by the LDAP service.
+| `startTLS` | Set to `true` to enable TLS communication with the LDAP server.
+| `baseDN` | Starting location within the LDAP directory for performing user searches.
+| `userAttribute` |
+| `bindDN` | Base Distinguished Name for the LDAP search.
+| `bindPassword` | Password of the bind LDAP user.
+| `skipVerify` |
+| `subtreeSearch` | Set to `true` to expand the scope for search to include subtrees of the base DN.
+|===
+
+NOTE: When both htpasswd and LDAP configuration are specified, LDAP authentication
+is given preference.
+
+.MIKE'S QUESTIONS
+****
+. Need remaining attribute definitions
+****

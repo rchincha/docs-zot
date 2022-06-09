@@ -1,4 +1,4 @@
-== Identity-Based Authorization
+== Identity-based authorization
 
 User identity can be used as an authorization criterion for allowing actions on
 one or more repository paths.  For specific users, you can choose to allow any

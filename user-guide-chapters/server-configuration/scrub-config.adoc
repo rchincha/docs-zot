@@ -1,11 +1,33 @@
-== Scrub
+[#_scrub_config]
+== Scrubbing the image registry
+
+To check the integrity of the filesystem and the data in the registry, you can schedule
+a periodic scrub operation. The scrub process traverses the filesystem, verifying
+that all data blocks are readable. While running, the process may slightly reduce the
+registry performance.
+
+To enable scrubbing, add the `scrub` attribute under `extensions` in the
+configuration file, as shown in the following example:
 
 ----
 "extensions": {
   "scrub": {
-    "interval": "1h"
+    "enable": true,
+    "interval": "24h"
   }
 }
 ----
 
-Interval must be 2h or more.
+The following table lists the configurable attributes for scrubbing the registry.
+
+[%autowidth]
+|===
+| Attribute | Description
+
+| `enable` |
+If this attribute is missing, registry scrubbing is enabled by default.
+Scrubbing can be disabled by setting this attribute to `false`.
+| `interval` |
+The time interval between periodic scrub operations. This value must be at
+least two hours (`2h`).
+|===

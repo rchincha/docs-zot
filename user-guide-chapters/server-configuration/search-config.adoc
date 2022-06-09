@@ -1,0 +1,34 @@
+[#_search_config]
+== Searching and querying images
+
+While basic searching is always enabled for images in the {zotLowerName} registry,
+you can enable enhanced registry searching and filtering using graphQL.
+
+Add the `search` attribute under `extensions` in the configuration file to enable
+and configure the enhanced search extension, as shown in the following example.
+
+----
+"extensions": {
+    "search": {
+        "enable": true,
+        "cve": {
+            "updateInterval": "2h"
+        }
+    }
+}
+----
+
+The following table lists the configurable attributes for enhanced search.
+
+[%autowidth]
+|===
+| Attribute | Description
+
+| `enable` |
+If this attribute is missing, enhanced search is enabled by default.  Enhanced
+search can be disabled by setting this attribute to `false`.
+| `cve` | Extends enhanced search to allow searching of Common Vulnerabilities and
+Exposures (CVE).
+| `updateInterval` | Sets the interval at which the searchable database of CVE items
+is refreshed.
+|===

@@ -1,0 +1,28 @@
+[#_tls_authentication]
+== TLS mutual authentication
+
+Use the `tls` attribute under `http` in the configuration file to enable and
+configure TLS mutual authentication, as shown in the following example.
+
+----
+"http": {
+  "tls": {
+    "cert":"test/data/server.cert",
+    "key":"test/data/server.key",
+    "cacert":"test/data/cacert.cert"
+  }
+}
+----
+
+The following table lists the configurable attributes.
+
+[%autowidth]
+|===
+| Attribute | Description
+
+|`cert` | The path and filename of the server's SSL/TLS certificate.
+|`key` | The path and filename of the server's registry key.
+|`cacert` | The path and filename of the server's `cacerts` file, which contains
+trusted certificate authority (CA) certificates. Specifying a `cacert` file
+enables TLS mutual authentication.
+|===

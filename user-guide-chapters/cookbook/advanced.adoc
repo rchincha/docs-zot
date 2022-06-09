@@ -1,4 +1,4 @@
-== Advanced Topics Cookbook
+== Advanced topics
 
 *This is a placeholder for the Advanced Topics Cookbook.*
 

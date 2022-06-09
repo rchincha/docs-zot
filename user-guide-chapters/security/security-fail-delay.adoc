@@ -1,0 +1,22 @@
+[#_failure_delay]
+== Preventing automated attacks with failure delay
+
+Use the `auth` and `failDelay` attributes under `http` in the configuration file
+to delay the response to an authentication failure. A delayed response helps to
+prevent automated attacks. The configuration is shown in the following example.
+
+----
+"http": {
+  "auth": {
+    "failDelay": 5
+  }
+}
+----
+
+The `failDelay` attribute specifies a waiting time, in seconds, before {zotLowerName}
+sends a failure notification to an authenticating user who has been denied access.
+
+.MIKE'S QUESTIONS
+****
+. What are the units, range, recommended value?
+****
