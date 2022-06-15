@@ -1,1 +1,1 @@
-* xref:user-guide.adoc[]
+* xref:admin-guide.adoc[]
