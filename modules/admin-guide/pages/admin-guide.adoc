@@ -20,9 +20,9 @@ Revised: 2022-06-08
 
 :leveloffset: +1
 
-include::user-guide-chapters/introduction/what-is.adoc[]
+include::partial$user-guide-chapters/introduction/what-is.adoc[]
 
-include::user-guide-chapters/introduction/why.adoc[]
+include::partial$user-guide-chapters/introduction/why.adoc[]
 
 :leveloffset: -1
 
@@ -31,9 +31,9 @@ include::user-guide-chapters/introduction/why.adoc[]
 
 :leveloffset: +1
 
-include::user-guide-chapters/introduction/building.adoc[]
+include::partial$user-guide-chapters/introduction/building.adoc[]
 
-include::user-guide-chapters/introduction/launching.adoc[]
+include::partial$user-guide-chapters/introduction/launching.adoc[]
 
 :leveloffset: -1
 
@@ -41,7 +41,7 @@ include::user-guide-chapters/introduction/launching.adoc[]
 
 :leveloffset: +1
 
-include::user-guide-chapters/zli/zli.adoc[]
+include::partial$user-guide-chapters/zli/zli.adoc[]
 
 :leveloffset: -1
 
@@ -49,9 +49,9 @@ include::user-guide-chapters/zli/zli.adoc[]
 
 :leveloffset: +1
 
-include::user-guide-chapters/server-configuration/config-file.adoc[]
+include::partial$user-guide-chapters/server-configuration/config-file.adoc[]
 
-include::user-guide-chapters/server-configuration/network-config.adoc[]
+include::partial$user-guide-chapters/server-configuration/network-config.adoc[]
 
 :leveloffset: -1
 
@@ -60,25 +60,25 @@ include::user-guide-chapters/server-configuration/network-config.adoc[]
 
 :leveloffset: +1
 
-include::user-guide-chapters/security/authentication-config.adoc[]
+include::partial$user-guide-chapters/security/authentication-config.adoc[]
 
 :leveloffset: +1
 
-include::user-guide-chapters/security/security-tls-auth.adoc[]
+include::partial$user-guide-chapters/security/security-tls-auth.adoc[]
 
-include::user-guide-chapters/security/security-basic-auth.adoc[]
+include::partial$user-guide-chapters/security/security-basic-auth.adoc[]
 
-include::user-guide-chapters/security/security-ldap-auth.adoc[]
+include::partial$user-guide-chapters/security/security-ldap-auth.adoc[]
 
-include::user-guide-chapters/security/security-bearer-auth.adoc[]
+include::partial$user-guide-chapters/security/security-bearer-auth.adoc[]
 
 :leveloffset: -1
 
-include::user-guide-chapters/server-configuration/authorization-config.adoc[]
+include::partial$user-guide-chapters/server-configuration/authorization-config.adoc[]
 
-include::user-guide-chapters/security/security-fail-delay.adoc[]
+include::partial$user-guide-chapters/security/security-fail-delay.adoc[]
 
-include::user-guide-chapters/security/security-rate-limit.adoc[]
+include::partial$user-guide-chapters/security/security-rate-limit.adoc[]
 
 :leveloffset: -1
 
@@ -87,7 +87,7 @@ include::user-guide-chapters/security/security-rate-limit.adoc[]
 
 :leveloffset: +1
 
-include::user-guide-chapters/server-configuration/storage-config.adoc[]
+include::partial$user-guide-chapters/server-configuration/storage-config.adoc[]
 
 :leveloffset: -1
 
@@ -96,9 +96,9 @@ include::user-guide-chapters/server-configuration/storage-config.adoc[]
 
 :leveloffset: +1
 
-include::user-guide-chapters/server-configuration/sync-registries.adoc[]
+include::partial$user-guide-chapters/server-configuration/sync-registries.adoc[]
 
-include::user-guide-chapters/cookbook/advanced.adoc[]
+include::partial$user-guide-chapters/cookbook/advanced.adoc[]
 
 :leveloffset: -1
 
@@ -107,11 +107,11 @@ include::user-guide-chapters/cookbook/advanced.adoc[]
 
 :leveloffset: +1
 
-include::user-guide-chapters/server-configuration/logging-config.adoc[]
+include::partial$user-guide-chapters/server-configuration/logging-config.adoc[]
 
-include::user-guide-chapters/server-configuration/metrics-config.adoc[]
+include::partial$user-guide-chapters/server-configuration/metrics-config.adoc[]
 
-include::user-guide-chapters/zb/zb.adoc[]
+include::partial$user-guide-chapters/zb/zb.adoc[]
 
 :leveloffset: -1
 
@@ -121,7 +121,7 @@ include::user-guide-chapters/zb/zb.adoc[]
 
 :leveloffset: +1
 
-include::user-guide-chapters/server-configuration/clustering.adoc[]
+include::partial$user-guide-chapters/server-configuration/clustering.adoc[]
 
 :leveloffset: -1
 
@@ -130,9 +130,9 @@ include::user-guide-chapters/server-configuration/clustering.adoc[]
 
 :leveloffset: +1
 
-include::user-guide-chapters/server-configuration/scrub-config.adoc[]
+include::partial$user-guide-chapters/server-configuration/scrub-config.adoc[]
 
-include::user-guide-chapters/server-configuration/search-config.adoc[]
+include::partial$user-guide-chapters/server-configuration/search-config.adoc[]
 
 :leveloffset: -1
 
@@ -140,7 +140,7 @@ include::user-guide-chapters/server-configuration/search-config.adoc[]
 
 :leveloffset: +1
 
-include::user-guide-chapters/zli/zli-commands.adoc[]
+include::partial$user-guide-chapters/zli/zli-commands.adoc[]
 
 :leveloffset: -1
 
@@ -148,6 +148,6 @@ include::user-guide-chapters/zli/zli-commands.adoc[]
 
 :leveloffset: +1
 
-include::common/bias-free.adoc[]
+include::partial$bias-free.adoc[]
 
 :leveloffset: -1
