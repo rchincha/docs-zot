@@ -4,4 +4,4 @@ version: '1.0'
 start_page: developer-guide:draft-developer-guide-chapters.adoc
 nav: 
   - modules/developer-guide/nav.adoc
-  - modules/user-guide/nav.adoc
+  - modules/admin-guide/nav.adoc
