@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start":"antora --fetch antora-playbook.yml"
+  },
+  "devDependencies": {
+    "@antora/cli": "3.0.1",
+    "@antora/site-generator": "3.0.1"
+  }
+}

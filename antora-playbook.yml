@@ -1,0 +1,20 @@
+site:
+  title: Zot Docs
+  start_page: zot-docs-1:developer-guide:draft-developer-guide-chapters.adoc
+content:
+  #Repositories to pull for docs
+  sources: 
+  - url: https://github.com/raulkele/docs-zot
+    branches: site-generation-merge
+ui: 
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
+  supplemental_files:
+  - path: ui.yml
+    contents: |
+      static_files:
+      - .nojekyll
+  - path: .nojekyll
+runtime:
+  fetch: true
