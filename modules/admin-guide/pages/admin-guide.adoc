@@ -10,7 +10,7 @@
 :zotUpperName: Zot
 :zotLowerName: zot
 
-Revised: 2022-06-08
+Revised: 2022-06-16
 
 //<<<
 
@@ -27,7 +27,7 @@ include::partial$user-guide-chapters/introduction/why.adoc[]
 :leveloffset: -1
 
 
-== Getting Started
+== Getting started
 
 :leveloffset: +1
 
@@ -37,7 +37,7 @@ include::partial$user-guide-chapters/introduction/launching.adoc[]
 
 :leveloffset: -1
 
-== Using the Command Line Interface (zli)
+== Using the command line interface (zli)
 
 :leveloffset: +1
 
@@ -51,12 +51,21 @@ include::partial$user-guide-chapters/zli/zli.adoc[]
 
 include::partial$user-guide-chapters/server-configuration/config-file.adoc[]
 
+:leveloffset: -1
+
+
 include::partial$user-guide-chapters/server-configuration/network-config.adoc[]
+
+== Storage configuration
+
+:leveloffset: +1
+
+include::partial$user-guide-chapters/server-configuration/storage-config.adoc[]
 
 :leveloffset: -1
 
 
-== Security and Hardening
+== Security and hardening
 
 :leveloffset: +1
 
@@ -83,16 +92,7 @@ include::partial$user-guide-chapters/security/security-rate-limit.adoc[]
 :leveloffset: -1
 
 
-== Storage
-
-:leveloffset: +1
-
-include::partial$user-guide-chapters/server-configuration/storage-config.adoc[]
-
-:leveloffset: -1
-
-
-== Syncing and Mirroring Registries
+== Syncing and mirroring registries
 
 :leveloffset: +1
 
@@ -117,7 +117,7 @@ include::partial$user-guide-chapters/zb/zb.adoc[]
 
 
 
-== Enterprise Wide zot
+== Enterprise-wide zot
 
 :leveloffset: +1
 

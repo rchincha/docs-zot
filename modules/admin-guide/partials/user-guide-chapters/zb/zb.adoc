@@ -6,7 +6,7 @@ image registry that conforms to the
 https://github.com/opencontainers/distribution-spec[OCI Distribution Specification]
 published by the Open Container Initiative (OCI).
 
-TIP: We recommend installing zb when you install {zotLowerName}.
+TIP: We recommend installing and benchmarking with zb when you install {zotLowerName}.
 
 The zb tool is useful for testing workloads in scenarios such as the following:
 
@@ -15,7 +15,7 @@ The zb tool is useful for testing workloads in scenarios such as the following:
 - comparing hardware/deployment environments
 - comparing with other registries
 
-== How to get zb
+=== How to get zb
 
 The zb project is hosted with {zotLowerName} on GitHub at
 https://github.com/project-zot/zot[project-zot].
@@ -43,10 +43,10 @@ Download the executable binary for your server platform and architecture under
 "Assets" on the GitHub
 https://github.com/project-zot/zot/releases[zot releases] page.
 
-The binary image is named using the platform and architecture from the
+The binary image is named using the target platform and architecture from the
  <<supported-platforms-and-architectures-table-zb, Supported platforms and architectures>>
  table.  For example, the binary for an Intel-based MacOS server is
- `zb-darwin-amd64.`
+ `zb-darwin-amd64`.
 
 
 === Building zb from source
@@ -149,10 +149,3 @@ p99: 26.375356ms
 
 ...
 ----
-
-
-.MIKE'S QUESTIONS
-****
-. Is there a zb Command Tree?
-. Do we need to describe the command output from the example?
-****

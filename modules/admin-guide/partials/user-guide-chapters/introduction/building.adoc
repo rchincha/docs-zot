@@ -35,7 +35,7 @@ option might be optimal for a registry embedded in a shipping product.
 
 === Binary image file naming
 
-An executable binary image for {zotLowerName} is named using the platform and
+An executable binary image for {zotLowerName} is named using the target platform and
 architecture from the
  <<supported-platforms-and-architectures-table-zot, Supported platforms and architectures>>
  table. The general format of a binary image file name is one of these two:
@@ -155,8 +155,18 @@ TIP: For convenience, you can rename the binary image file to simply `zot`.
 
 === Building and deploying a {zotLowerName} container image from source
 
-A sample Docker file is provided on the https://github.com/project-zot/zot/blob/main/Dockerfile[zot project page]
-in GitHub. Using this Docker file, you can build a container image that runs
+A sample Dockerfile is provided on the https://github.com/project-zot/zot/blob/main/Dockerfile[zot project page]
+in GitHub. You can edit the sample file with your specific values, such as the desired
+operating system, hardware architecture, and full or minimal build, as in this example:
+
+----
+ARG OS=linux
+ARG ARCH=amd64
+
+RUN make COMMIT=$COMMIT OS=$OS ARCH=$ARCH clean binary-minimal
+----
+
+Using your edited Dockerfile, you can build a container image that runs
 the latest {zotLowerName} by running the following command:
 
 ----
@@ -176,7 +186,7 @@ podman run --rm -it -p 5000:5000 -v $(pwd)/registry:/var/lib/registry zot:latest
 docker run --rm -it -p 5000:5000 -v $(pwd)/registry:/var/lib/registry zot:latest
 ----
 
-A container image built with the sample Docker file and deployed with the example
+A container image built with the sample Dockerfile and deployed with the example
 command results in a running registry at `http://localhost:5000`.  Registry content
 is stored at `.registry`, which is bind mounted to `/var/lib/registry` in
 the container. By default, auth is disabled.  As part of the build, a YAML
@@ -197,7 +207,6 @@ content storage.
 
 .MIKE'S QUESTIONS
 ****
-. Where are OS, ARCH, and binary/binary-minimal options specified? They are arguments
-in the Dockerfile, so should the `make image` command be: +
-`make OS=_os_ ARCH=_architecture_ {binary | binary-minimal} image` ?
+. Does the 'make image' command use the Dockerfile?  Wouldn't we use a docker command?
+. How do we specify the inclusion of zli and zb binaries in the container?
 ****

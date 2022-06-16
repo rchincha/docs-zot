@@ -38,11 +38,11 @@ This prevents data loss but reduces performance.
 |`dedupe` |
 If the server filesystem supports hard links, you can optimize storage space by enabling
 inline deduplication of layers and blobs that are shared among multiple container images.
-Set to `true` to enable deduplication.
+Deduplication is enabled by default. Set to `false` to disable deduplication.
 |`gc` |
 When an image is deleted, either by tag or by reference, orphaned blobs
-can lead to wasted storage.  Set to `true` to enable background garbage collection to
-reclaim this space.
+can lead to wasted storage. Garbage collection (gc) is enabled by default
+to reclaim this space. Set to `false` to disable garbage collection.
 |`gcDelay` | (Optional) If garbage collection is enabled, causes it to run once after
 the specified delay time. Requires the `gc` attribute to be `true`.
 |`gcInterval` | (Optional) If garbage collection is enabled, causes it to run periodically
@@ -77,7 +77,6 @@ their own repository paths and settings. The following example shows three subpa
 .MIKE'S QUESTIONS
 ****
 . Are these the only attributes?
-. Are the dedupe and gc attributes optional and are the defaults FALSE if not specified?
 . What values and ranges are allowed for gcDelay and gcInterval?
 ****
 
@@ -171,8 +170,3 @@ application.
 
 For more details about specifying S3 credentials, see the
 https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html#specifying-credentials[AWS documentation].
-
-.MIKE'S QUESTIONS
-****
-. Do I need to define the S3 config attributes?
-****
