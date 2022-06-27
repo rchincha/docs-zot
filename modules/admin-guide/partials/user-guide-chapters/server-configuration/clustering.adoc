@@ -43,4 +43,5 @@ with the remote storage.
 .MIKE'S QUESTIONS
 ****
 . Need Helm and Kubernetes versions.
+Both latest/stable is fine. Again we should probably published "tested against" versions.
 ****

@@ -30,5 +30,8 @@ enabled and will be stored at the specified path.
 .MIKE'S QUESTIONS
 ****
 . Are these the only attributes?
+^ yes
+
 . Are the correct levels shown?  Is there a default level?
+^ we use zerolog for logging. So https://github.com/rs/zerolog#leveled-logging
 ****

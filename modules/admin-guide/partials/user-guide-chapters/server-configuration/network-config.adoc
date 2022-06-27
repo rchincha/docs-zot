@@ -35,5 +35,8 @@ Security (TLS) settings for the server.
 .MIKE'S QUESTIONS
 ****
 . Are these the only attributes?
+https://github.com/project-zot/zot/blob/main/examples/config-ratelimit.json#L10
+
 . Are there defaults?
+NO defaults
 ****

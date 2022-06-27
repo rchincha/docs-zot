@@ -148,5 +148,7 @@ compliance.
 . Are these the only attributes?
 . What are the defaults?
 . What are the units and ranges for intervals and retries?
+
 . Should we expand on semver compliance? Does it use the regex or are they separate?
+^ Separate. semver is Semantic Versioning https://semver.org/ and means very specific thing.
 ****

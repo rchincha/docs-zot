@@ -208,5 +208,10 @@ content storage.
 .MIKE'S QUESTIONS
 ****
 . Does the 'make image' command use the Dockerfile?  Wouldn't we use a docker command?
+
+^ we should drop this - not needed, will clean this up.
+
 . How do we specify the inclusion of zli and zb binaries in the container?
+
+^ ci/cd release pipeline takes care of this with each tagged release. But there are Dockerfile-zb and zli files if you want to "docker build" yourself.
 ****

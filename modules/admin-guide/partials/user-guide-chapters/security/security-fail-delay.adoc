@@ -19,4 +19,8 @@ sends a failure notification to an authenticating user who has been denied acces
 .MIKE'S QUESTIONS
 ****
 . What are the units, range, recommended value?
+^ units "in seconds", and no recommended value (maybe 2-5 seconds). The main idea is that we don't
+have internet robots/scripts continuously trying to guess a passwd in a tight
+loop.
+
 ****

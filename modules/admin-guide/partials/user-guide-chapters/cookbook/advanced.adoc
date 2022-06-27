@@ -9,4 +9,6 @@ Create a trusted image pipeline with zot, cosign, and Notation
 .MIKE'S QUESTIONS
 ****
 . Need the workflow
+
+Best to look at demos for this: https://github.com/project-zot/zot/blob/main/demos/README.md
 ****

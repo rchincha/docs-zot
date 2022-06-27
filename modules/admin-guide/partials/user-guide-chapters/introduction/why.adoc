@@ -43,6 +43,12 @@ and the possible attack surface.
 .MIKE'S QUESTIONS
 ****
 . Update last stable release date/version?
+^ can this be templatized from https://github.com/project-zot/zot/releases/latest (somehow)?
+
 . Should we keep the CNCF line?
+^ leave it for now but replace "no" to "TBD". 
+
 . Should we change 'ui' to GUI?  Do we have that?
+^ Also "TBD". But actively working on that.
+
 ****
