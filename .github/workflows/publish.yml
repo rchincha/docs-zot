@@ -37,6 +37,12 @@ jobs:
       # Generate site using playbook
       - name: Generate Site
         run: npx antora --fetch antora-playbook.yml
+      # Unzip archive using unzip util
+      - name: Unzip archive
+        run: unzip build/site.zip -d build/site
+      # Remove archive
+      - name: Remove archive
+        run: rm build/site.zip
       # Publish to Gh Pages
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
