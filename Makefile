@@ -21,6 +21,14 @@ md2adoc: ${MD_OBJECTS}
 %.adoc: %.md
 	${MD2ADOC} -o $@ $<
 
+.PHONY: setup-site
+setupi-site:
+	npm install
+
+.PHONY: gen-site
+gen-site:
+	npm start
+
 .PHONY: clean
 clean:
 	rm -f *.html
