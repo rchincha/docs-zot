@@ -44,7 +44,8 @@ jobs:
       - name: Remove archive
         run: rm build/site.zip
       # Publish to Gh Pages
-      - name: Publish to GitHub Pages
+      - if: github.event_name != 'pull_request'
+        name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
