@@ -22,7 +22,7 @@ md2adoc: ${MD_OBJECTS}
 	${MD2ADOC} -o $@ $<
 
 .PHONY: setup-site
-setupi-site:
+setup-site:
 	npm install
 
 .PHONY: gen-site
