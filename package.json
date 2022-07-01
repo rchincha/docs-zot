@@ -4,9 +4,10 @@
   },
   "devDependencies": {
     "@antora/cli": "3.0.1",
-    "@antora/site-generator": "3.0.1"
+    "@antora/site-generator": "3.0.1",
+    "glob-parent": "6.0.2"
   },
   "dependencies": {
-    "glob-parent": "^6.0.2"
+    "glob-parent": "6.0.2"
   }
 }
