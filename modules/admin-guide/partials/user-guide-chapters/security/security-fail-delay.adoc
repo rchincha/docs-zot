@@ -15,8 +15,3 @@ prevent automated attacks. The configuration is shown in the following example.
 
 The `failDelay` attribute specifies a waiting time, in seconds, before {zotLowerName}
 sends a failure notification to an authenticating user who has been denied access.
-
-.MIKE'S QUESTIONS
-****
-. What are the units, range, recommended value?
-****

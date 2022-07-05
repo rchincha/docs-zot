@@ -22,8 +22,8 @@ and garbage-collection disabled
 
 ==== Prerequisites
 
-* Helm version X.Y.Z
-* Kubernetes version A.B.C
+* Helm (latest stable release)
+* Kubernetes (latest stable release)
 * Ingress controller
 * Remote storage (S3-compatible)
 * {zotUpperName} configuration file specifying the above remote storage and
@@ -39,8 +39,3 @@ clients <--> loadbalancer <--> [zot replicas] <--> [[remote storage]]
 All incoming requests from clients are first intercepted at the load balancer
 and are then routed to one of the {zotLowerName} replicas, which then interfaces
 with the remote storage.
-
-.MIKE'S QUESTIONS
-****
-. Need Helm and Kubernetes versions.
-****

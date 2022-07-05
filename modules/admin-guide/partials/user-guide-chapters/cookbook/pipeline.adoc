@@ -1,0 +1,95 @@
+== Creating a trusted image pipeline with zot, cosign, and notation
+
+=== Install and start a zot server
+
+This example uses podman to install and start a zot server at
+http://localhost:5000.
+
+----
+$ podman run -p 5000:5000 ghcr.io/project-zot/zot-linux-amd64:latest
+----
+
+=== Push or pull using skopeo
+
+https://github.com/containers/skopeo[Skopeo]
+is a command line tool for performing operations on container images and
+image repositories. In this example, skopeo copies the latest container
+image for the `busybox` application from docker.io to the local zot server.
+The image is then copied to a local OCI-layout directory, where it is added
+to the manifest.
+
+----
+$ skopeo --insecure-policy copy --format=oci --dest-tls-verify=false \
+      docker://busybox:latest docker://localhost:5000/busybox:latest
+Getting image source signatures
+Copying blob 554879bc3004 done
+Copying config 02611c034a done
+Writing manifest to image destination
+Storing signatures
+
+$ skopeo --insecure-policy copy --src-tls-verify=false \
+      docker://localhost:5000/busybox:latest oci:/tmp/images:busybox:latest
+Getting image source signatures
+Copying blob 554879bc3004 done
+Copying config 02611c034a done
+Writing manifest to image destination
+Storing signatures
+
+$ cat /tmp/images/index.json | jq .
+{ "schemaVersion": 2,
+  "manifests": [
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf",
+      "size": 347,
+      "annotations": {
+        "org.opencontainers.image/ref.name": "busybox:latest"
+      }
+    }
+  ]
+}
+
+----
+
+=== Image signatures
+
+For signing container images, zot supports two open-source signing tools --
+http://github.com/sigstore/cosign[cosign] and
+http://github.com/notaryproject[notation]. In the following examples, a key pair
+is generated and an image file in the registry is signed using the private key.
+
+.Using cosign
+----
+$ cosign generate-key-pair
+Enter password for private key:
+Enter password for private key again:
+Private key written to cosign.key
+Public key written to cosign.pub
+
+$ cosign sign --key cosign.key localhost:5000/busybox:latest
+Enter password for private key:
+Pushing signature to: localhost:5000/busybox
+
+----
+
+.Using notation
+----
+$ notation cert generate-test --default --trust "zot-demo"
+generating RSA Key with 2048 bits
+generated certificates expiring on 2023-04-11T08:02:48Z
+wrote key: /home/user1/.config/notation/key/zot-demo.key
+wrote certificate /home/user1/.config/notation/certificate/zot-demo.cert
+zot-demo: added to the key list
+zot-demo: marked as default
+zot-demo: added to the certificate list
+
+$ notation sign --plain-http localhost:5000/busybox:latest
+sha256:asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+
+$ notation list --plain-http localhost:5000/busybox:latest
+sha256:1234567812345678123456781234567812345678123456781234567812345678
+
+$ notation verify --plain-http localhost:5000/busybox:latest
+sha256:asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+
+----

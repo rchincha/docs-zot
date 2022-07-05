@@ -18,17 +18,8 @@ The following table lists the configurable attributes.
 | Attribute | Description
 
 |`level` a| The minimum level for logged events. The levels are: +
-`emergency,`
-`alert,` `critical,` `error,` `warning,` `notification,` `informational,`
-and `debug.`
+`panic,` `fatal,` `error,` `warn,` `info,` `debug,` and `trace.`
 |`output` |The filesystem path for the log output file. The default is `stdout`.
 |`audit` |(Optional) If a filesystem path is specified for audit logging, an audit log is
 enabled and will be stored at the specified path.
 |===
-
-
-.MIKE'S QUESTIONS
-****
-. Are these the only attributes?
-. Are the correct levels shown?  Is there a default level?
-****

@@ -30,10 +30,3 @@ Security (TLS) settings for the server.
 |`cert` | The path and filename of the server's SSL/TLS certificate.
 |`key` | The path and filename of the server's registry key.
 |===
-
-
-.MIKE'S QUESTIONS
-****
-. Are these the only attributes?
-. Are there defaults?
-****

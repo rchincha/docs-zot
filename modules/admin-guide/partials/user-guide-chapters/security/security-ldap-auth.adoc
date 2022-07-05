@@ -32,17 +32,12 @@ The following table lists the configurable attributes for LDAP authentication.
 | `port` | The port number used by the LDAP service.
 | `startTLS` | Set to `true` to enable TLS communication with the LDAP server.
 | `baseDN` | Starting location within the LDAP directory for performing user searches.
-| `userAttribute` |
+| `userAttribute` | Attribute name used for a user.
 | `bindDN` | Base Distinguished Name for the LDAP search.
 | `bindPassword` | Password of the bind LDAP user.
-| `skipVerify` |
+| `skipVerify` | Skip TLS verification.
 | `subtreeSearch` | Set to `true` to expand the scope for search to include subtrees of the base DN.
 |===
 
 NOTE: When both htpasswd and LDAP configuration are specified, LDAP authentication
 is given preference.
-
-.MIKE'S QUESTIONS
-****
-. Need remaining attribute definitions
-****

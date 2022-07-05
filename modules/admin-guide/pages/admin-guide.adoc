@@ -10,7 +10,7 @@
 :zotUpperName: Zot
 :zotLowerName: zot
 
-Revised: 2022-06-16
+Revised: 2022-06-30
 
 //<<<
 
@@ -98,8 +98,6 @@ include::partial$user-guide-chapters/security/security-rate-limit.adoc[]
 
 include::partial$user-guide-chapters/server-configuration/sync-registries.adoc[]
 
-include::partial$user-guide-chapters/cookbook/advanced.adoc[]
-
 :leveloffset: -1
 
 
@@ -116,7 +114,6 @@ include::partial$user-guide-chapters/zb/zb.adoc[]
 :leveloffset: -1
 
 
-
 == Enterprise-wide zot
 
 :leveloffset: +1
@@ -125,6 +122,14 @@ include::partial$user-guide-chapters/server-configuration/clustering.adoc[]
 
 :leveloffset: -1
 
+
+== Advanced topics
+
+:leveloffset: +1
+
+include::partial$user-guide-chapters/cookbook/pipeline.adoc[]
+
+:leveloffset: -1
 
 == Maintenance
 

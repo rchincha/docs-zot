@@ -66,6 +66,10 @@ make OS=darwin ARCH=amd64 bench
 In this example, the resulting executable file is `zb-darwin-amd64` in the
 zot/bin directory.
 
+TIP: A sample Dockerfile for zb is available at 
+https://github.com/project-zot/zot/blob/main/Dockerfile-zb[Dockerfile-zb].
+
+
 === Running zb
 
 [TIP]

@@ -1,18 +1,34 @@
 == Why {zotLowerName}?
 
+At its heart, zot is a production-ready, vendor-neutral OCI image registry with
+images stored in the OCI image format and with the OCI distribution specification on-the-wire.
 {zotUpperName} is built for developers by developers, offering features such as
 minimal deployment using a single binary image, built-in authentication and
 authorization, and inline garbage collection and storage deduplication.
 
+image::504224.jpg[]
+
+Some of the principal advantages of {zotLowerName} are:
+
+- Open source
+- OCI standards-only both on-the-wire and on-disk
+- Clear separation between core distribution spec and zot-specific extensions
+- Software supply chain security, including support for
+http://github.com/sigstore/cosign[cosign] and
+http://github.com/notaryproject[notation]
+- Security hardening
+- Single binary with many features built-in
+- Suitable for deployments in cloud, bare-metal, and embedded devices
+
 {zotUpperName} fully conforms to the
 https://github.com/opencontainers/distribution-spec[OCI Distribution Specification].
 
-The following table lists some of the advantages of {zotLowerName}:
+The following table lists additional advantages of {zotLowerName}:
 
 |===
 | | {zotLowerName}
 
-| **Last stable release** | v1.3.0 (Sep 1, 2021)
+| **Last stable release** | TBD
 | **License** | Apache 2.0
 | **On-premise deployment** | yes
 | **OCI conformance*** | yes
@@ -29,20 +45,11 @@ The following table lists some of the advantages of {zotLowerName}:
 | **Command line interface (cli)** | yes
 | **ui** | yes
 | **External contributions** | yes
-| **CNCF project** | no
+| **CNCF project** | TBD
 | **distribution-spec conformance** | yes
 | **Image signatures** | built-in
 |===
 
-
 NOTE: * The *minimal build* feature is the ability to build a minimal
 distribution-spec compliant registry in order to reduce library dependencies
 and the possible attack surface.
-
-
-.MIKE'S QUESTIONS
-****
-. Update last stable release date/version?
-. Should we keep the CNCF line?
-. Should we change 'ui' to GUI?  Do we have that?
-****
