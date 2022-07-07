@@ -114,7 +114,11 @@
 <ul class="sectlevel1">
 <li><a href="#_introduction">Introduction</a>
 <ul class="sectlevel2">
-<li><a href="#_what_is_zot">What is zot?</a></li>
+<li><a href="#_what_is_zot">What is zot?</a>
+<ul class="sectlevel3">
+<li><a href="#_what_is_an_oci_image_registry">What is an OCI image registry?</a></li>
+</ul>
+</li>
 <li><a href="#_why_zot">Why zot?</a></li>
 </ul>
 </li>
@@ -203,7 +207,6 @@
 <li><a href="#_syncing_and_mirroring_registries">Syncing and mirroring registries</a>
 <ul class="sectlevel2">
 <li><a href="#_sync_registries">Synchronizing registries</a></li>
-<li><a href="#_advanced_topics">Advanced topics</a></li>
 </ul>
 </li>
 <li><a href="#_monitoring">Monitoring</a>
@@ -237,6 +240,17 @@
 </li>
 </ul>
 </li>
+<li><a href="#_advanced_topics">Advanced topics</a>
+<ul class="sectlevel2">
+<li><a href="#_creating_a_trusted_image_pipeline_with_zot_cosign_and_notation">Creating a trusted image pipeline with zot, cosign, and notation</a>
+<ul class="sectlevel3">
+<li><a href="#_install_and_start_a_zot_server">Install and start a zot server</a></li>
+<li><a href="#_push_or_pull_using_skopeo">Push or pull using skopeo</a></li>
+<li><a href="#_image_signatures">Image signatures</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#_maintenance">Maintenance</a>
 <ul class="sectlevel2">
 <li><a href="#_scrub_config">Scrubbing the image registry</a></li>
@@ -266,7 +280,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Revised: 2022-06-16</p>
+<p>Revised: 2022-06-30</p>
 </div>
 </div>
 </div>
@@ -275,15 +289,31 @@
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_what_is_zot"><a class="anchor" href="#_what_is_zot"></a><a class="link" href="#_what_is_zot">What is zot?</a></h3>
+<div class="quoteblock">
+<blockquote>
 <div class="paragraph">
-<p>Zot is an open-source, vendor-neutral container image registry application based purely
-on the <a href="https://github.com/opencontainers/distribution-spec">OCI Distribution Specification</a>
-published by the Open Container Initiative (OCI).</p>
+<p>Zot is a production-ready, open-source, vendor-neutral container image registry
+server based purely on OCI standards.</p>
+</div>
+</blockquote>
 </div>
 <div class="paragraph">
-<p>An OCI image registry is a server-based application that allows you to store, manage, and share
-container images.  A developer uploads (pushes) an image to the registry for distribution. Users can
-then download (pull) the image to run on their systems.  The OCI Distribution Specification
+<p>Two broad trends are changing how we build, distribute, and consume software.
+The first trend is the increasing adoption of container technologies. The second trend is
+that software solutions are being composed by combining elements from various sources
+rather than being built entirely from scratch. The latter trend raises the importance of
+software provenance and supply chain security. In both trends, zot intends
+to play an important role by providing a production-ready, open-source, vendor-neutral
+container image registry server based purely on OCI standards.</p>
+</div>
+<div class="sect3">
+<h4 id="_what_is_an_oci_image_registry"><a class="anchor" href="#_what_is_an_oci_image_registry"></a><a class="link" href="#_what_is_an_oci_image_registry">What is an OCI image registry?</a></h4>
+<div class="paragraph">
+<p>An OCI image registry is a server-based application that allows you to store, manage,
+and share container images.  A developer uploads (pushes) an image to the registry for
+distribution. Users can then download (pull) the image to run on their systems.  The
+<a href="https://github.com/opencontainers/distribution-spec">OCI Distribution Specification</a>,
+published by the Open Container Initiative (OCI),
 defines a standard API protocol for these and other image registry operations.</p>
 </div>
 <div class="paragraph">
@@ -293,29 +323,58 @@ private server. In its minimal form, you can also embed a zot registry
 in a product.  In either case, zot provides a secure
 software supply chain for container images.</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_why_zot"><a class="anchor" href="#_why_zot"></a><a class="link" href="#_why_zot">Why zot?</a></h3>
+<div class="paragraph">
+<p>At its heart, zot is a production-ready, vendor-neutral OCI image registry with
+images stored in the OCI image format and with the OCI distribution specification on-the-wire.
+Zot is built for developers by developers, offering features such as
+minimal deployment using a single binary image, built-in authentication and
+authorization, and inline garbage collection and storage deduplication.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="_images/504224.jpg" alt="504224">
 </div>
 </div>
 <div class="paragraph">
-<p>Zot is an open-source project hosted on
-GitHub at <a href="https://github.com/project-zot/zot">project-zot</a>.</p>
+<p>Some of the principal advantages of zot are:</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_why_zot"><a class="anchor" href="#_why_zot"></a><a class="link" href="#_why_zot">Why zot?</a></h3>
-<div class="paragraph">
-<p>Zot is built for developers by developers, offering features such as
-minimal deployment using a single binary image, built-in authentication and
-authorization, and inline garbage collection and storage deduplication.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Open source</p>
+</li>
+<li>
+<p>OCI standards-only both on-the-wire and on-disk</p>
+</li>
+<li>
+<p>Clear separation between core distribution spec and zot-specific extensions</p>
+</li>
+<li>
+<p>Software supply chain security, including support for
+<a href="http://github.com/sigstore/cosign">cosign</a> and
+<a href="http://github.com/notaryproject">notation</a></p>
+</li>
+<li>
+<p>Security hardening</p>
+</li>
+<li>
+<p>Single binary with many features built-in</p>
+</li>
+<li>
+<p>Suitable for deployments in cloud, bare-metal, and embedded devices</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Zot fully conforms to the
 <a href="https://github.com/opencontainers/distribution-spec">OCI Distribution Specification</a>.</p>
 </div>
 <div class="paragraph">
-<p>The following table lists some of the advantages of zot:</p>
+<p>The following table lists additional advantages of zot:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -331,7 +390,7 @@ authorization, and inline garbage collection and storage deduplication.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Last stable release</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">v1.3.0 (Sep 1, 2021)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TBD</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>License</strong></p></td>
@@ -399,7 +458,7 @@ authorization, and inline garbage collection and storage deduplication.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CNCF project</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TBD</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>distribution-spec conformance</strong></p></td>
@@ -424,24 +483,6 @@ and the possible attack surface.
 </td>
 </tr>
 </table>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">MIKE&#8217;S QUESTIONS</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Update last stable release date/version?</p>
-</li>
-<li>
-<p>Should we keep the CNCF line?</p>
-</li>
-<li>
-<p>Should we change 'ui' to GUI?  Do we have that?</p>
-</li>
-</ol>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -1396,21 +1437,6 @@ Security (TLS) settings for the server.</p></td>
 </tr>
 </tbody>
 </table>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">MIKE&#8217;S QUESTIONS</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Are these the only attributes?</p>
-</li>
-<li>
-<p>Are there defaults?</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -1830,7 +1856,7 @@ to enable and configure LDAP authentication, as shown in the following example.<
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>userAttribute</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attribute name used for a user.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>bindDN</code></p></td>
@@ -1842,7 +1868,7 @@ to enable and configure LDAP authentication, as shown in the following example.<
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>skipVerify</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Skip TLS verification.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>subtreeSearch</code></p></td>
@@ -1862,18 +1888,6 @@ is given preference.
 </td>
 </tr>
 </table>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">MIKE&#8217;S QUESTIONS</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Need remaining attribute definitions</p>
-</li>
-</ol>
-</div>
-</div>
 </div>
 </div>
 <div class="sect3">
@@ -2071,18 +2085,6 @@ prevent automated attacks. The configuration is shown in the following example.<
 <p>The <code>failDelay</code> attribute specifies a waiting time, in seconds, before zot
 sends a failure notification to an authenticating user who has been denied access.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">MIKE&#8217;S QUESTIONS</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>What are the units, range, recommended value?</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_rate_limiting"><a class="anchor" href="#_rate_limiting"></a><a class="link" href="#_rate_limiting">Rate limiting</a></h3>
@@ -2245,8 +2247,8 @@ multiple URLs for the same registry in case one or more fails.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>pollInterval</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The period between polling of remote registries. If no value is
-specified, no periodic polling will occur.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The period in seconds between polling of remote registries.
+If no value is specified, no periodic polling will occur.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>tlsVerify</code></p></td>
@@ -2274,8 +2276,8 @@ If no value is specified, no retries will occur.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>retryDelay</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The interval between retries. This attribute is mandatory when
-maxRetries is configured.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The interval in seconds between retries.
+This attribute is mandatory when maxRetries is configured.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>onlySigned</code></p></td>
@@ -2352,7 +2354,8 @@ do not match the expression are not pulled.</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>semver</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Specifies whether image tags are to be filtered by semantic versioning (semver)
+<p>Specifies whether image tags are to be filtered by
+<a href="https://semver.org/">Semantic Versioning</a> (semver)
 compliance.</p>
 </div>
 <div class="ulist">
@@ -2368,50 +2371,6 @@ compliance.</p>
 </tr>
 </tbody>
 </table>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">MIKE&#8217;S QUESTIONS</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Are these the only attributes?</p>
-</li>
-<li>
-<p>What are the defaults?</p>
-</li>
-<li>
-<p>What are the units and ranges for intervals and retries?</p>
-</li>
-<li>
-<p>Should we expand on semver compliance? Does it use the regex or are they separate?</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_advanced_topics"><a class="anchor" href="#_advanced_topics"></a><a class="link" href="#_advanced_topics">Advanced topics</a></h3>
-<div class="paragraph">
-<p><strong>This is a placeholder for the Advanced Topics Cookbook.</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>Create a trusted image pipeline with zot, cosign, and Notation</pre>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">MIKE&#8217;S QUESTIONS</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Need the workflow</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -2452,9 +2411,7 @@ configuration file, as shown in the following example.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>level</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>The minimum level for logged events. The levels are:<br>
-<code>emergency,</code>
-<code>alert,</code> <code>critical,</code> <code>error,</code> <code>warning,</code> <code>notification,</code> <code>informational,</code>
-and <code>debug.</code></p>
+<code>panic,</code> <code>fatal,</code> <code>error,</code> <code>warn,</code> <code>info,</code> <code>debug,</code> and <code>trace.</code></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2468,21 +2425,6 @@ enabled and will be stored at the specified path.</p></td>
 </tr>
 </tbody>
 </table>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">MIKE&#8217;S QUESTIONS</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Are these the only attributes?</p>
-</li>
-<li>
-<p>Are the correct levels shown?  Is there a default level?</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_metrics_config"><a class="anchor" href="#_metrics_config"></a><a class="link" href="#_metrics_config">Metrics</a></h3>
@@ -2539,28 +2481,13 @@ node exporter.</p></td>
 </tr>
 </tbody>
 </table>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">MIKE&#8217;S QUESTIONS</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Are these the only attributes?</p>
-</li>
-<li>
-<p>What additional info do we need about prometheus, etc?</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
 </div>
 <div class="sect3">
 <h4 id="_collecting_metrics_from_a_minimal_zot_image_using_a_node_exporter"><a class="anchor" href="#_collecting_metrics_from_a_minimal_zot_image_using_a_node_exporter"></a><a class="link" href="#_collecting_metrics_from_a_minimal_zot_image_using_a_node_exporter">Collecting metrics from a minimal zot image using a node exporter</a></h4>
 <div class="paragraph">
 <p>Although a minimal zot image does not contain a node exporter, it
 exposes internal metrics in a Prometheus format for collection by a separate
-node exporter tool such as <code>zxp</code>. The zot companion binary <code>zxp</code>
+node exporter tool such as zxp. The zot companion binary zxp
 is a node exporter that can be deployed with a minimal zot image in
 order to scrape metrics from the zot server.</p>
 </div>
@@ -2571,14 +2498,14 @@ exporter has not performed any scraping for some period. No extra zot
 configuration is needed for this behavior.</p>
 </div>
 <div class="paragraph">
-<p>You can download the <code>zxp</code> executable binary for your server platform and
+<p>You can download the zxp executable binary for your server platform and
 architecture under "Assets" on the GitHub
 <a href="https://github.com/project-zot/zot/releases">zot releases</a> page.</p>
 </div>
 <div class="paragraph">
 <p>The binary image is named using the target platform and architecture. For example,
 the binary for an Intel-based MacOS server is
-<code>zxp-darwin-amd64</code>.  To configure the <code>zxp</code> example image, run this command:</p>
+<code>zxp-darwin-amd64</code>.  To configure the zxp example image, run this command:</p>
 </div>
 <div class="paragraph">
 <p><code><strong>zxp-darwin-amd64</strong> <strong>config</strong> <em>zxp-config-file</em></code></p>
@@ -2595,8 +2522,21 @@ For convenience, you can rename the binary image file to simply <code>zxp.</code
 </tr>
 </table>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+A sample Dockerfile for zxp is available at
+<a href="https://github.com/project-zot/zot/blob/main/Dockerfile-zxp">Dockerfile-zxp</a>.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
-<p>The configuration file of <code>zxp</code> contains connection details for the zot
+<p>The configuration file of zxp contains connection details for the zot
 server from which it will scrape metrics. The following JSON structure is an example
 of the <code><em>zxp-config-file</em></code> contents:</p>
 </div>
@@ -2625,29 +2565,14 @@ of the <code><em>zxp-config-file</em></code> contents:</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The <code>zxp</code> module does not have Prometheus integration.</p>
+<p>The zxp module does not have Prometheus integration.</p>
 </div>
 <div class="paragraph">
-<p>The <code>zxp</code> module is not needed with a full zot image.</p>
+<p>The zxp module is not needed with a full zot image.</p>
 </div>
 </td>
 </tr>
 </table>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">MIKE&#8217;S QUESTIONS</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Are these the only attributes?</p>
-</li>
-<li>
-<p>Do we need to say more about zxp?</p>
-</li>
-</ol>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -2776,6 +2701,19 @@ Use the same command options that you used to build zot, as shown:</p>
 <div class="paragraph">
 <p>In this example, the resulting executable file is <code>zb-darwin-amd64</code> in the
 zot/bin directory.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+A sample Dockerfile for zb is available at
+<a href="https://github.com/project-zot/zot/blob/main/Dockerfile-zb">Dockerfile-zb</a>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -2928,10 +2866,10 @@ and garbage-collection disabled</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Helm version X.Y.Z</p>
+<p>Helm (latest stable release)</p>
 </li>
 <li>
-<p>Kubernetes version A.B.C</p>
+<p>Kubernetes (latest stable release)</p>
 </li>
 <li>
 <p>Ingress controller</p>
@@ -2970,16 +2908,112 @@ must also be identical across all replicas.
 and are then routed to one of the zot replicas, which then interfaces
 with the remote storage.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">MIKE&#8217;S QUESTIONS</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Need Helm and Kubernetes versions.</p>
-</li>
-</ol>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_advanced_topics"><a class="anchor" href="#_advanced_topics"></a><a class="link" href="#_advanced_topics">Advanced topics</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_creating_a_trusted_image_pipeline_with_zot_cosign_and_notation"><a class="anchor" href="#_creating_a_trusted_image_pipeline_with_zot_cosign_and_notation"></a><a class="link" href="#_creating_a_trusted_image_pipeline_with_zot_cosign_and_notation">Creating a trusted image pipeline with zot, cosign, and notation</a></h3>
+<div class="sect3">
+<h4 id="_install_and_start_a_zot_server"><a class="anchor" href="#_install_and_start_a_zot_server"></a><a class="link" href="#_install_and_start_a_zot_server">Install and start a zot server</a></h4>
+<div class="paragraph">
+<p>This example uses podman to install and start a zot server at
+<a href="http://localhost:5000" class="bare">http://localhost:5000</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ podman run -p 5000:5000 ghcr.io/project-zot/zot-linux-amd64:latest</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_push_or_pull_using_skopeo"><a class="anchor" href="#_push_or_pull_using_skopeo"></a><a class="link" href="#_push_or_pull_using_skopeo">Push or pull using skopeo</a></h4>
+<div class="paragraph">
+<p><a href="https://github.com/containers/skopeo">Skopeo</a>
+is a command line tool for performing operations on container images and
+image repositories. In this example, skopeo copies the latest container
+image for the <code>busybox</code> application from docker.io to the local zot server.
+The image is then copied to a local OCI-layout directory, where it is added
+to the manifest.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ skopeo --insecure-policy copy --format=oci --dest-tls-verify=false \
+      docker://busybox:latest docker://localhost:5000/busybox:latest
+Getting image source signatures
+Copying blob 554879bc3004 done
+Copying config 02611c034a done
+Writing manifest to image destination
+Storing signatures
+
+$ skopeo --insecure-policy copy --src-tls-verify=false \
+      docker://localhost:5000/busybox:latest oci:/tmp/images:busybox:latest
+Getting image source signatures
+Copying blob 554879bc3004 done
+Copying config 02611c034a done
+Writing manifest to image destination
+Storing signatures
+
+$ cat /tmp/images/index.json | jq .
+{ "schemaVersion": 2,
+  "manifests": [
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf",
+      "size": 347,
+      "annotations": {
+        "org.opencontainers.image/ref.name": "busybox:latest"
+      }
+    }
+  ]
+}</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_image_signatures"><a class="anchor" href="#_image_signatures"></a><a class="link" href="#_image_signatures">Image signatures</a></h4>
+<div class="paragraph">
+<p>For signing container images, zot supports two open-source signing tools&#8201;&#8212;&#8201;<a href="http://github.com/sigstore/cosign">cosign</a> and
+<a href="http://github.com/notaryproject">notation</a>. In the following examples, a key pair
+is generated and an image file in the registry is signed using the private key.</p>
+</div>
+<div class="listingblock">
+<div class="title">Using cosign</div>
+<div class="content">
+<pre>$ cosign generate-key-pair
+Enter password for private key:
+Enter password for private key again:
+Private key written to cosign.key
+Public key written to cosign.pub
+
+$ cosign sign --key cosign.key localhost:5000/busybox:latest
+Enter password for private key:
+Pushing signature to: localhost:5000/busybox</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Using notation</div>
+<div class="content">
+<pre>$ notation cert generate-test --default --trust "zot-demo"
+generating RSA Key with 2048 bits
+generated certificates expiring on 2023-04-11T08:02:48Z
+wrote key: /home/user1/.config/notation/key/zot-demo.key
+wrote certificate /home/user1/.config/notation/certificate/zot-demo.cert
+zot-demo: added to the key list
+zot-demo: marked as default
+zot-demo: added to the certificate list
+
+$ notation sign --plain-http localhost:5000/busybox:latest
+sha256:asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+
+$ notation list --plain-http localhost:5000/busybox:latest
+sha256:1234567812345678123456781234567812345678123456781234567812345678
+
+$ notation verify --plain-http localhost:5000/busybox:latest
+sha256:asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</pre>
 </div>
 </div>
 </div>
