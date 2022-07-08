@@ -1,5 +1,5 @@
 site:
-  title: Zot Docs
+  title: zot documentation
   start_page: zot-docs-1:developer-guide:draft-developer-guide-chapters.adoc
 content:
   #Repositories to pull for docs
@@ -22,3 +22,7 @@ ui:
   - path: .nojekyll
 runtime:
   fetch: true
+asciidoc:
+  attributes:
+    toc: center
+    toc-title: zot Documentation Guides

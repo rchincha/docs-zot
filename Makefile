@@ -32,3 +32,4 @@ gen-site:
 .PHONY: clean
 clean:
 	rm -f *.html
+	rm -rf build
