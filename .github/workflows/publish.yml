@@ -1,52 +1,44 @@
-# This is a basic workflow to help you get started with Actions
-
-name: Publish to Github Pages
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
+  release:
+    types:
+      - published
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+name: build-and-push-githubpages
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+jobs:
+  build:
+    name: Build and push docs to Github Pages
+    runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout Repository
+      - name: Checkout Code
         uses: actions/checkout@v3
 
-      # Install node js
       - name: Install Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '16'
-      # Install antora
+
       - name: Install Antora
-        run: npm i antora
-      # Generate site using playbook
+        run: npm install
+
       - name: Generate Site
         run: npx antora --fetch antora-playbook.yml
-      # Unzip archive using unzip util
+
       - name: Unzip archive
         run: unzip build/site.zip -d build/site
-      # Remove archive
+
       - name: Remove archive
         run: rm build/site.zip
-      # Publish to Gh Pages
-      - if: github.event_name != 'pull_request'
-        name: Publish to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+
+      - name: Push to github-pages branch on zot-site
+        uses: cpina/github-action-push-to-another-repository@v1.5
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build/site
+          source-directory: 'build/site'
+          destination-github-username: 'project-zot'
+          destination-repository-name: 'project-zot.github.io'
+          user-email: rchincha@cisco.com
+          target-branch: main
+          target-directory: docs
