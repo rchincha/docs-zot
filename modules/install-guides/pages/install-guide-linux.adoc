@@ -1,0 +1,286 @@
+= Installation Guide for Bare Metal Linux
+:doctype: book
+:icons: font
+:source-highlighter: highlight.js
+:sectlinks:
+
+Revised: 2022-08-09
+
+== Before you begin
+
+=== Supported platforms
+
+You can install zot on standard Linux platforms with
+Intel or ARM processors and with systemd installed.
+
+[supported-platforms-zot]
+.Supported platforms and architectures
+[%autowidth]
+|===
+| OS | ARCH | Platform
+
+| linux | amd64 | Intel-based Linux servers
+| linux | arm64 | ARM-based servers and Raspberry Pi4
+|===
+
+=== Full and minimal binary images
+
+In addition to variations for specific platforms and architectures, binary images
+are also available in full and minimal implementations:
+
+- A full zot binary image is compiled with all extensions. Extensions
+include functions such as metrics, registry synchronization, search, and scrub.
+
+- A minimal distribution-spec conformant zot binary image is compiled with
+only a minimal set of code and libraries, reducing the attack surface. This
+option might be optimal for a registry embedded in a shipping product.
+
+=== Binary image file naming
+
+An executable binary image for zot is named using the target platform and
+architecture from the
+ <<supported-platforms-zot, Supported platforms and architectures>>
+ table. The general format of a binary image file name is one of these two:
+
+``zot-_os_-_architecture_``
+
+- A full zot binary image with all extensions has a filename of the
+form ``zot-_os_-_architecture_.`` For example, the full binary image for an
+Intel-based linux server is `zot-linux-amd64`.
+
+``zot-_os_-_architecture_-minimal``
+
+- A minimal distribution-spec conformant zot binary image has a filename of
+the form ``zot-_os_-_architecture_-minimal``. For example, the minimal binary
+image for an Intel-based linux server is `zot-linux-amd64-minimal`.
+
+== Installation
+
+=== Step 1: Get zot
+
+Using `wget,` download the appropriate zot binary image for your platform from the
+https://github.com/project-zot/zot/releases[zot GitHub project]. Download the image
+to the`/usr/bin/` directory and rename it to `zot,` as in this example:
+
+----
+$ wget -O /usr/bin/zot  https://github.com/project-zot/zot/releases/download/v1.4.2-rc2/zot-linux-amd64
+----
+
+.MIKE'S QUESTIONS
+****
+. Do we need to rename the binary or to chmod it to be executable?
+. What does -N do?
+****
+
+=== Step 2: Create a zot configuration file
+
+Create a zot configuration file as `/etc/zot/config.json`.
+
+See <<config_file,Configuration file options>> for an example file with
+options and recommendations. You can find other onfiguration file
+https://github.com/project-zot/zot/tree/main/examples[examples] in
+the zot GitHub project and in the _Zot Administrator Guide_.
+
+
+=== Step 3: Configure a local authentication account
+
+If you want to use local authentication with zot, create a `/etc/zot/htpasswd`
+file with an initial account entry using the `htpasswd` command as in this
+example:
+
+----
+$ htpasswd -bnB myUserName myPassword > /etc/zot/htpasswd
+----
+
+To add additional local users, use the `>>` redirect as in this example:
+
+----
+$ htpasswd -bnB myUserName2 myPassword2 >> /etc/zot/htpasswd
+----
+
+=== Step 4: Define the zot service
+
+Create a `/etc/systemd/system/zot.service` file to define the zot service
+in systemd.  The following is an example service file for zot:
+
+----
+[Unit]
+Description=OCI Distribution Registry
+Documentation=https://zotregistry.io/
+After=network.target auditd.service local-fs.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/zot serve /etc/zot/config.json
+Restart=on-failure
+User=zot
+Group=zot
+LimitNOFILE=500000
+MemoryHigh=30G
+MemoryMax=32G
+
+[Install]
+WantedBy=multi-user.target
+----
+
+NOTE: Be sure to make 'zot' the User and Group.
+
+=== Step 5: Set up a user ID named 'zot'
+
+Create a user account 'zot' to be the owner of the zot service and its resources.
+
+The following commands create the account and assign resource ownership:
+
+----
+$ sudo adduser --no-create-home --disabled-password --gecos --disabled-login zot
+
+$ sudo mkdir -p /data/zot
+$ sudo chown -R zot:zot /data/zot
+
+$ sudo mkdir -p /var/log/zot
+$ sudo chown -R zot:zot /var/log/zot
+
+$ sudo chown root:root /usr/bin/zot
+$ sudo chown root:root config.json
+----
+
+With the `adduser` options shown, the 'zot' user ID will have no local directory.
+There will be no ability to log into the zot account, and the account will have
+no finger information.
+
+=== Step 6: Start zot
+
+Enable and start the zot service with these commands:
+
+----
+$ sudo systemctl enable zot
+$ sudo systemctl start zot
+----
+
+When the zot service has started, you can check its status with this command:
+
+----
+$ sudo systemctl status zot
+----
+
+
+== After the installation
+
+If your zot registry server is public facing, we recommend that you test
+your TLS configuration using a service such as
+the https://www.ssllabs.com/ssltest/[Qualys SSL Server Test].
+
+Refer to the _Zot Administrator Guide_ for further information about maintaining your
+zot registry server.
+
+
+[[config_file]]
+== Configuration file options and recommendations
+
+The following zot configuration file (`config.json`) can be used as a template
+for your own installation. You can modify this file to suit your own environment.
+
+Refer to the _Zot Administrator Guide_ for more details about configuration file
+options.
+
+[source,json]
+----
+{
+  "distSpecVersion":"1.0.1",
+  "storage":{
+    "dedupe": true,
+    "gc": true,
+    "gcDelay": "1h",
+    "gcInterval": "6h",
+    "rootDirectory":"/data/zot/"
+  },
+  "http": {
+    "address":"0.0.0.0",
+    "port":"443",
+    "realm":"zot",
+    "tls": {
+      "cert": "/etc/letsencrypt/live/zothub.io/fullchain.pem",
+      "key": "/etc/letsencrypt/live/zothub.io/privkey.pem"
+    },
+    "auth": {
+      "htpasswd": {
+        "path": "/etc/zot/htpasswd"
+      },
+      "failDelay": 5
+    },
+    "allowReadAccess": true
+  },
+  "log":{
+    "level":"debug",
+    "output":"/var/log/zot/zot.log",
+    "audit":"/var/log/zot/zot-audit.log"
+  },
+  "extensions": {
+    "search": {
+      "enable": true,
+      "cve": {
+        "updateInterval": "24h"
+      }
+    },
+    "sync": {
+      "enable": false,
+      "registries": [
+        {
+          "urls": ["https://mirror.gcr.io/library"],
+          "onDemand": true,
+          "maxRetries": 3,
+          "retryDelay": "5m",
+          "pollInterval": "6h"
+        },
+        {
+          "urls": ["https://docker.io/library"],
+          "onDemand": true
+        }
+      ]
+    },
+    "scrub": {
+      "interval": "24h"
+    }
+  }
+}
+----
+
+=== TLS encryption
+
+We recommend using a certificate authority such as
+https://letsencrypt.org/[Let's Encrypt] that offers TLS encryption, as
+shown in this configuration example:
+
+[source,json]
+----
+"tls": {
+  "cert": "/etc/letsencrypt/live/zothub.io/fullchain.pem",
+  "key": "/etc/letsencrypt/live/zothub.io/privkey.pem"
+}
+----
+
+=== Registry synchronization
+
+The example file enables registry synchronization with two other container
+registries. In the example, the zot server synchronizes with the Google
+and Docker container registries, as shown here:
+
+[source,json]
+----
+"sync": {
+  "enable": false,
+  "registries": [
+    {
+      "urls": ["https://mirror.gcr.io/library"],
+      "onDemand": true,
+      "maxRetries": 3,
+      "retryDelay": "5m",
+      "pollInterval": "6h"
+    },
+    {
+      "urls": ["https://docker.io/library"],
+      "onDemand": true
+    }
+  ]
+}
+----

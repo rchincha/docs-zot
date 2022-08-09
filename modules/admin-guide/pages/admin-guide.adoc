@@ -1,16 +1,12 @@
-= {zotUpperName} Registry Administrator Guide
+= {zotUpperName} Administrator Guide
 :doctype: book
 :icons: font
-:source-highlighter: highlightjs
-:toc: left
-:toclevels: 3
-:imagesdir: images
-:title-logo-image: {imagesdir}/zot-01.png
+:source-highlighter: highlight.js
 :sectlinks:
 :zotUpperName: Zot
 :zotLowerName: zot
 
-Revised: 2022-06-30
+Revised: 2022-08-09
 
 //<<<
 
