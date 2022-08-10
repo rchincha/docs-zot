@@ -123,13 +123,17 @@ MemoryMax=32G
 WantedBy=multi-user.target
 ----
 
-NOTE: Be sure to make 'zot' the User and Group.
+NOTE: Be sure to configure a dedicated non-root user ID as the User and Group in
+the zot service definition. The 'zot' user ID in this example is created in the
+next step.
 
-=== Step 5: Set up a user ID named 'zot'
 
-Create a user account 'zot' to be the owner of the zot service and its resources.
+=== Step 5: Create a user ID to own the zot service
 
-The following commands create the account and assign resource ownership:
+Create a non-root user ID to be the owner of the zot service and its resources.
+
+In this example, the user ID 'zot' is created with the `adduser` command, and
+resource ownership is assigned.
 
 ----
 $ sudo adduser --no-create-home --disabled-password --gecos --disabled-login zot
@@ -144,9 +148,10 @@ $ sudo chown root:root /usr/bin/zot
 $ sudo chown root:root config.json
 ----
 
-With the `adduser` options shown, the 'zot' user ID will have no local directory.
-There will be no ability to log into the zot account, and the account will have
+With the `adduser` options shown, the 'zot' user ID has no local directory.
+There is no ability to log into the zot user account, and the account has
 no finger information.
+
 
 === Step 6: Start zot
 
