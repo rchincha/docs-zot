@@ -5,6 +5,7 @@ Add the `sync` attribute under `extensions` in the configuration file to enable
 and configure the periodic or on-demand synchronization of your {zotLowerName}
 image registry with other image registries, as shown in the following example.
 
+[source,json]
 ----
 "extensions": {
     "sync": {

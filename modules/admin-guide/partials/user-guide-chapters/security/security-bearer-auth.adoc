@@ -5,6 +5,7 @@
 attributes under `http` in the configuration file to enable and configure OAuth2
 authentication, as shown in the following example.
 
+[source,json]
 ----
 "http": {
   "auth": {

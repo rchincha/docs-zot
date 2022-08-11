@@ -4,6 +4,7 @@
 You can limit the rate of API calls from users by configuring the `Ratelimit`
 attribute in the configuration file, as shown in the following example:
 
+[source,json]
 ----
 "http": {
     "address": "127.0.0.1",

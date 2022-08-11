@@ -5,6 +5,7 @@ Use the `auth` and `failDelay` attributes under `http` in the configuration file
 to delay the response to an authentication failure. A delayed response helps to
 prevent automated attacks. The configuration is shown in the following example.
 
+[source,json]
 ----
 "http": {
   "auth": {

@@ -4,6 +4,7 @@
 Use the `tls` attribute under `http` in the configuration file to enable and
 configure TLS mutual authentication, as shown in the following example.
 
+[source,json]
 ----
 "http": {
   "tls": {

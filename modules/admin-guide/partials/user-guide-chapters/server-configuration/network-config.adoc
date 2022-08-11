@@ -4,6 +4,7 @@
 Use the `http` attribute in the configuration file to configure the {zotLowerName}
 network settings, as shown in the following example.
 
+[source,json]
 ----
 "http": {
   "address":"127.0.0.1",

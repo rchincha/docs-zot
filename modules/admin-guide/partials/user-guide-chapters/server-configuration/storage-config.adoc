@@ -11,6 +11,7 @@ Service (S3) bucket.
 Local filesystem storage for {zotLowerName} is configured with the `storage`
 attribute in the configuration file, as shown in the following example.
 
+[source,json]
 ----
 "storage":{
   "rootDirectory":"/tmp/zot",
@@ -51,6 +52,7 @@ at the specified interval. Requires the `gc` attribute to be `true`.
 You can store and serve images from multiple filesystems, each with
 their own repository paths and settings. The following example shows three subpaths.
 
+[source,json]
 ----
 "storage":{
   "subPaths": {
@@ -86,6 +88,7 @@ their own repository paths and settings. The following example shows three subpa
 Amazon Simple Storage Service (S3) for {zotLowerName} can be configured with the
 `storageDriver` attribute in the configuration file, as shown in the following example:
 
+[source,json]
 ----
 "storageDriver": {
     "name": "s3",
@@ -101,6 +104,7 @@ Amazon Simple Storage Service (S3) for {zotLowerName} can be configured with the
 As in the case with local filesystem storage, you can use multiple storage
 locations using the `subpath` attribute, as in the following example.
 
+[source,json]
 ----
 "subPaths": {
     "/a": {
@@ -115,8 +119,12 @@ locations using the `subpath` attribute, as in the following example.
     },
     "/b": {
 
-[continue]
+...
+
+    }
+}
 ----
+
 
 [#_s3_credentials]
 === S3 Credentials

@@ -4,7 +4,7 @@
 :source-highlighter: highlight.js
 :sectlinks:
 
-Revised: 2022-08-09
+Revised: 2022-08-10
 
 == Getting Started
 
@@ -12,6 +12,18 @@ Revised: 2022-08-09
 
 Development is officially supported on `Linux` and `Apple MacOS` platforms. However,
 development should be possible on any platform that supports the `golang` toolchain.
+
+[supported-platforms-and-architectures-table-zot]
+.Supported platforms and architectures
+[%autowidth]
+|===
+| OS | ARCH | Platform
+
+| linux | amd64 | Intel-based Linux servers
+| linux | arm64 | ARM-based servers and Raspberry Pi4
+| darwin | amd64 | Intel-based MacOS
+| darwin | arm64 | ARM-based MacOS (Apple M1)
+|===
 
 === Prerequisites
 
@@ -39,43 +51,29 @@ following general syntax:
 
 ``$ make OS=_os_ ARCH=_architecture_ {binary | binary-minimal}``
 
-The `binary` option builds the full zot binary with all extensions. +
-The `binary-minimal` option builds the minimal zot binary without extensions.
+====
+- The operating system and architecture options are listed in the
+ <<supported-platforms-and-architectures-table-zot, Supported platforms and architectures>>
+ table. If an option is not specified, the defaults are `linux` and `amd64`.
 
-==== Examples
+- The `binary` option builds the full zot binary image with all extensions.
 
-The following are examples of the `make` command for several supported platforms
-and architectures:
+- The `binary-minimal` option builds the minimal distribution-spec conformant zot
+binary image without extensions, reducing the attack surface.
+====
 
-- Linux/Intel-based platforms
-+
+For example, to build a zot image with extensions for an Intel-based
+linux server, use the following command:
+
 ----
-$ make OS=linux ARCH=amd64 binary
-----
-
-- Linux/amd64 platform
-+
-----
-$ make OS=linux ARCH=amd64 binary
+make OS=linux ARCH=amd64 binary
 ----
 
-- Linux/ARM64-based platforms such as ARM64 servers and Raspberry Pi4
-+
-----
-$ make OS=linux ARCH=arm64 binary
-----
+The `make` command builds an executable image in the `zot/bin` directory.
+The original filename of the zot executable image will indicate the
+build options. For example, the filename of an Intel-based linux minimal image is
+`zot-linux-amd64-minimal`.
 
-- Apple MacOS/Intel-based platforms
-+
-----
-$ make OS=darwin ARCH=amd64 binary
-----
-
-- Apple MacOS/ARM64-based platforms
-+
-----
-$ make OS=darwin ARCH=arm64 binary
-----
 
 === Running zot
 
@@ -85,6 +83,21 @@ To launch the zot server, execute the following command:
 ----
 $  bin/zot-linux-amd64 serve examples/config-example.json
 ----
+
+== Debugging zot
+
+To produce a zot binary that includes extensive debugging information,
+build zot with the `binary-debug` option, as shown in this example:
+
+----
+make OS=linux ARCH=amd64 binary-debug
+----
+
+You can then attach and run a debugging tool such as Delve to the running zot process.
+
+Delve is a powerful open-source debugger for the Go programming language.
+Downloads and documentation for Delve are available on GitHub
+at https://github.com/go-delve/delve.
 
 
 == Code Organization
@@ -111,7 +124,7 @@ The `zot` project codebase is organized as follows:
 - cmd/              # Source code for binary main()s
   - zot/            # Source code for zot binary
   - zli/            # Source code for zot cli
-  - zb/             # Source code for zb which is the dist-spec benchmarking tool
+  - zb/             # Source code for zb, the dist-spec benchmarking tool
 - errors/           # Source code for error codes
 - examples/         # Configuration examples
 - swagger/          # Swagger integration

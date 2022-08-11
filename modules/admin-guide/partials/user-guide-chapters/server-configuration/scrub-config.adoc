@@ -9,6 +9,7 @@ registry performance.
 To enable scrubbing, add the `scrub` attribute under `extensions` in the
 configuration file, as shown in the following example:
 
+[source,json]
 ----
 "extensions": {
   "scrub": {

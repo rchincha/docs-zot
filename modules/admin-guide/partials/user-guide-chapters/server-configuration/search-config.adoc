@@ -7,6 +7,7 @@ you can enable enhanced registry searching and filtering using graphQL.
 Add the `search` attribute under `extensions` in the configuration file to enable
 and configure the enhanced search extension, as shown in the following example.
 
+[source,json]
 ----
 "extensions": {
     "search": {

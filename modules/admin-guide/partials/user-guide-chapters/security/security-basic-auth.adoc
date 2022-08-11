@@ -4,6 +4,7 @@
 Use the `auth` and `htpasswd` attributes under `http` in the configuration file
 to enable and configure local authentication, as shown in the following example.
 
+[source,json]
 ----
 "http": {
   "auth": {

@@ -20,6 +20,7 @@ that contains all configuration settings for {zotLowerName} functions such as:
 
 A simple JSON configuration file is shown in the following example.
 
+[source,json]
 ----
 {
     "distSpecVersion": "1.0.1",
@@ -50,9 +51,10 @@ With a full {zotLowerName} image, additional extension features can be enabled a
 configured under an `extensions` attribute in the configuration file as shown in
 the following example.
 
+[source,json]
 ----
 {
-...
+  ...
   "extensions": {
     "metrics": {},
     "sync": {},
@@ -78,11 +80,14 @@ attribute or by including an `enable` attribute with a value of `false`.
 
 For example, the scrub feature is enabled in the following cases.
 
+[source,json]
 ----
 "extensions": {
   "scrub": {}
 }
 ----
+
+[source,json]
 ----
 "extensions": {
   "scrub": {
@@ -92,10 +97,14 @@ For example, the scrub feature is enabled in the following cases.
 ----
 
 The scrub feature is disabled in the following cases.
+
+[source,json]
 ----
 "extensions": {
 }
 ----
+
+[source,json]
 ----
 "extensions": {
   "scrub": {

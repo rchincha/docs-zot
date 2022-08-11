@@ -9,6 +9,7 @@ installation is a minimal (distribution-spec-only) image or a full image includi
 Add the `metrics` attribute under `extensions` in the configuration file
 to enable and configure metrics, as shown in the following example.
 
+[source,json]
 ----
 "extensions": {
     "metrics": {
@@ -68,6 +69,7 @@ The configuration file of zxp contains connection details for the {zotLowerName}
 server from which it will scrape metrics. The following JSON structure is an example
 of the `_zxp-config-file_` contents:
 
+[source,json]
 ----
 {
     "Server": {

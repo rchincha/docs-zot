@@ -19,6 +19,7 @@ you can specify a global admin policy.
 Use the `accessControl` attribute in the configuration file to define a set of
 identity-based authorization policies, as shown in the following example.
 
+[source,json]
 ----
 "accessControl": {
   "**": {

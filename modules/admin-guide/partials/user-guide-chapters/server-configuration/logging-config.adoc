@@ -3,6 +3,7 @@
 Logging for {zotLowerName} operations is configured with the `log` attribute in the
 configuration file, as shown in the following example.
 
+[source,json]
 ----
 "log":{
   "level":"debug",

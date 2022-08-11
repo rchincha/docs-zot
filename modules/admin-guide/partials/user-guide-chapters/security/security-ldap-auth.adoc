@@ -4,6 +4,7 @@
 Use the `auth` and `ldap` attributes under `http` in the configuration file
 to enable and configure LDAP authentication, as shown in the following example.
 
+[source,json]
 ----
 "http": {
   "auth": {
