@@ -1,6 +1,6 @@
 site:
   title: Zot Docs
-  start_page: zot-docs-1:developer-guide:draft-developer-guide-chapters.adoc
+  start_page: zot-docs-1:toc:zot-toc.adoc
 content:
   #Repositories to pull for docs
   sources: 
