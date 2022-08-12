@@ -1,0 +1,35 @@
+= Documentation
+:doctype: book
+:icons: font
+// :toc: no
+//:toclevels: 0
+// :imagesdir: images
+:title-logo-image: zot-logo.png
+:sectlinks:
+:zotUpperName: Zot
+:zotLowerName: zot
+
+:main_toc:
+
+image::zot-logo.png[width=50]
+
+> Zot is a production-ready, open-source, vendor-neutral container image registry
+server based purely on OCI standards.
+
+== Guides
+
+* xref:concepts:zot-concepts.adoc[Concepts]
+
+* User Guide
+
+* xref:admin-guide:admin-guide.adoc[Administrator Guide]
+
+* xref:developer-guide:draft-developer-guide-chapters.adoc[Developer Guide]
+
+* Installation Guides
+
+** xref:install-guides:install-guide-linux.adoc[Bare Metal Linux]
+
+** Using Helm
+
+== Blogs

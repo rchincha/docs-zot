@@ -77,7 +77,7 @@ $ wget -O /usr/bin/zot  https://github.com/project-zot/zot/releases/download/v1.
 Create a zot configuration file as `/etc/zot/config.json`.
 
 See <<config_file,Configuration file options>> for an example file with
-options and recommendations. You can find other onfiguration file
+options and recommendations. You can find other configuration file
 https://github.com/project-zot/zot/tree/main/examples[examples] in
 the zot GitHub project and in the _Zot Administrator Guide_.
 

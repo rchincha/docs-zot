@@ -1,0 +1,9 @@
+= Bias-Free language
+
+The documentation set for this project strives to use bias-free language. For the
+purposes of this documentation set, bias-free is defined as language that does
+not imply discrimination based on age, disability, gender, racial identity, ethnic
+identity, sexual orientation, socioeconomic status, and intersectionality.
+Exceptions may be present in the documentation due to language that is hardcoded
+in the user interfaces of the project software, language used based on RFP
+documentation, or language that is used by a referenced third-party product.

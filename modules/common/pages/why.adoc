@@ -1,4 +1,6 @@
-== Why {zotLowerName}?
+= Why {zotLowerName}?
+:zotUpperName: Zot
+:zotLowerName: zot
 
 At its heart, zot is a production-ready, vendor-neutral OCI image registry with
 images stored in the OCI image format and with the OCI distribution specification on-the-wire.

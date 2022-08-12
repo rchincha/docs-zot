@@ -1,4 +1,6 @@
-== What is {zotLowerName}?
+:zotUpperName: Zot
+:zotLowerName: zot
+= What is {zotLowerName}?
 
 > Zot is a production-ready, open-source, vendor-neutral container image registry
 server based purely on OCI standards.
@@ -11,7 +13,7 @@ software provenance and supply chain security. In both trends, {zotLowerName} in
 to play an important role by providing a production-ready, open-source, vendor-neutral
 container image registry server based purely on OCI standards.
 
-=== What is an OCI image registry?
+== What is an OCI image registry?
 
 An OCI image registry is a server-based application that allows you to store, manage,
 and share container images.  A developer uploads (pushes) an image to the registry for

@@ -200,12 +200,8 @@ For incidents occurring on the zot project, contact the zot project conduct
 committee at `conduct@zotproject.io.` You can expect a response within three
 business days.
 
-== Notices
+:leveloffset: +1
 
-The documentation set for this product strives to use bias-free language. For the
-purposes of this documentation set, bias-free is defined as language that does
-not imply discrimination based on age, disability, gender, racial identity, ethnic
-identity, sexual orientation, socioeconomic status, and intersectionality.
-Exceptions may be present in the documentation due to language that is hardcoded
-in the user interfaces of the product software, language used based on RFP
-documentation, or language that is used by a referenced third-party product.
+include::../../common/pages/bias-free.adoc[]
+
+:leveloffset: -1

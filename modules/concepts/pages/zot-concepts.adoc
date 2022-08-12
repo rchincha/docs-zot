@@ -1,0 +1,19 @@
+= Concepts
+:doctype: book
+:icons: font
+:sectlinks:
+:zotUpperName: Zot
+:zotLowerName: zot
+
+Revised: 2022-08-11
+
+
+:leveloffset: +1
+
+include::../../common/pages/what-is.adoc[]
+
+include::../../common/pages/why.adoc[]
+
+include::../../common/pages/bias-free.adoc[]
+
+:leveloffset: -1
