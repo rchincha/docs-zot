@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Zot Registry Administrator Guide :: Zot Docs</title>
+    <title>Zot Administrator Guide :: Zot Docs</title>
     <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -53,19 +53,46 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../developer-guide/draft-developer-guide-chapters.html">Zot-Documentation</a></h3>
+    <h3 class="title"><a href="../toc/zot-toc.html">Zot Documentation</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../developer-guide/draft-developer-guide-chapters.html">Zot Developer Guide</a>
+    <a class="nav-link" href="../toc/zot-toc.html">Documentation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../concepts/zot-concepts.html">Concepts</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Installation Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../install-guides/install-guide-linux.html">Installation Guide for Bare Metal Linux</a>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="admin-guide.html">Zot Registry Administrator Guide</a>
+    <a class="nav-link" href="admin-guide.html">Zot Administrator Guide</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../developer-guide/draft-developer-guide-chapters.html">Zot Developer Guide</a>
   </li>
 </ul>
   </li>
@@ -74,15 +101,15 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">Zot-Documentation</span>
+    <span class="title">Zot Documentation</span>
     <span class="version">1.0</span>
   </div>
   <ul class="components">
     <li class="component is-current">
-      <a class="title" href="../developer-guide/draft-developer-guide-chapters.html">Zot-Documentation</a>
+      <a class="title" href="../toc/zot-toc.html">Zot Documentation</a>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="../developer-guide/draft-developer-guide-chapters.html">1.0</a>
+          <a href="../toc/zot-toc.html">1.0</a>
         </li>
       </ul>
     </li>
@@ -94,11 +121,11 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="../developer-guide/draft-developer-guide-chapters.html" class="home-link"></a>
+  <a href="../toc/zot-toc.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../developer-guide/draft-developer-guide-chapters.html">Zot-Documentation</a></li>
-    <li><a href="admin-guide.html">Zot Registry Administrator Guide</a></li>
+    <li><a href="../toc/zot-toc.html">Zot Documentation</a></li>
+    <li><a href="admin-guide.html">Zot Administrator Guide</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/project-zot/docs-zot/edit/main/modules/admin-guide/pages/admin-guide.adoc">Edit this Page</a></div>
@@ -108,382 +135,11 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Zot Registry Administrator Guide</h1>
-<div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#_introduction">Introduction</a>
-<ul class="sectlevel2">
-<li><a href="#_what_is_zot">What is zot?</a>
-<ul class="sectlevel3">
-<li><a href="#_what_is_an_oci_image_registry">What is an OCI image registry?</a></li>
-</ul>
-</li>
-<li><a href="#_why_zot">Why zot?</a></li>
-</ul>
-</li>
-<li><a href="#_getting_started">Getting started</a>
-<ul class="sectlevel2">
-<li><a href="#_how_to_get_zot">How to get zot</a>
-<ul class="sectlevel3">
-<li><a href="#_supported_platforms">Supported platforms</a></li>
-<li><a href="#_full_and_minimal_binary_images">Full and minimal binary images</a></li>
-<li><a href="#_binary_image_file_naming">Binary image file naming</a></li>
-<li><a href="#_deployment_methods">Deployment methods</a></li>
-</ul>
-</li>
-<li><a href="#_deploying_a_zot_binary_image">Deploying a zot binary image</a>
-<ul class="sectlevel3">
-<li><a href="#_example_deploying_with_a_container_manager">Example: Deploying with a container manager</a></li>
-</ul>
-</li>
-<li><a href="#_building_zot_from_source">Building zot from source</a>
-<ul class="sectlevel3">
-<li><a href="#_prerequisites">Prerequisites</a></li>
-<li><a href="#_building_an_executable_binary_from_source">Building an executable binary from source</a></li>
-<li><a href="#_building_and_deploying_a_zot_container_image_from_source">Building and deploying a zot container image from source</a></li>
-</ul>
-</li>
-<li><a href="#_additional_recommended_steps">Additional recommended steps</a></li>
-<li><a href="#_launching_zot">Launching zot</a></li>
-</ul>
-</li>
-<li><a href="#_using_the_command_line_interface_zli">Using the command line interface (zli)</a>
-<ul class="sectlevel2">
-<li><a href="#_zli_chapter">What is zli?</a></li>
-<li><a href="#_how_to_get_zli">How to get zli</a>
-<ul class="sectlevel3">
-<li><a href="#_supported_platforms_2">Supported platforms</a></li>
-<li><a href="#_downloading_zli_binaries">Downloading zli binaries</a></li>
-<li><a href="#_building_zli_from_source">Building zli from source</a></li>
-</ul>
-</li>
-<li><a href="#_common_tasks_using_zli">Common tasks using zli</a>
-<ul class="sectlevel3">
-<li><a href="#_adding_a_zot_server_url">Adding a zot server URL</a></li>
-<li><a href="#_listing_images">Listing images</a></li>
-<li><a href="#_scanning_images_for_known_vulnerabilities">Scanning images for known vulnerabilities</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_configuring_zot">Configuring zot</a>
-<ul class="sectlevel2">
-<li><a href="#_config_file">Configuration file</a>
-<ul class="sectlevel3">
-<li><a href="#_extensions">Extension features</a></li>
-<li><a href="#_verifying_config">Verifying the configuration file</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_network_config">Network configuration</a></li>
-<li><a href="#_storage_configuration">Storage configuration</a>
-<ul class="sectlevel2">
-<li><a href="#_storage_config">Storage options</a></li>
-<li><a href="#_local_storage_config">Configuring local storage</a></li>
-<li><a href="#_s3_storage_config">Configuring S3 storage</a>
-<ul class="sectlevel3">
-<li><a href="#_s3_credentials">S3 Credentials</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_security_and_hardening">Security and hardening</a>
-<ul class="sectlevel2">
-<li><a href="#_authentication">Authentication</a>
-<ul class="sectlevel3">
-<li><a href="#_tls_authentication">TLS mutual authentication</a></li>
-<li><a href="#_basic_authentication">Basic authentication</a></li>
-<li><a href="#_ldap_authentication">LDAP authentication</a></li>
-<li><a href="#_bearer_authentication">Bearer authentication</a></li>
-</ul>
-</li>
-<li><a href="#_identity_based_authorization">Identity-based authorization</a></li>
-<li><a href="#_failure_delay">Preventing automated attacks with failure delay</a></li>
-<li><a href="#_rate_limiting">Rate limiting</a></li>
-</ul>
-</li>
-<li><a href="#_syncing_and_mirroring_registries">Syncing and mirroring registries</a>
-<ul class="sectlevel2">
-<li><a href="#_sync_registries">Synchronizing registries</a></li>
-</ul>
-</li>
-<li><a href="#_monitoring">Monitoring</a>
-<ul class="sectlevel2">
-<li><a href="#_logging">Logging</a></li>
-<li><a href="#_metrics_config">Metrics</a>
-<ul class="sectlevel3">
-<li><a href="#_enabling_metrics_for_a_full_zot_image_with_extensions">Enabling metrics for a full zot image with extensions</a></li>
-<li><a href="#_collecting_metrics_from_a_minimal_zot_image_using_a_node_exporter">Collecting metrics from a minimal zot image using a node exporter</a></li>
-</ul>
-</li>
-<li><a href="#_zb_chapter">Benchmarking zot with zb</a>
-<ul class="sectlevel3">
-<li><a href="#_how_to_get_zb">How to get zb</a></li>
-<li><a href="#_supported_platforms_3">Supported platforms</a></li>
-<li><a href="#_downloading_zb_binaries">Downloading zb binaries</a></li>
-<li><a href="#_building_zb_from_source">Building zb from source</a></li>
-<li><a href="#_running_zb">Running zb</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_enterprise_wide_zot">Enterprise-wide zot</a>
-<ul class="sectlevel2">
-<li><a href="#_clustering_zot">Clustering zot</a>
-<ul class="sectlevel3">
-<li><a href="#_bare_metal_deployment">Bare-metal deployment</a></li>
-<li><a href="#_kubernetes_deployment">Kubernetes deployment</a></li>
-<li><a href="#_solution_overview">Solution overview</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_advanced_topics">Advanced topics</a>
-<ul class="sectlevel2">
-<li><a href="#_creating_a_trusted_image_pipeline_with_zot_cosign_and_notation">Creating a trusted image pipeline with zot, cosign, and notation</a>
-<ul class="sectlevel3">
-<li><a href="#_install_and_start_a_zot_server">Install and start a zot server</a></li>
-<li><a href="#_push_or_pull_using_skopeo">Push or pull using skopeo</a></li>
-<li><a href="#_image_signatures">Image signatures</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_maintenance">Maintenance</a>
-<ul class="sectlevel2">
-<li><a href="#_scrub_config">Scrubbing the image registry</a></li>
-<li><a href="#_search_config">Searching and querying images</a></li>
-</ul>
-</li>
-<li><a href="#_reference">Reference</a>
-<ul class="sectlevel2">
-<li><a href="#_zli-command-reference">zli Command Reference</a>
-<ul class="sectlevel3">
-<li><a href="#_zli">zli</a></li>
-<li><a href="#_zli-completion">zli completion</a></li>
-<li><a href="#_zli-config">zli config</a></li>
-<li><a href="#_zli-cve">zli cve</a></li>
-<li><a href="#_zli-images">zli images</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_notices">Notices</a>
-<ul class="sectlevel2">
-<li><a href="#_bias_free_language">Bias-Free language</a></li>
-</ul>
-</li>
-</ul>
-</div>
+<h1 class="page">Zot Administrator Guide</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Revised: 2022-06-30</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_introduction"><a class="anchor" href="#_introduction"></a><a class="link" href="#_introduction">Introduction</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_what_is_zot"><a class="anchor" href="#_what_is_zot"></a><a class="link" href="#_what_is_zot">What is zot?</a></h3>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p>Zot is a production-ready, open-source, vendor-neutral container image registry
-server based purely on OCI standards.</p>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
-<p>Two broad trends are changing how we build, distribute, and consume software.
-The first trend is the increasing adoption of container technologies. The second trend is
-that software solutions are being composed by combining elements from various sources
-rather than being built entirely from scratch. The latter trend raises the importance of
-software provenance and supply chain security. In both trends, zot intends
-to play an important role by providing a production-ready, open-source, vendor-neutral
-container image registry server based purely on OCI standards.</p>
-</div>
-<div class="sect3">
-<h4 id="_what_is_an_oci_image_registry"><a class="anchor" href="#_what_is_an_oci_image_registry"></a><a class="link" href="#_what_is_an_oci_image_registry">What is an OCI image registry?</a></h4>
-<div class="paragraph">
-<p>An OCI image registry is a server-based application that allows you to store, manage,
-and share container images.  A developer uploads (pushes) an image to the registry for
-distribution. Users can then download (pull) the image to run on their systems.  The
-<a href="https://github.com/opencontainers/distribution-spec">OCI Distribution Specification</a>,
-published by the Open Container Initiative (OCI),
-defines a standard API protocol for these and other image registry operations.</p>
-</div>
-<div class="paragraph">
-<p>An image registry can be a part of your continuous integration and continuous
-deployment (CI/CD) pipeline when you host zot on your public or
-private server. In its minimal form, you can also embed a zot registry
-in a product.  In either case, zot provides a secure
-software supply chain for container images.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_why_zot"><a class="anchor" href="#_why_zot"></a><a class="link" href="#_why_zot">Why zot?</a></h3>
-<div class="paragraph">
-<p>At its heart, zot is a production-ready, vendor-neutral OCI image registry with
-images stored in the OCI image format and with the OCI distribution specification on-the-wire.
-Zot is built for developers by developers, offering features such as
-minimal deployment using a single binary image, built-in authentication and
-authorization, and inline garbage collection and storage deduplication.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/504224.jpg" alt="504224" width="300">
-</div>
-</div>
-<div class="paragraph">
-<p>Some of the principal advantages of zot are:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Open source</p>
-</li>
-<li>
-<p>OCI standards-only both on-the-wire and on-disk</p>
-</li>
-<li>
-<p>Clear separation between core distribution spec and zot-specific extensions</p>
-</li>
-<li>
-<p>Software supply chain security, including support for
-<a href="http://github.com/sigstore/cosign">cosign</a> and
-<a href="http://github.com/notaryproject">notation</a></p>
-</li>
-<li>
-<p>Security hardening</p>
-</li>
-<li>
-<p>Single binary with many features built-in</p>
-</li>
-<li>
-<p>Suitable for deployments in cloud, bare-metal, and embedded devices</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Zot fully conforms to the
-<a href="https://github.com/opencontainers/distribution-spec">OCI Distribution Specification</a>.</p>
-</div>
-<div class="paragraph">
-<p>The following table lists additional advantages of zot:</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"></th>
-<th class="tableblock halign-left valign-top">zot</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Last stable release</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TBD</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>License</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Apache 2.0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>On-premise deployment</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>OCI conformance</strong>*</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Single binary image</strong>*</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Minimal build</strong>*</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Storage Layout</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ociv1 image layout</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Authentication</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">built-in</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Authorization</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">built-in</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Garbage collection</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">inline</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Storage deduplication</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">inline</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cloud storage support</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete by tag</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Vulnerability scanning</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">built-in</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Command line interface (cli)</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ui</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>External contributions</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CNCF project</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TBD</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>distribution-spec conformance</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Image signatures</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">built-in</p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-* The <strong>minimal build</strong> feature is the ability to build a minimal
-distribution-spec compliant registry in order to reduce library dependencies
-and the possible attack surface.
-</td>
-</tr>
-</table>
-</div>
+<p>Revised: 2022-08-09</p>
 </div>
 </div>
 </div>
@@ -1223,7 +879,7 @@ that contains all configuration settings for zot functions such as:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
     "distSpecVersion": "1.0.1",
     "storage": {
         "rootDirectory": "/tmp/zot"
@@ -1235,7 +891,7 @@ that contains all configuration settings for zot functions such as:</p>
     "log": {
         "level": "debug"
     }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1256,15 +912,15 @@ the following example.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-...
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  ...
   "extensions": {
     "metrics": {},
     "sync": {},
     "search": {},
     "scrub": {}
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -1309,18 +965,18 @@ attribute or by including an <code>enable</code> attribute with a value of <code
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"extensions": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"extensions": {
   "scrub": {}
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"extensions": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"extensions": {
   "scrub": {
     "enable": true
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1328,17 +984,17 @@ attribute or by including an <code>enable</code> attribute with a value of <code
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"extensions": {
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"extensions": {
+}</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"extensions": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"extensions": {
   "scrub": {
     "enable": false
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 </div>
@@ -1384,7 +1040,7 @@ network settings, as shown in the following example.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"http": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
   "address":"127.0.0.1",
   "port":"8080",
   "realm":"zot",
@@ -1392,7 +1048,7 @@ network settings, as shown in the following example.</p>
     "cert":"test/data/server.cert",
     "key":"test/data/server.key"
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1458,14 +1114,14 @@ attribute in the configuration file, as shown in the following example.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"storage":{
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"storage":{
   "rootDirectory":"/tmp/zot",
   "commit": true,
   "dedupe": true,
   "gc": true,
   "gcDelay": "1h",
   "gcInterval": "24h"
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1524,7 +1180,7 @@ their own repository paths and settings. The following example shows three subpa
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"storage":{
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"storage":{
   "subPaths": {
     "/a": {
       "rootDirectory": "/tmp/zot1",
@@ -1540,7 +1196,7 @@ their own repository paths and settings. The following example shows three subpa
       "dedupe": false
     }
   }
-}</pre>
+}</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1570,7 +1226,7 @@ their own repository paths and settings. The following example shows three subpa
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"storageDriver": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"storageDriver": {
     "name": "s3",
     "region": "us-east-2",
     "bucket": "zot-storage",
@@ -1578,7 +1234,7 @@ their own repository paths and settings. The following example shows three subpa
     "skipverify": false,
     "accesskey": "&lt;YOUR_ACCESS_KEY_ID&gt;",
     "secretkey": "&lt;YOUR_SECRET_ACCESS_KEY&gt;"
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1587,7 +1243,7 @@ locations using the <code>subpath</code> attribute, as in the following example.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"subPaths": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"subPaths": {
     "/a": {
         "rootDirectory": "/zot-a",
         "storageDriver": {
@@ -1600,7 +1256,10 @@ locations using the <code>subpath</code> attribute, as in the following example.
     },
     "/b": {
 
-[continue]</pre>
+...
+
+    }
+}</code></pre>
 </div>
 </div>
 <div class="sect3">
@@ -1722,13 +1381,13 @@ configure TLS mutual authentication, as shown in the following example.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"http": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
   "tls": {
     "cert":"test/data/server.cert",
     "key":"test/data/server.key",
     "cacert":"test/data/cacert.cert"
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1771,13 +1430,13 @@ to enable and configure local authentication, as shown in the following example.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"http": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
   "auth": {
     "htpasswd": {
       "path": "test/data/htpasswd"
     }
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1806,7 +1465,7 @@ to enable and configure LDAP authentication, as shown in the following example.<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"http": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
   "auth": {
     "ldap": {
       "address": "ldap.example.org",
@@ -1820,7 +1479,7 @@ to enable and configure LDAP authentication, as shown in the following example.<
       "subtreeSearch": true
     }
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1899,7 +1558,7 @@ authentication, as shown in the following example.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"http": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
   "auth": {
     "bearer": {
       "realm": "https://auth.myreg.io/auth/token",
@@ -1907,7 +1566,7 @@ authentication, as shown in the following example.</p>
       "cert": "/etc/zot/auth.crt"
     }
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1980,7 +1639,7 @@ identity-based authorization policies, as shown in the following example.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"accessControl": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"accessControl": {
   "**": {
     "policies": [{
       "users": ["charlie"],
@@ -2019,7 +1678,7 @@ identity-based authorization policies, as shown in the following example.</p>
     "users": ["admin"],
     "actions": ["read", "create", "update", "delete"]
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2074,11 +1733,11 @@ prevent automated attacks. The configuration is shown in the following example.<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"http": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
   "auth": {
     "failDelay": 5
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2094,7 +1753,7 @@ attribute in the configuration file, as shown in the following example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"http": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
     "address": "127.0.0.1",
     "port": "8080",
     "Ratelimit": {
@@ -2106,7 +1765,7 @@ attribute in the configuration file, as shown in the following example:</p>
             }
         ]
     }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2129,7 +1788,7 @@ image registry with other image registries, as shown in the following example.</
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"extensions": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"extensions": {
     "sync": {
         "enable": true,
         "credentialsFile": "./examples/sync-auth-filepath.json",
@@ -2198,7 +1857,7 @@ image registry with other image registries, as shown in the following example.</
             "retryDelay": "5m"
         }]
     }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2385,11 +2044,11 @@ configuration file, as shown in the following example.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"log":{
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"log":{
   "level":"debug",
   "output":"/tmp/zot.log",
   "audit": "/tmp/zot-audit.log"
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2440,14 +2099,14 @@ to enable and configure metrics, as shown in the following example.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"extensions": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"extensions": {
     "metrics": {
         "enable": true,
         "prometheus": {
             "path": "/metrics"
         }
     }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2542,7 +2201,7 @@ of the <code><em>zxp-config-file</em></code> contents:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
     "Server": {
         "protocol": "http",
         "host": "127.0.0.1",
@@ -2554,7 +2213,7 @@ of the <code><em>zxp-config-file</em></code> contents:</p>
             "level": "debug"
         }
     }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -3037,12 +2696,12 @@ configuration file, as shown in the following example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"extensions": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"extensions": {
   "scrub": {
     "enable": true,
     "interval": "24h"
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3085,14 +2744,14 @@ and configure the enhanced search extension, as shown in the following example.<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>"extensions": {
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"extensions": {
     "search": {
         "enable": true,
         "cve": {
             "updateInterval": "2h"
         }
     }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">

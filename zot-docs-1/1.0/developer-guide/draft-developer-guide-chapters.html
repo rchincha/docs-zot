@@ -53,19 +53,46 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="draft-developer-guide-chapters.html">Zot-Documentation</a></h3>
+    <h3 class="title"><a href="../toc/zot-toc.html">Zot Documentation</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="draft-developer-guide-chapters.html">Zot Developer Guide</a>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../toc/zot-toc.html">Documentation</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../admin-guide/admin-guide.html">Zot Registry Administrator Guide</a>
+    <a class="nav-link" href="../concepts/zot-concepts.html">Concepts</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Installation Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../install-guides/install-guide-linux.html">Installation Guide for Bare Metal Linux</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../admin-guide/admin-guide.html">Zot Administrator Guide</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="draft-developer-guide-chapters.html">Zot Developer Guide</a>
   </li>
 </ul>
   </li>
@@ -74,15 +101,15 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">Zot-Documentation</span>
+    <span class="title">Zot Documentation</span>
     <span class="version">1.0</span>
   </div>
   <ul class="components">
     <li class="component is-current">
-      <a class="title" href="draft-developer-guide-chapters.html">Zot-Documentation</a>
+      <a class="title" href="../toc/zot-toc.html">Zot Documentation</a>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="draft-developer-guide-chapters.html">1.0</a>
+          <a href="../toc/zot-toc.html">1.0</a>
         </li>
       </ul>
     </li>
@@ -94,10 +121,10 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="draft-developer-guide-chapters.html" class="home-link is-current"></a>
+  <a href="../toc/zot-toc.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="draft-developer-guide-chapters.html">Zot-Documentation</a></li>
+    <li><a href="../toc/zot-toc.html">Zot Documentation</a></li>
     <li><a href="draft-developer-guide-chapters.html">Zot Developer Guide</a></li>
   </ul>
 </nav>
@@ -109,62 +136,64 @@
 </aside>
 <article class="doc">
 <h1 class="page">Zot Developer Guide</h1>
-<div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#_getting_started">Getting Started</a>
-<ul class="sectlevel2">
-<li><a href="#_supported_developer_platforms">Supported Developer Platforms</a></li>
-<li><a href="#_prerequisites">Prerequisites</a></li>
-<li><a href="#_cloning_zot">Cloning zot</a></li>
-<li><a href="#_building_zot">Building zot</a></li>
-<li><a href="#_running_zot">Running zot</a></li>
-</ul>
-</li>
-<li><a href="#_code_organization">Code Organization</a></li>
-<li><a href="#_contributor_guidelines">Contributor Guidelines</a>
-<ul class="sectlevel2">
-<li><a href="#_license">License</a></li>
-<li><a href="#_developer_certificate_of_origin_dco">Developer Certificate of Origin (DCO)</a></li>
-<li><a href="#_submitting_a_pull_request_pr">Submitting a Pull Request (PR)</a></li>
-<li><a href="#_pr_requirements">PR Requirements</a></li>
-<li><a href="#_cicd_checks">CI/CD Checks</a></li>
-</ul>
-</li>
-<li><a href="#_reporting_issues">Reporting Issues</a>
-<ul class="sectlevel2">
-<li><a href="#_filing_an_issue">Filing an Issue</a></li>
-<li><a href="#_security_issues">Security Issues</a></li>
-</ul>
-</li>
-<li><a href="#_code_of_conduct">Code of Conduct</a>
-<ul class="sectlevel2">
-<li><a href="#_cncf_community_code_of_conduct_v1_1">CNCF Community Code of Conduct v1.1</a></li>
-<li><a href="#_scope">Scope</a></li>
-<li><a href="#_our_standards">Our Standards</a></li>
-<li><a href="#_reporting">Reporting</a></li>
-<li><a href="#_enforcement">Enforcement</a></li>
-<li><a href="#_acknowledgements">Acknowledgements</a></li>
-<li><a href="#_reporting_2">Reporting</a></li>
-</ul>
-</li>
-<li><a href="#_notices">Notices</a></li>
-</ul>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Revised: 2022-08-10</p>
+</div>
+</div>
 </div>
 <div class="sect1">
-<h2 id="_getting_started"><a class="anchor" href="#_getting_started"></a>Getting Started</h2>
+<h2 id="_getting_started"><a class="anchor" href="#_getting_started"></a><a class="link" href="#_getting_started">Getting Started</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_supported_developer_platforms"><a class="anchor" href="#_supported_developer_platforms"></a>Supported Developer Platforms</h3>
+<h3 id="_supported_developer_platforms"><a class="anchor" href="#_supported_developer_platforms"></a><a class="link" href="#_supported_developer_platforms">Supported Developer Platforms</a></h3>
 <div class="paragraph">
 <p>Development is officially supported on <code>Linux</code> and <code>Apple MacOS</code> platforms. However,
 development should be possible on any platform that supports the <code>golang</code> toolchain.</p>
 </div>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 1. Supported platforms and architectures</caption>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">OS</th>
+<th class="tableblock halign-left valign-top">ARCH</th>
+<th class="tableblock halign-left valign-top">Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">linux</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">amd64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intel-based Linux servers</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">linux</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">arm64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ARM-based servers and Raspberry Pi4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">darwin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">amd64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intel-based MacOS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">darwin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">arm64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ARM-based MacOS (Apple M1)</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
-<h3 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h3>
+<h3 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a><a class="link" href="#_prerequisites">Prerequisites</a></h3>
 <div class="sect3">
-<h4 id="_install_golang_1_17"><a class="anchor" href="#_install_golang_1_17"></a>Install golang (1.17+)</h4>
+<h4 id="_install_golang_1_17"><a class="anchor" href="#_install_golang_1_17"></a><a class="link" href="#_install_golang_1_17">Install golang (1.17+)</a></h4>
 <div class="paragraph">
 <p>The zot project requires <code>golang 1.17</code> or newer. You can follow
 <a href="https://go.dev/learn/">these instructions</a> to install the <code>golang</code> toolchain.  After
@@ -174,7 +203,7 @@ the toolchain.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_cloning_zot"><a class="anchor" href="#_cloning_zot"></a>Cloning zot</h3>
+<h3 id="_cloning_zot"><a class="anchor" href="#_cloning_zot"></a><a class="link" href="#_cloning_zot">Cloning zot</a></h3>
 <div class="paragraph">
 <p>The zot registry code base is hosted on GitHub at <a href="https://github.com/project-zot/zot">https://github.com/project-zot/zot</a>.</p>
 </div>
@@ -188,7 +217,7 @@ the toolchain.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_building_zot"><a class="anchor" href="#_building_zot"></a>Building zot</h3>
+<h3 id="_building_zot"><a class="anchor" href="#_building_zot"></a><a class="link" href="#_building_zot">Building zot</a></h3>
 <div class="paragraph">
 <p>To build zot, execute the <code>make</code> command in the zot directory using the
 following general syntax:</p>
@@ -196,64 +225,44 @@ following general syntax:</p>
 <div class="paragraph">
 <p><code>$ make OS=<em>os</em> ARCH=<em>architecture</em> {binary | binary-minimal}</code></p>
 </div>
-<div class="paragraph">
-<p>The <code>binary</code> option builds the full zot binary with all extensions.<br>
-The <code>binary-minimal</code> option builds the minimal zot binary without extensions.</p>
-</div>
-<div class="sect3">
-<h4 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h4>
-<div class="paragraph">
-<p>The following are examples of the <code>make</code> command for several supported platforms
-and architectures:</p>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Linux/Intel-based platforms</p>
-<div class="listingblock">
-<div class="content">
-<pre>$ make OS=linux ARCH=amd64 binary</pre>
-</div>
-</div>
+<p>The operating system and architecture options are listed in the
+<a href="#supported-platforms-and-architectures-table-zot">Supported platforms and architectures</a>
+table. If an option is not specified, the defaults are <code>linux</code> and <code>amd64</code>.</p>
 </li>
 <li>
-<p>Linux/amd64 platform</p>
-<div class="listingblock">
-<div class="content">
-<pre>$ make OS=linux ARCH=amd64 binary</pre>
-</div>
-</div>
+<p>The <code>binary</code> option builds the full zot binary image with all extensions.</p>
 </li>
 <li>
-<p>Linux/ARM64-based platforms such as ARM64 servers and Raspberry Pi4</p>
-<div class="listingblock">
-<div class="content">
-<pre>$ make OS=linux ARCH=arm64 binary</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Apple MacOS/Intel-based platforms</p>
-<div class="listingblock">
-<div class="content">
-<pre>$ make OS=darwin ARCH=amd64 binary</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Apple MacOS/ARM64-based platforms</p>
-<div class="listingblock">
-<div class="content">
-<pre>$ make OS=darwin ARCH=arm64 binary</pre>
-</div>
-</div>
+<p>The <code>binary-minimal</code> option builds the minimal distribution-spec conformant zot
+binary image without extensions, reducing the attack surface.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>For example, to build a zot image with extensions for an Intel-based
+linux server, use the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>make OS=linux ARCH=amd64 binary</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>make</code> command builds an executable image in the <code>zot/bin</code> directory.
+The original filename of the zot executable image will indicate the
+build options. For example, the filename of an Intel-based linux minimal image is
+<code>zot-linux-amd64-minimal</code>.</p>
+</div>
+</div>
 <div class="sect2">
-<h3 id="_running_zot"><a class="anchor" href="#_running_zot"></a>Running zot</h3>
+<h3 id="_running_zot"><a class="anchor" href="#_running_zot"></a><a class="link" href="#_running_zot">Running zot</a></h3>
 <div class="paragraph">
 <p>The behavior of zot is controlled via configuration only.
 To launch the zot server, execute the following command:</p>
@@ -267,7 +276,29 @@ To launch the zot server, execute the following command:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_code_organization"><a class="anchor" href="#_code_organization"></a>Code Organization</h2>
+<h2 id="_debugging_zot"><a class="anchor" href="#_debugging_zot"></a><a class="link" href="#_debugging_zot">Debugging zot</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To produce a zot binary that includes extensive debugging information,
+build zot with the <code>binary-debug</code> option, as shown in this example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>make OS=linux ARCH=amd64 binary-debug</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can then attach and run a debugging tool such as Delve to the running zot process.</p>
+</div>
+<div class="paragraph">
+<p>Delve is a powerful open-source debugger for the Go programming language.
+Downloads and documentation for Delve are available on GitHub
+at <a href="https://github.com/go-delve/delve" class="bare">https://github.com/go-delve/delve</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_organization"><a class="anchor" href="#_code_organization"></a><a class="link" href="#_code_organization">Code Organization</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>zot</code> project codebase is organized as follows:</p>
@@ -293,7 +324,7 @@ To launch the zot server, execute the following command:</p>
 - cmd/              # Source code for binary main()s
   - zot/            # Source code for zot binary
   - zli/            # Source code for zot cli
-  - zb/             # Source code for zb which is the dist-spec benchmarking tool
+  - zb/             # Source code for zb, the dist-spec benchmarking tool
 - errors/           # Source code for error codes
 - examples/         # Configuration examples
 - swagger/          # Swagger integration
@@ -303,10 +334,10 @@ To launch the zot server, execute the following command:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_contributor_guidelines"><a class="anchor" href="#_contributor_guidelines"></a>Contributor Guidelines</h2>
+<h2 id="_contributor_guidelines"><a class="anchor" href="#_contributor_guidelines"></a><a class="link" href="#_contributor_guidelines">Contributor Guidelines</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_license"><a class="anchor" href="#_license"></a>License</h3>
+<h3 id="_license"><a class="anchor" href="#_license"></a><a class="link" href="#_license">License</a></h3>
 <div class="paragraph">
 <p>zot is released under the
 <a href="https://github.com/project-zot/zot/blob/main/LICENSE">Apache License 2.0</a>.
@@ -314,21 +345,21 @@ All contributions must adhere to this license.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_developer_certificate_of_origin_dco"><a class="anchor" href="#_developer_certificate_of_origin_dco"></a>Developer Certificate of Origin (DCO)</h3>
+<h3 id="_developer_certificate_of_origin_dco"><a class="anchor" href="#_developer_certificate_of_origin_dco"></a><a class="link" href="#_developer_certificate_of_origin_dco">Developer Certificate of Origin (DCO)</a></h3>
 <div class="paragraph">
 <p>All commits require a Developer Certificate of Origin via the "Signed-off-by:"
 commit message and commit signatures using GPG keys.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_submitting_a_pull_request_pr"><a class="anchor" href="#_submitting_a_pull_request_pr"></a>Submitting a Pull Request (PR)</h3>
+<h3 id="_submitting_a_pull_request_pr"><a class="anchor" href="#_submitting_a_pull_request_pr"></a><a class="link" href="#_submitting_a_pull_request_pr">Submitting a Pull Request (PR)</a></h3>
 <div class="paragraph">
 <p>First, fork the zot project on GitHub and submit a commit to your fork.
 Then open a new pull request (PR) to the zot project.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_pr_requirements"><a class="anchor" href="#_pr_requirements"></a>PR Requirements</h3>
+<h3 id="_pr_requirements"><a class="anchor" href="#_pr_requirements"></a><a class="link" href="#_pr_requirements">PR Requirements</a></h3>
 <div class="paragraph">
 <p>Any new PR requires a form to be filled out with details about the PR.
 Appropriate code owners are automatically identified, and they will be notified
@@ -336,7 +367,7 @@ of the new PR.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_cicd_checks"><a class="anchor" href="#_cicd_checks"></a>CI/CD Checks</h3>
+<h3 id="_cicd_checks"><a class="anchor" href="#_cicd_checks"></a><a class="link" href="#_cicd_checks">CI/CD Checks</a></h3>
 <div class="paragraph">
 <p>We take code quality very very seriously. All PRs must pass various CI/CD
 checks which cover enforce code quality such as code coverage, security
@@ -347,14 +378,14 @@ client tool compatibility, etc.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_reporting_issues"><a class="anchor" href="#_reporting_issues"></a>Reporting Issues</h2>
+<h2 id="_reporting_issues"><a class="anchor" href="#_reporting_issues"></a><a class="link" href="#_reporting_issues">Reporting Issues</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Issues are broadly classified as functional bugs and security issues. The
 latter is treated a little differently due to the sensitive nature.</p>
 </div>
 <div class="sect2">
-<h3 id="_filing_an_issue"><a class="anchor" href="#_filing_an_issue"></a>Filing an Issue</h3>
+<h3 id="_filing_an_issue"><a class="anchor" href="#_filing_an_issue"></a><a class="link" href="#_filing_an_issue">Filing an Issue</a></h3>
 <div class="paragraph">
 <p>No software is perfect, and we expect users to find issues with the zot code
 base. First, check whether your issue has already been filed by someone else by doing an
@@ -365,7 +396,7 @@ easier it becomes to triage the issue.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_security_issues"><a class="anchor" href="#_security_issues"></a>Security Issues</h3>
+<h3 id="_security_issues"><a class="anchor" href="#_security_issues"></a><a class="link" href="#_security_issues">Security Issues</a></h3>
 <div class="paragraph">
 <p>Security issues are best filed by sending an email to <code>security@zotregistry.io.</code>
 After 45 days, we will make the issue public and give credit to the original
@@ -375,19 +406,19 @@ filer of the issue.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_code_of_conduct"><a class="anchor" href="#_code_of_conduct"></a>Code of Conduct</h2>
+<h2 id="_code_of_conduct"><a class="anchor" href="#_code_of_conduct"></a><a class="link" href="#_code_of_conduct">Code of Conduct</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The zot project follows the
 <a href="https://github.com/cncf/foundation/blob/main/code-of-conduct.md">CNCF Code of Conduct</a>.</p>
 </div>
 <div class="sect2">
-<h3 id="_cncf_community_code_of_conduct_v1_1"><a class="anchor" href="#_cncf_community_code_of_conduct_v1_1"></a>CNCF Community Code of Conduct v1.1</h3>
+<h3 id="_cncf_community_code_of_conduct_v1_1"><a class="anchor" href="#_cncf_community_code_of_conduct_v1_1"></a><a class="link" href="#_cncf_community_code_of_conduct_v1_1">CNCF Community Code of Conduct v1.1</a></h3>
 <div class="paragraph">
 <p>Other languages available: -</p>
 </div>
 <div class="sect3">
-<h4 id="_contributor_code_of_conduct"><a class="anchor" href="#_contributor_code_of_conduct"></a>Contributor Code of Conduct</h4>
+<h4 id="_contributor_code_of_conduct"><a class="anchor" href="#_contributor_code_of_conduct"></a><a class="link" href="#_contributor_code_of_conduct">Contributor Code of Conduct</a></h4>
 <div class="paragraph">
 <p>As contributors and maintainers in the CNCF community, and in the
 interest of fostering an open and welcoming community, we pledge to
@@ -405,13 +436,13 @@ religion, or nationality.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_scope"><a class="anchor" href="#_scope"></a>Scope</h3>
+<h3 id="_scope"><a class="anchor" href="#_scope"></a><a class="link" href="#_scope">Scope</a></h3>
 <div class="paragraph">
 <p>This code of conduct applies both within project spaces and in public
 spaces when an individual is representing the project or its community.</p>
 </div>
 <div class="sect3">
-<h4 id="_cncf_events"><a class="anchor" href="#_cncf_events"></a>CNCF Events</h4>
+<h4 id="_cncf_events"><a class="anchor" href="#_cncf_events"></a><a class="link" href="#_cncf_events">CNCF Events</a></h4>
 <div class="paragraph">
 <p>CNCF events, or events run by the Linux Foundation with professional
 events staff, are governed by the Linux Foundation <a href="https://events.linuxfoundation.org/code-of-conduct/">Events Code of
@@ -422,7 +453,7 @@ CNCF Code of Conduct.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_our_standards"><a class="anchor" href="#_our_standards"></a>Our Standards</h3>
+<h3 id="_our_standards"><a class="anchor" href="#_our_standards"></a><a class="link" href="#_our_standards">Our Standards</a></h3>
 <div class="paragraph">
 <p>Examples of behavior that contributes to a positive environment include:</p>
 </div>
@@ -484,7 +515,7 @@ of Conduct may be permanently removed from the project team.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_reporting"><a class="anchor" href="#_reporting"></a>Reporting</h3>
+<h3 id="_reporting"><a class="anchor" href="#_reporting"></a><a class="link" href="#_reporting">Reporting</a></h3>
 <div class="paragraph">
 <p>For incidents occuring in the Kubernetes community, contact the
 <a href="https://git.k8s.io/community/committee-code-of-conduct">Kubernetes Code of Conduct
@@ -504,7 +535,7 @@ contacting <a href="mailto:conduct@cncf.io">conduct@cncf.io</a> directly is pref
 </div>
 </div>
 <div class="sect2">
-<h3 id="_enforcement"><a class="anchor" href="#_enforcement"></a>Enforcement</h3>
+<h3 id="_enforcement"><a class="anchor" href="#_enforcement"></a><a class="link" href="#_enforcement">Enforcement</a></h3>
 <div class="paragraph">
 <p>The Kubernetes project&#8217;s <a href="https://github.com/kubernetes/community/tree/master/committee-code-of-conduct">Code of Conduct
 Committee</a>
@@ -517,7 +548,7 @@ people from the project or CNCF communities at their discretion.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_acknowledgements"><a class="anchor" href="#_acknowledgements"></a>Acknowledgements</h3>
+<h3 id="_acknowledgements"><a class="anchor" href="#_acknowledgements"></a><a class="link" href="#_acknowledgements">Acknowledgements</a></h3>
 <div class="paragraph">
 <p>This Code of Conduct is adapted from the Contributor Covenant
 (<a href="http://contributor-covenant.org" class="bare">http://contributor-covenant.org</a>), version 2.0 available at
@@ -525,7 +556,7 @@ people from the project or CNCF communities at their discretion.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_reporting_2"><a class="anchor" href="#_reporting_2"></a>Reporting</h3>
+<h3 id="_reporting_2"><a class="anchor" href="#_reporting_2"></a><a class="link" href="#_reporting_2">Reporting</a></h3>
 <div class="paragraph">
 <p>For incidents occurring on the zot project, contact the zot project conduct
 committee at <code>conduct@zotproject.io.</code> You can expect a response within three
@@ -535,15 +566,15 @@ business days.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_notices"><a class="anchor" href="#_notices"></a>Notices</h2>
+<h2 id="_bias_free_language"><a class="anchor" href="#_bias_free_language"></a><a class="link" href="#_bias_free_language">Bias-Free language</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The documentation set for this product strives to use bias-free language. For the
+<p>The documentation set for this project strives to use bias-free language. For the
 purposes of this documentation set, bias-free is defined as language that does
 not imply discrimination based on age, disability, gender, racial identity, ethnic
 identity, sexual orientation, socioeconomic status, and intersectionality.
 Exceptions may be present in the documentation due to language that is hardcoded
-in the user interfaces of the product software, language used based on RFP
+in the user interfaces of the project software, language used based on RFP
 documentation, or language that is used by a referenced third-party product.</p>
 </div>
 </div>
