@@ -8,3 +8,4 @@ nav:
   - modules/install-guides/nav.adoc
   - modules/admin-guide/nav.adoc
   - modules/developer-guide/nav.adoc
+  - modules/kb/nav.adoc

@@ -32,4 +32,7 @@ server based purely on OCI standards.
 
 ** Kubernetes Deployment
 
-== Blogs
+
+== Knowledgebase Articles
+
+* xref:kb:security-posture.adoc[Security Posture]
