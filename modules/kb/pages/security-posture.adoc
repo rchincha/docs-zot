@@ -13,11 +13,11 @@ Recognizing that security hardening and product features are sometimes in
 conflict with each other, we also provide flexibility both at
 build and deployment time.
 
-== Build-time Hardening
+== Build-time hardening
 
 The following are the steps taken during build-time.
 
-=== PIE Build-mode
+=== PIE build-mode
 
 The `zot` binary is built with PIE build-modefootnote:[https://en.wikipedia.org/wiki/Position-independent_code]
 enabled to take advantage of ASLR
@@ -27,7 +27,7 @@ While `zot` is intended to be a long-running service (without frequent
 restarts), it prevents attackers from developing a generic attack that depends
 on predictable memory addresses _across_ multiple `zot` deployments.
 
-=== Conditional Builds
+=== Conditional builds
 
 Functionality in `zot` is broadly organized as a _core_ Distribution Specificationfootnote:[https://github.com/opencontainers/distribution-spec]
 implementation and additional features as _extensions_. The rationale behind
@@ -51,31 +51,31 @@ to build a binary between _minimal_ and _full_. For example,
 
 produces a `zot` binary with only the _search_ feature enabled.
 
-=== CI/CD Pipeline
+=== CI/CD pipeline
 
 `zot` CI/CD process attempts to align with the Open Source Security
 Foundation best practices guidelinesfootnote:[https://bestpractices.coreinfrastructure.org/en]
 to achieve high code quality.
 
-==== Code Reviews
+==== Code reviews
 
 `zot` is an open source project and all code submissions are open and
 transparent. Every pull request (PR) submitted to the project repository must
 be reviewed by the code owners. We have additional CI/CD workflows monitoring
 for unreviewed commits.
 
-==== CI/CD Checks
+==== CI/CD checks
 
 All PRs must pass the full CI/CD pipeline checks including unit, functional, and
 integration tests, code quality and style checks, and performance regressions.
 In addition, all binaries produced are subjected to further security scans to
 detect any known vulnerabilities.
 
-== Runtime Hardening
+== Runtime hardening
 
 The following steps can be taken to harden a `zot` deployment.
 
-=== Unprivileged Runtime Process
+=== Unprivileged runtime process
 
 Running `zot` doesn't require _root_ privileges. In fact, the recommended
 approach is to create a separate user/group ID for the `zot` process.
@@ -89,18 +89,18 @@ deployment use case in order to prevent unauthorized access.
 See the provided authentication
 examplesfootnote:fn-examples[https://github.com/project-zot/zot/tree/main/examples].
 
-=== Access Control
+=== Access control
 
 Following authentication, it is further possible to allow or deny actions
 by a user on a particular repository stored on the `zot` registry.
 See the provided access control examplesfootnote:fn-examples[].
 
-== Vulnerability Scans
+== Vulnerability scans
 
 Apart from hardening the deployment itself, `zot` also supports security
 scanning of stored container images.
 
-== Reporting Security Issues
+== Reporting security issues
 
 We understand that no software is perfect and in spite of our best efforts,
 security bugs may be found. Refer to our

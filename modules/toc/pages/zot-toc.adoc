@@ -35,4 +35,6 @@ server based purely on OCI standards.
 
 == Knowledgebase Articles
 
+* xref:kb:building-ci-cd-pipeline.adoc[Building an OCI-native Container Image CI/CD Pipeline]
+
 * xref:kb:security-posture.adoc[Security Posture]

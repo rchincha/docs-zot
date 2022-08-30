@@ -1,0 +1,114 @@
+= Building an OCI-native Container Image CI/CD Pipeline
+:doctype: book
+:icons: font
+:source-highlighter: highlight.js
+:sectlinks:
+//:toc:
+
+Revised: 2022-08-30
+
+The https://opencontainers.org/[Open Container Initiative]footnote:[https://opencontainers.org/]
+is an open
+governance structure for the express purpose of creating open industry
+standards around container formats and runtimes.
+
+This document describes a step-by-step procedure towards achieving a OCI-native
+secure software supply chain using
+https://github.com/project-zot/zot[`zot`]footnote:fn-zot[https://github.com/project-zot/zot]
+in collaboration with other opensource
+tools.
+
+== Build images
+
+https://github.com/project-stacker/stacker[`stacker`]footnote:[https://github.com/project-stacker/stacker]
+is a standalone tool
+for building OCI images via a declarative `yaml` format. The output of the build
+process is a container image in a OCI layout.
+
+.example: stacker build command
+```
+stacker build -f <stackerfile.yaml>
+```
+
+== Image registry
+
+https://github.com/project-zot/zot[`zot`]footnote:fn-zot[]
+is a production-ready
+vendor-neutral OCI image registry server purely based on the
+https://github.com/opencontainers/distribution-spec[OCI Distribution
+Specification]footnote:[https://github.com/opencontainers/distribution-spec]. If
+`stacker` is used to build the OCI image, it can also be used to publish
+the built image to an OCI registry.
+
+.example: stacker publish command
+```
+stacker publish --url <url> --username <user> --password <password>
+```
+
+Alternatively, you can use
+https://github.com/containers/skopeo[`skopeo`]footnote:[https://github.com/containers/skopeo],
+a command line
+utility that performs various operations on container images and image
+repositories.
+
+.example: skopeo copies an image to a registry
+```
+skopeo copy --format=oci oci:<oci-dir>/image:tag \
+  docker://<zot-server>/image:tag
+```
+
+== Signing images
+
+https://github.com/sigstore/cosign[`cosign`]footnote:[https://github.com/sigstore/cosign]
+is a tool that performs
+container signing, verification, and storage in an OCI registry.
+
+.example: cosign generates keys and signs an image in the registry
+```
+cosign generate-key-pair
+
+cosign sign --key cosign.key <zot-server>/image:tag
+```
+
+== Deploying container images
+
+https://github.com/cri-o/cri-o[`cri-o`]footnote:[https://github.com/cri-o/cri-o]
+is an implementation of the
+https://kubernetes.io/docs/concepts/architecture/cri/[Kubernetes Container Runtime Interface (CRI)]footnote:[https://kubernetes.io/docs/concepts/architecture/cri/]
+to enable using OCI compatible runtimes. It is a lightweight alternative to
+using Docker as the runtime for Kubernetes.
+
+.example: kubelet configuration file
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-pod
+spec:
+  containers:
+  - name: example-container
+    image: <zot-server>/image:tag
+```
+
+== Container image verification
+
+https://artifacthub.io/packages/helm/sigstore/cosigned#deploy-cosigned-helm-chart[`cosigned`]footnote:[https://artifacthub.io/packages/helm/sigstore/cosigned#deploy-cosigned-helm-chart]
+is an image admission controller that validates container images before
+deploying them.
+
+.example: install cosigned using Helm
+```
+kubectl create namespace cosign-system
+
+kubectl create secret generic mysecret -n \
+  cosign-system --from-file=cosign.pub=./cosign.pub
+
+helm repo add sigstore https://sigstore.github.io/helm-charts
+
+helm repo update
+
+helm install cosigned -n cosign-system sigstore/cosigned \
+  --devel --set cosign.secretKeyRef.name=mysecret
+```
+
+== References
