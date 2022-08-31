@@ -1,0 +1,40 @@
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+name: push-build&deploy-localRepo
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Push to local - Build and deploy docs to Github Pages on local repo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install Antora
+        run: npm install
+
+      - name: Generate Site
+        run: npx antora --fetch antora-playbook.yml
+
+      - name: Unzip archive
+        run: unzip build/site.zip -d build/site
+
+      - name: Remove archive
+        run: rm build/site.zip
+
+      - name: Deploy to local repo Github Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build/site

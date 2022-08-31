@@ -4,11 +4,11 @@ on:
       - published
   workflow_dispatch:
 
-name: build-and-push-githubpages
+name: release-build&push-mainRepo
 
 jobs:
   build:
-    name: Build and push docs to Github Pages
+    name: Release - Build and push docs to Github Pages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
