@@ -1,4 +1,4 @@
-= Installation Guide for Bare Metal Linux
+= Installing zot on Bare Metal Linux
 :doctype: book
 :icons: font
 :source-highlighter: highlight.js

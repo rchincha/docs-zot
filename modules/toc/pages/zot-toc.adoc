@@ -30,7 +30,7 @@ server based purely on OCI standards.
 
 ** xref:install-guides:install-guide-linux.adoc[Bare Metal Linux]
 
-** Kubernetes Deployment
+** xref:install-guides:install-guide-k8s.adoc[Kubernetes Deployment]
 
 
 == Knowledgebase Articles

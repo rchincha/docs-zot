@@ -1,0 +1,324 @@
+= Installing zot with Kubernetes and Helm
+:doctype: book
+:icons: font
+:source-highlighter: highlight.js
+:sectlinks:
+
+Revised: 2022-09-01
+
+Using Kubernetes with Helm charts for zot, you can easily deploy zot as an
+application in a Kubernetes cluster.
+
+
+== Before you begin
+
+=== Prerequisites
+
+- kubectl must be installed and a Kubernetes cluster must be ready.
+- https://helm.sh/[Helm] must be installed.
+
+=== Supported platforms
+
+You can install zot on standard Linux platforms with
+Intel or ARM processors and with systemd installed.
+
+[supported-platforms-zot]
+.Supported platforms and architectures
+[%autowidth]
+|===
+| OS | ARCH | Platform
+
+| linux | amd64 | Intel-based Linux servers
+| linux | arm64 | ARM-based servers and Raspberry Pi4
+|===
+
+=== Full and minimal binary images
+
+In addition to variations for specific platforms and architectures, binary images
+are also available in full and minimal implementations:
+
+- A full zot binary image is compiled with all extensions. Extensions
+include functions such as metrics, registry synchronization, search, and scrub.
+
+- A minimal distribution-spec conformant zot binary image is compiled with
+only a minimal set of code and libraries, reducing the attack surface. This
+option might be optimal for a registry embedded in a shipping product.
+
+=== Binary image file naming
+
+An executable binary image for zot is named using the target platform and
+architecture from the
+ <<supported-platforms-zot, Supported platforms and architectures>>
+ table. The general format of a binary image file name is one of these two:
+
+``zot-_os_-_architecture_``
+
+- A full zot binary image with all extensions has a filename of the
+form ``zot-_os_-_architecture_.`` For example, the full binary image for an
+Intel-based linux server is `zot-linux-amd64`.
+
+``zot-_os_-_architecture_-minimal``
+
+- A minimal distribution-spec conformant zot binary image has a filename of
+the form ``zot-_os_-_architecture_-minimal``. For example, the minimal binary
+image for an Intel-based linux server is `zot-linux-amd64-minimal`.
+
+== Installing zot
+
+=== Step 1: Locate the Helm charts in a remote repository
+
+a. Specify a remote repository that contains the Helm charts for zot.  Give the repo
+a local name, such as *project-zot*, as in this example:
++
+``$ *helm repo add project-zot http://zotregistry.io/helm-charts*``
++
+----
+"project-zot" has been added to your repositories
+----
++
+[NOTE]
+ The Helm charts for zot are currently hosted in these publicly-accessible repositories:
+ +
+ - zotregistry.io
+ +
+ - artifacthub.io
+
+
+a. Search the repository to see the Helm charts for zot installation.
+Search using the keyword 'project-zot' or 'zot', as in this example:
++
+``$ *helm search repo project-zot*``
++
+----
+NAME             CHART VERSION  APP VERSION  DESCRIPTION
+project-zot/zot  0.1.0          v1.4.1       A Helm chart for Kubernetes
+----
++
+NOTE: The APP VERSION is the version/tag of the zot image used for the deployment.
+
+
+a. Update to the latest information of available charts from the chart repository,
+as shown in this example:
++
+``$ *helm repo update project-zot*``
++
+----
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "project-zot" chart repository
+Update Complete. ⎈Happy Helming!⎈
+----
+
+a. Display the default information of the Helm chart, as shown in this example:
++
+``$ *helm show all project-zot/zot*``
++
+[source,yaml]
+----
+apiVersion: v2
+appVersion: v1.4.2-rc5
+description: A Helm chart for Kubernetes
+name: zot
+type: application
+version: 0.1.4
+
+---
+# Default values for zot.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 1
+image:
+  repository: ghcr.io/project-zot/zot-linux-amd64
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "v1.4.2-rc5"
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+service:
+  type: NodePort
+  port: 5000
+----
+
+
+=== Step 2: Determine any needed changes from the Helm chart's defaults
+
+.MIKE'S QUESTIONS
+****
+. Is this section needed?  Too much information?
+****
+
+Inspect the default information of the Helm chart, as shown in the previous
+step. In many cases, the default chart values may be acceptable. If your
+installation requires any non-default settings, you may be able to specify them
+during the installation. Not all chart values are configurable, but you can
+display those that are configurable using the command in the following
+example:
+
+``$ *helm show values project-zot/zot*``
+
+[source,yaml]
+----
+  # Default values for zot.
+  # This is a YAML-formatted file.
+  # Declare variables to be passed into your templates.
+  replicaCount: 1
+  image:
+    repository: ghcr.io/project-zot/zot-linux-amd64
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: "v1.4.2-rc5"
+  serviceAccount:
+    # Specifies whether a service account should be created
+    create: true
+    # Annotations to add to the service account
+    annotations: {}
+    # The name of the service account to use.
+    # If not set and create is true, a name is generated using the fullname template
+    name: ""
+  service:
+    type: NodePort
+    port: 5000
+----
+
+As an example, the chart information shows that the following image is used for
+creating the container:
+
+``ghcr.io/project-zot/*zot-linux-amd64*:v1.4.2-rc5``
+
+If your servers use an ARM processor instead of Intel, you must change the
+image name from *zot-linux-amd64* to *zot-linux-arm64*. You might also want
+your installation to have more replicas or a different port number.
+
+To override the default values in the chart, you can pass your custom values
+by adding the `--set` flag in the `helm install` command as shown in these
+examples:
+
+``--set image.repository=ghcr.io/project-zot/zot-linux-amd64``
+
+``--set replicaCount=2,service.port=5050``
+
+You can also create a YAML file with your changes and add the new file by adding
+the `-f` flag in the `helm install` command. See the
+https://helm.sh/docs/[Helm documentation] for further information.
+
+
+=== Step 3: Install zot
+
+To install zot using the default Helm chart, use the `helm install` command, as
+in this example:
+
+``$ *helm install zot project-zot/zot*``
+
+----
+NAME: zot
+LAST DEPLOYED: Thu Aug 11 19:13:02 2022
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+NOTES:
+ Get the application URL by running these commands:
+ export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services zot)
+ export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")
+ echo http://$NODE_IP:$NODE_PORT
+----
+
+==== Non-default installations
+
+To install zot using specific non-default overrides to the Helm chart, use
+the `helm install` command with additional flags and settings as in these example:
+
+.Example: non-default chart parameters
+``$ *helm install --set replicaCount=2,service.port=5050 zot project-zot/zot*``
+
+.Example: a specific version of the Helm chart
+``$ *helm install zot project-zot/zot --version 0.1.0*``
+
+.Example: link to a kubeconfig file
+``$ *helm install zot project-zot/zot --kubeconfig $HOME/.kube/config*``
+
+
+== After the installation
+
+=== Verify the installation
+
+a. List all releases that are either deployed or failed.
++
+``$ *helm list*``
++
+----
+NAME  NAMESPACE  REVISION  UPDATED    STATUS    CHART      APP VERSION
+zot   default    1         <datetime> deployed  zot-0.1.0  v1.4.1
+----
++
+This response indicates that zot is deployed.
+
+a. After making sure that your pods are up and running, execute the following
+commands:
++
+----
+$ export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services zot)
+$ export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")
+$ echo http://$NODE_IP:$NODE_PORT
+$ curl http://$NODE_IP:$NODE_PORT/v2/_catalog
+----
++
+The response should display the current contents of your zot repository, which
+should be empty immediately after installation:
++
+----
+{"repositories":[]}
+----
+
+=== Edit the zot configuration file
+
+The zot configuration file is a JSON or YAML file
+that contains all configuration settings for zot functions such as:
+
+- network
+- storage
+- authentication
+- authorization
+- logging
+- metrics
+- synchronization with other registries
+- clustering
+
+The Helm chart installs a minimal JSON configuration file as shown below:
+
+[source,json]
+----
+{
+    "storage":
+    {
+        "rootDirectory": "/var/lib/registry"
+    },
+    "http":
+    {
+        "address": "0.0.0.0",
+        "port": "5000"
+    },
+    "log":
+    {
+        "level": "debug"
+    }
+}
+----
+
+The zot configuration file is located at `/etc/zot/config.json`.
+
+Refer to the _zot Administrator Guide_ for complete information on configuring
+the zot server with the zot configuration file.
+
+
+
+== Uninstalling zot
+
+Should you need to uninstall zot, use the `helm uninstall` command, as in
+this example:
+
+``$ *helm uninstall zot*``

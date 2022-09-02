@@ -1,2 +1,3 @@
 * Installation Guides
 ** xref:install-guide-linux.adoc[]
+** xref:install-guide-k8s.adoc[]

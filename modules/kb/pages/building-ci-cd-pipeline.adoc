@@ -7,7 +7,7 @@
 
 Revised: 2022-08-30
 
-The https://opencontainers.org/[Open Container Initiative]footnote:[https://opencontainers.org/]
+The https://opencontainers.org/[Open Container Initiative (OCI)]footnote:[https://opencontainers.org/]
 is an open
 governance structure for the express purpose of creating open industry
 standards around container formats and runtimes.
