@@ -16,15 +16,19 @@ image::zot-logo.png[width=50]
 > Zot is a production-ready, open-source, vendor-neutral container image registry
 server based purely on OCI standards.
 
-== Guides
+== General
 
-* xref:concepts:zot-concepts.adoc[Concepts]
+* xref:general:zot-concepts.adoc[Concepts]
+
+* xref:general:artifacts.adoc[Released Artifacts]
+
+== Guides
 
 * User Guide
 
 * xref:admin-guide:admin-guide.adoc[Administrator Guide]
 
-* xref:developer-guide:draft-developer-guide-chapters.adoc[Developer Guide]
+* xref:developer-guide:developer-guide.adoc[Developer Guide]
 
 * Installation Guides
 
@@ -33,7 +37,7 @@ server based purely on OCI standards.
 ** xref:install-guides:install-guide-k8s.adoc[Kubernetes Deployment]
 
 
-== Knowledgebase Articles
+== Articles
 
 * xref:kb:building-ci-cd-pipeline.adoc[Building an OCI-native Container Image CI/CD Pipeline]
 

@@ -21,36 +21,14 @@ should be possible on any platform that supports the `golang` toolchain.
 | darwin | arm64 | ARM-based MacOS
 |===
 
-=== Full and minimal binary images
+=== About binary images
 
-In addition to variations for specific platforms and architectures, images
-are also available in full and minimal implementations:
+Executable binary zot images are available for multiple platforms and
+architectures and with full or minimal implementations.
 
-- A full {zotLowerName} binary image is compiled with all extensions. Extensions
-include functions such as metrics, registry synchronization, search, and scrub.
-
-- A minimal distribution-spec conformant {zotLowerName} binary image is compiled with
-only a minimal set of code and libraries, reducing the attack surface. This
-option might be optimal for a registry embedded in a shipping product.
-
-=== Binary image file naming
-
-An executable binary image for {zotLowerName} is named using the target platform and
-architecture from the
- <<supported-platforms-and-architectures-table-zot, Supported platforms and architectures>>
- table. The general format of a binary image file name is one of these two:
-
-``zot-_os_-_architecture_``
-
-- A full {zotLowerName} binary image with all extensions has a filename of the
-form ``zot-_os_-_architecture_.`` For example, the full binary image for an
-Intel-based linux server is `zot-linux-amd64`.
-
-``zot-_os_-_architecture_-minimal``
-
-- A minimal distribution-spec conformant {zotLowerName} binary image has a filename of
-the form ``zot-_os_-_architecture_-minimal``. For example, the minimal binary
-image for an Intel-based linux server is `zot-linux-amd64-minimal`.
+Refer to xref:general:artifacts.adoc[_Released Artifacts for zot_]
+for information about available zot images along with information about
+image variations, image locations, and image naming formats.
 
 === Deployment methods
 

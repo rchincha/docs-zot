@@ -8,51 +8,15 @@ Revised: 2022-08-09
 
 == Before you begin
 
-=== Supported platforms
+=== About binary images
 
-You can install zot on standard Linux platforms with
-Intel or ARM processors and with systemd installed.
+Executable binary zot images are available for multiple platforms and
+architectures and with full or minimal implementations.
 
-[supported-platforms-zot]
-.Supported platforms and architectures
-[%autowidth]
-|===
-| OS | ARCH | Platform
+Refer to xref:general:artifacts.adoc[_Released Artifacts for zot_]
+for information about available zot images along with information about
+image variations, image locations, and image naming formats.
 
-| linux | amd64 | Intel-based Linux servers
-| linux | arm64 | ARM-based servers and Raspberry Pi4
-|===
-
-=== Full and minimal binary images
-
-In addition to variations for specific platforms and architectures, binary images
-are also available in full and minimal implementations:
-
-- A full zot binary image is compiled with all extensions. Extensions
-include functions such as metrics, registry synchronization, search, and scrub.
-
-- A minimal distribution-spec conformant zot binary image is compiled with
-only a minimal set of code and libraries, reducing the attack surface. This
-option might be optimal for a registry embedded in a shipping product.
-
-=== Binary image file naming
-
-An executable binary image for zot is named using the target platform and
-architecture from the
- <<supported-platforms-zot, Supported platforms and architectures>>
- table. The general format of a binary image file name is one of these two:
-
-``zot-_os_-_architecture_``
-
-- A full zot binary image with all extensions has a filename of the
-form ``zot-_os_-_architecture_.`` For example, the full binary image for an
-Intel-based linux server is `zot-linux-amd64`.
-
-``zot-_os_-_architecture_-minimal``
-
-- A minimal distribution-spec conformant zot binary image has a filename of
-the form ``zot-_os_-_architecture_-minimal``. For example, the minimal binary
-image for an Intel-based linux server is `zot-linux-amd64-minimal`.
 
 == Installation
 
@@ -66,12 +30,6 @@ to the`/usr/bin/` directory and rename it to `zot,` as in this example:
 $ wget -O /usr/bin/zot  https://github.com/project-zot/zot/releases/download/v1.4.2-rc2/zot-linux-amd64
 ----
 
-.MIKE'S QUESTIONS
-****
-. Do we need to rename the binary or to chmod it to be executable?
-. What does -N do?
-****
-
 === Step 2: Create a zot configuration file
 
 Create a zot configuration file as `/etc/zot/config.json`.
@@ -79,7 +37,8 @@ Create a zot configuration file as `/etc/zot/config.json`.
 See <<config_file,Configuration file options>> for an example file with
 options and recommendations. You can find other configuration file
 https://github.com/project-zot/zot/tree/main/examples[examples] in
-the zot GitHub project and in the _Zot Administrator Guide_.
+the zot GitHub project and in the
+xref:admin-guide:admin-guide.adoc[_Zot Administrator Guide_].
 
 
 === Step 3: Configure a local authentication account
@@ -175,7 +134,8 @@ If your zot registry server is public facing, we recommend that you test
 your TLS configuration using a service such as
 the https://www.ssllabs.com/ssltest/[Qualys SSL Server Test].
 
-Refer to the _Zot Administrator Guide_ for further information about maintaining your
+Refer to the xref:admin-guide:admin-guide.adoc[_Zot Administrator Guide_]
+for further information about maintaining your
 zot registry server.
 
 
@@ -185,8 +145,8 @@ zot registry server.
 The following zot configuration file (`config.json`) can be used as a template
 for your own installation. You can modify this file to suit your own environment.
 
-Refer to the _Zot Administrator Guide_ for more details about configuration file
-options.
+Refer to the xref:admin-guide:admin-guide.adoc[_Zot Administrator Guide_]
+for more details about configuration file options.
 
 [source,json]
 ----

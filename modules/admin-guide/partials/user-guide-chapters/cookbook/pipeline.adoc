@@ -19,16 +19,16 @@ The image is then copied to a local OCI-layout directory, where it is added
 to the manifest.
 
 ----
-$ skopeo --insecure-policy copy --format=oci --dest-tls-verify=false \
-      docker://busybox:latest docker://localhost:5000/busybox:latest
+$ skopeo --insecure-policy copy --dest-tls-verify=false --multi-arch=all \
+   --format=oci docker://busybox:latest docker://localhost:5000/busybox:latest
 Getting image source signatures
 Copying blob 554879bc3004 done
 Copying config 02611c034a done
 Writing manifest to image destination
 Storing signatures
 
-$ skopeo --insecure-policy copy --src-tls-verify=false \
-      docker://localhost:5000/busybox:latest oci:/tmp/images:busybox:latest
+$ skopeo --insecure-policy copy --src-tls-verify=false --multi-arch=all \
+   docker://localhost:5000/busybox:latest oci:/tmp/images:busybox:latest
 Getting image source signatures
 Copying blob 554879bc3004 done
 Copying config 02611c034a done

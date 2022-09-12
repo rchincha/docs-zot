@@ -127,3 +127,22 @@ Flags:
 
 Run 'zli config -h' for details on [config-name] argument
 ----
+
+[#_zli-repos]
+=== zli repos
+
+This command lists all repositories in the zot registry.
+
+----
+$ ./zli repos --help
+
+Usage:
+  zli repos [config-name] [flags]
+
+Flags:
+  -h, --help          help for repos
+      --url string    Specify zot server URL if config-name is not mentioned
+  -u, --user string   User Credentials of zot server in "username:password" format
+
+Run 'zli config -h' for details on [config-name] argument
+----

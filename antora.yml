@@ -4,7 +4,7 @@ version: '1.0'
 start_page: toc:zot-toc.adoc
 nav: 
   - modules/toc/nav.adoc
-  - modules/concepts/nav.adoc
+  - modules/general/nav.adoc
   - modules/install-guides/nav.adoc
   - modules/admin-guide/nav.adoc
   - modules/developer-guide/nav.adoc

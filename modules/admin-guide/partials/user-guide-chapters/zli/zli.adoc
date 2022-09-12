@@ -188,3 +188,16 @@ IMAGE NAME        TAG                       DIGEST    SIZE
 c3/openjdk-dev    commit-2674e8a-squashfs   b545b8ba  321MB
 c3/openjdk-dev    commit-d5024ec-squashfs   cd45f8cf  321MB
 ----
+
+=== Listing repositories
+
+You can list all repositories hosted on a zot server using the <<#_zli-repos, `zli repos`>> command with
+the server's alias:
+
+----
+Searching... 🌍
+
+REPOSITORY NAME
+alpine
+busybox
+----
