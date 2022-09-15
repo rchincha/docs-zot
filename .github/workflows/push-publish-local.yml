@@ -21,10 +21,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-
+      # For site generation
       - name: Install Antora
         run: npm install
+      # For ui generation
+      - name: Install ui dependencies
+        run: npm run install:ui
 
+      - name: Build ui
+        run: npm run build:ui
+        
       - name: Generate Site
         run: npx antora --fetch antora-playbook.yml
 

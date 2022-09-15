@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "start": "antora --fetch antora-playbook.yml"
+    "start": "antora --fetch antora-playbook.yml",
+    "install:ui": "cd ui && npm install",
+    "build:ui": "cd ui && npx gulp bundle"
   },
   "devDependencies": {
     "@antora/cli": "3.0.1",
