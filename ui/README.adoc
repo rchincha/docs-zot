@@ -1,0 +1,8 @@
+== Antora zot UI
+Antora custom zot ui based on the https://gitlab.com/antora/antora-ui-default/[Antora Default UI project]
+
+== Copyright and License
+
+Antora Default UI is licensed under the terms of the https://www.mozilla.org/en-US/MPL/2.0/[Mozilla Public License Version 2.0] (MPL-2.0).
+See link:LICENSE[] to find the full license text.
+
