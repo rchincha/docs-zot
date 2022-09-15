@@ -3,15 +3,15 @@
 :icons: font
 // :toc: no
 //:toclevels: 0
-// :imagesdir: images
-:title-logo-image: zot-logo.png
+//:imagesdir:
+:title-logo-image: zot-logo-192x192.png
 :sectlinks:
 :zotUpperName: Zot
 :zotLowerName: zot
 
 :main_toc:
 
-image::zot-logo.png[width=50]
+image::zot-logo-192x192.png[width=50]
 
 > Zot is a production-ready, open-source, vendor-neutral container image registry
 server based purely on OCI standards.
