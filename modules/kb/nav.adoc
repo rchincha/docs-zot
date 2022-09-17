@@ -1,3 +1,4 @@
 * Articles
 ** xref:building-ci-cd-pipeline.adoc[]
 ** xref:security-posture.adoc[]
+** xref:storage.adoc[]

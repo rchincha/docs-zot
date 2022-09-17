@@ -42,3 +42,5 @@ server based purely on OCI standards.
 * xref:kb:building-ci-cd-pipeline.adoc[Building an OCI-native Container Image CI/CD Pipeline]
 
 * xref:kb:security-posture.adoc[Security Posture]
+
+* xref:kb:storage.adoc[Storage Planning]

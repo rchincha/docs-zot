@@ -9,7 +9,7 @@ http://localhost:5000.
 $ podman run -p 5000:5000 ghcr.io/project-zot/zot-linux-amd64:latest
 ----
 
-=== Push or pull using skopeo
+=== Push or pull images using skopeo
 
 https://github.com/containers/skopeo[Skopeo]
 is a command line tool for performing operations on container images and
