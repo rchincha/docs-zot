@@ -5,14 +5,39 @@
 :sectlinks:
 //:toc:
 
-Revised: 2022-08-30
+Revised: 2022-09-22
+
+
+====
+An **OCI-native** secure container image build/delivery pipeline using the
+following tools:
+
+- https://github.com/project-stacker/stacker[`stacker`]
+for building OCI images
+
+- https://github.com/project-zot/zot[`zot`]
+as a vendor-neutral OCI image registry server
+
+- https://github.com/containers/skopeo[`skopeo`]
+for performing repository interactions
+
+- https://github.com/sigstore/cosign[`cosign`]
+for container signing and verification
+
+- https://github.com/cri-o/cri-o[`cri-o`]
+for deploying container images
+
+- https://artifacthub.io/packages/helm/sigstore/cosigned#deploy-cosigned-helm-chart[`cosigned`]
+for validating container images before deployment
+====
+
 
 The https://opencontainers.org/[Open Container Initiative (OCI)]footnote:[https://opencontainers.org/]
 is an open
 governance structure for the express purpose of creating open industry
 standards around container formats and runtimes.
 
-This document describes a step-by-step procedure towards achieving a OCI-native
+This document describes a step-by-step procedure towards achieving an OCI-native
 secure software supply chain using
 https://github.com/project-zot/zot[`zot`]footnote:fn-zot[https://github.com/project-zot/zot]
 in collaboration with other opensource
