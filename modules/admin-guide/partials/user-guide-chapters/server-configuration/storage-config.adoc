@@ -80,6 +80,9 @@ their own repository paths and settings. The following example shows three subpa
 ****
 . Are these the only attributes?
 . What values and ranges are allowed for gcDelay and gcInterval?
+
+gcDelay has a default value of 1 hour. No default for gcInterval. 
+Must be set based on use cases and user workloads.
 ****
 
 [#_s3_storage_config]

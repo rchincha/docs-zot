@@ -188,3 +188,6 @@ content storage.
 . Does the 'make image' command use the Dockerfile?  Wouldn't we use a docker command?
 . How do we specify the inclusion of zli and zb binaries in the container?
 ****
+
+^ Would drop this entirely and focus on `make binary-stacker` target. 
+There is also a stacker-zb.yaml and a stacker-zb.yaml but not setup via the Makefile yet. If this is really needed by developers we can add this though.
