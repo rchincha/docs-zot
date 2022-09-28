@@ -6,8 +6,7 @@
 
 Revised: 2022-09-12
 
-Using Kubernetes with Helm charts for zot, you can easily deploy zot as an
-application in a Kubernetes cluster.
+Using Kubernetes with Helm charts for zot, you can easily deploy zot as an application in a Kubernetes cluster.
 
 
 == Before you begin
@@ -19,8 +18,7 @@ application in a Kubernetes cluster.
 
 === Supported platforms
 
-You can install zot on standard Linux platforms with
-Intel or ARM processors and with systemd installed.
+You can install zot on standard Linux platforms with Intel or ARM processors and with systemd installed.
 
 [supported-platforms-zot]
 .Supported platforms and architectures
@@ -34,17 +32,14 @@ Intel or ARM processors and with systemd installed.
 
 === About binary images
 
-Refer to xref:general:artifacts.adoc[_Released Artifacts for zot_]
-for information about available zot images along with information about
-image variations, image locations, and image naming formats.
+Refer to xref:general:artifacts.adoc[_Released Artifacts for zot_] for information about available zot images along with information about image variations, image locations, and image naming formats.
 
 
 == Installing zot
 
 === Step 1: Locate the Helm charts in a remote repository
 
-a. Specify a remote repository that contains the Helm charts for zot.  Give the repo
-a local name, such as *project-zot*, as in this example:
+a. Specify a remote repository that contains the Helm charts for zot.  Give the repo a local name, such as *project-zot*, as in this example:
 +
 ``$ *helm repo add project-zot http://zotregistry.io/helm-charts*``
 +
@@ -60,7 +55,7 @@ a local name, such as *project-zot*, as in this example:
  - artifacthub.io
 
 
-a. Search the repository to see the Helm charts for zot installation.
+b. Search the repository to see the Helm charts for zot installation.
 Search using the keyword 'project-zot' or 'zot', as in this example:
 +
 ``$ *helm search repo project-zot*``
@@ -72,9 +67,7 @@ project-zot/zot  0.1.0          v1.4.1       A Helm chart for Kubernetes
 +
 NOTE: The APP VERSION is the version/tag of the zot image used for the deployment.
 
-
-a. Update to the latest information of available charts from the chart repository,
-as shown in this example:
+c. Update to the latest information of available charts from the chart repository, as shown in this example:
 +
 ``$ *helm repo update project-zot*``
 +
@@ -84,7 +77,7 @@ Hang tight while we grab the latest from your chart repositories...
 Update Complete. ⎈Happy Helming!⎈
 ----
 
-a. Display the default information of the Helm chart, as shown in this example:
+d. Display the default information of the Helm chart, as shown in this example:
 +
 ``$ *helm show all project-zot/zot*``
 +
@@ -118,12 +111,7 @@ service:
 
 === Step 2: Determine any needed changes from the Helm chart's defaults
 
-Inspect the default information of the Helm chart, as shown in the previous
-step. In many cases, the default chart values may be acceptable. If your
-installation requires any non-default settings, you may be able to specify them
-during the installation. Not all chart values are configurable, but you can
-display those that are configurable using the command in the following
-example:
+Inspect the default information of the Helm chart, as shown in the previous step. In many cases, the default chart values may be acceptable. If your installation requires any non-default settings, you may be able to specify them during the installation. Not all chart values are configurable, but you can display those that are configurable using the command in the following example:
 
 ``$ *helm show values project-zot/zot*``
 
@@ -146,8 +134,7 @@ example:
     port: 5000
 ----
 
-The configurable settings in the chart are listed in the following
-table:
+The configurable settings in the chart are listed in the following table:
 
 [%autowidth]
 |===
@@ -175,25 +162,19 @@ Headless
 
 ==== Customizing the Helm chart using 'set'
 
-To override the default values in the chart, you can pass your custom values
-by adding the `--set` flag in the `helm install` command.
+To override the default values in the chart, you can pass your custom values by adding the `--set` flag in the `helm install` command.
 
-For example, if your servers use an ARM processor instead of Intel, you must
-change the `image.repository` name from *zot-linux-amd64* to *zot-linux-arm64*:
+For example, if your servers use an ARM processor instead of Intel, you must change the `image.repository` name from *zot-linux-amd64* to *zot-linux-arm64*:
 
 ``--set image.repository=ghcr.io/project-zot/zot-linux-arm64``
 
-You can change multiple settings with one `--set` statement. For example, you
-might want your installation to have more replicas or a different port number:
+You can change multiple settings with one `--set` statement. For example, you might want your installation to have more replicas or a different port number:
 
 ``--set replicaCount=2,service.port=5050``
 
 ==== Customizing the Helm chart using a file
 
-You can also create a YAML file with your overrides and then add the new file
-by adding the `-f` flag to the `helm install` command. For example, to override
-the replica count and port number, the contents of your YAML file (for example,
-"myfile.yaml") would be:
+You can also create a YAML file with your overrides and then add the new file by adding the `-f` flag to the `helm install` command. For example, to override the replica count and port number, the contents of your YAML file (for example, "myfile.yaml") would be:
 
 [source,yaml]
 ----
@@ -208,17 +189,12 @@ and the following flag would be added to the `helm install` command:
 
 ==== Additional information
 
-See the
-https://helm.sh/docs/[Helm documentation] for further information about modifying
-the Helm chart.
+See the https://helm.sh/docs/[Helm documentation] for further information about modifying the Helm chart.
 
 
 === Step 3: Install zot
 
-Install zot using the `helm install` command.  The first example shows
-how to perform a default installation. The additional examples show different
-ways to modify the `helm install` command to override default settings in the
-Helm chart:
+Install zot using the `helm install` command.  The first example shows how to perform a default installation. The additional examples show different ways to modify the `helm install` command to override default settings in the Helm chart:
 
 .Example 1: use default chart parameters
 ``$ *helm install zot project-zot/zot*``
@@ -265,8 +241,7 @@ zot   default    1         <datetime> deployed  zot-0.1.0  v1.4.1
 +
 This response indicates that zot is deployed.
 
-a. After making sure that your pods are up and running, execute the following
-commands:
+b. After making sure that your pods are up and running, execute the following commands:
 +
 ----
 $ export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services zot)
@@ -275,8 +250,7 @@ $ echo http://$NODE_IP:$NODE_PORT
 $ curl http://$NODE_IP:$NODE_PORT/v2/_catalog
 ----
 +
-The response should display the current contents of your zot repository, which
-should be empty immediately after installation:
+The response should display the current contents of your zot repository, which should be empty immediately after installation:
 +
 ----
 {"repositories":[]}
@@ -284,8 +258,7 @@ should be empty immediately after installation:
 
 === Edit the zot configuration file
 
-The zot configuration file is a JSON or YAML file
-that contains all configuration settings for zot functions such as:
+The zot configuration file is a JSON or YAML file that contains all configuration settings for zot functions such as:
 
 - network
 - storage
@@ -319,15 +292,12 @@ The Helm chart installs a minimal JSON configuration file as shown below:
 
 The zot configuration file is located at `/etc/zot/config.json`.
 
-Refer to the xref:admin-guide:admin-guide.adoc[_Zot Administrator Guide_]
-for complete information on configuring
-the zot server with the zot configuration file.
+Refer to the xref:admin-guide:admin-guide.adoc[_Zot Administrator Guide_] for complete information on configuring the zot server with the zot configuration file.
 
 
 
 == Uninstalling zot
 
-Should you need to uninstall zot, use the `helm uninstall` command, as in
-this example:
+Should you need to uninstall zot, use the `helm uninstall` command, as in this example:
 
 ``$ *helm uninstall zot*``

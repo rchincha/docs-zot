@@ -1,0 +1,21 @@
+== Common tasks with helm
+
+https://helm.sh/[Helm] is a package manager for Kubernetes. Among many other capabilities, helm can store and retrieve helm charts on OCI image repositories.
+
+====
+This example pushes and then pulls version 1.2.3 of a zot Helm chart to a `zot-chart` repository within the registry.
+====
+
+=== Push a helm chart
+
+----
+$ helm package path/to/helm-charts/charts/zot
+$ helm push zot-1.2.3.tgz oci://myZotRegistry.com:5000/zot-chart
+----
+
+=== Pull a helm chart
+
+----
+$ helm pull oci://myZotRegistry.com:5000/zot-chart/zot --version 1.2.3
+----
+

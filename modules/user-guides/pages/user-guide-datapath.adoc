@@ -1,0 +1,64 @@
+= Using zot with Datapath Clients
+:doctype: book
+:icons: font
+:source-highlighter: highlight.js
+:sectlinks:
+
+Revised: 2022-09-28
+
+You can interact with a zot registry using either the zot GUI or using one of several available third-party client tools. A zot registry can store and serve a variety of content, but the type of content may dictate your choice of a client tool.  
+
+The following table lists the clients shown in this document along with the type of content supported by the client.
+
+[third-party-clients-table-zot]
+//[%autowidth]
+|===
+| Client | Datatype
+
+| xref:using-skopeo[skopeo] | OCI images
+| xref:using-regedit[regedit] (`regctl`) | OCI images
+| xref:using-oras[oras] | OCI artifacts
+| xref:using-helm[helm] | helm charts
+|===
+
+NOTE: In the following examples, the zot registry is located at myZotRegistry.com, using port number 5000.
+
+
+== Using skopeo for OCI images
+
+:leveloffset: +1
+
+include::partial$datapath/using-skopeo.adoc[]
+
+:leveloffset: -1
+
+== Using regclient for OCI images
+
+:leveloffset: +1
+
+include::partial$datapath/using-regclient.adoc[]
+
+:leveloffset: -1
+
+== Using oras for OCI artifacts
+
+:leveloffset: +1
+
+include::partial$datapath/using-oras.adoc[]
+
+:leveloffset: -1
+
+== Using helm for helm charts
+
+:leveloffset: +1
+
+include::partial$datapath/using-helm.adoc[]
+
+:leveloffset: -1
+
+
+.MIKE'S QUESTIONS
+****
+. Some sections show more tasks than others.  Should we add/remove tasks to make the sections more consistent?
+. I was able to run skopeo tasks on my localhost, but not the other tools.  Someone should probably verify these. 
+****

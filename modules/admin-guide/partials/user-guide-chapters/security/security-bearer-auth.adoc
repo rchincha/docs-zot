@@ -24,12 +24,7 @@ The following table lists the configurable attributes.
 |===
 | Attribute | Description
 
-| `realm` |
-| `service` |
+| `realm` | A string typically related to the authentication scheme (_BASIC_ and _BEARER_).
+| `service` | The name of the authentication service.
 | `cert` | The path and filename of the server's SSL/TLS certificate.
 |===
-
-.MIKE'S QUESTIONS
-****
-. Need attribute definitions
-****

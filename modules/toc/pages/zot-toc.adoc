@@ -11,7 +11,7 @@
 
 :main_toc:
 
-image::zot-logo-192x192.png[width=50]
+image::zot-logo-192x192.png[width=60]
 
 > Zot is a production-ready, open-source, vendor-neutral container image registry
 server based purely on OCI standards.
@@ -24,7 +24,9 @@ server based purely on OCI standards.
 
 == Guides
 
-* User Guide
+* User Guides
+
+** xref:user-guides:user-guide-datapath.adoc[Using zot with Datapath Clients]
 
 * xref:admin-guide:admin-guide.adoc[Administrator Guide]
 

@@ -44,10 +44,10 @@ Deduplication is enabled by default. Set to `false` to disable deduplication.
 When an image is deleted, either by tag or by reference, orphaned blobs
 can lead to wasted storage. Garbage collection (gc) is enabled by default
 to reclaim this space. Set to `false` to disable garbage collection.
-|`gcDelay` | (Optional) If garbage collection is enabled, causes it to run once after
-the specified delay time. Requires the `gc` attribute to be `true`.
-|`gcInterval` | (Optional) If garbage collection is enabled, causes it to run periodically
-at the specified interval. Requires the `gc` attribute to be `true`.
+|`gcDelay` | (Optional) If garbage collection is enabled, causes it to run once after the specified delay time. The default is 1 hour.
+Requires the `gc` attribute to be `true`.
+|`gcInterval` | (Optional) If garbage collection is enabled, causes periodic collection at the specified interval. Must be set based on use cases and user workloads. If no value is specified, there is no periodic collection.
+Requires the `gc` attribute to be `true`. 
 |`subpaths` a|
 You can store and serve images from multiple filesystems, each with
 their own repository paths and settings. The following example shows three subpaths.
@@ -75,12 +75,6 @@ their own repository paths and settings. The following example shows three subpa
 
 |===
 
-
-.MIKE'S QUESTIONS
-****
-. Are these the only attributes?
-. What values and ranges are allowed for gcDelay and gcInterval?
-****
 
 [#_s3_storage_config]
 == Configuring S3 storage

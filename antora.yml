@@ -5,7 +5,8 @@ start_page: toc:zot-toc.adoc
 nav: 
   - modules/toc/nav.adoc
   - modules/general/nav.adoc
-  - modules/install-guides/nav.adoc
+  - modules/user-guides/nav.adoc
   - modules/admin-guide/nav.adoc
   - modules/developer-guide/nav.adoc
+  - modules/install-guides/nav.adoc
   - modules/kb/nav.adoc

@@ -1,0 +1,22 @@
+== Common tasks with oras
+
+https://oras.land/cli/[ORAS] (OCI Registry As Storage) is a command line client for storing OCI artifacts on OCI repositories.
+
+====
+This example pushes and then pulls version 2 of an artifact file named `hello-artifact`. 
+====
+
+=== Push an artifact
+
+----
+$ oras push --plain-http myZotRegistry.com:5000/hello-artifact:v2 \
+        --config config.json:application/vnd.acme.rocket.config.v1+json \
+        artifact.txt:text/plain -d -v
+----
+
+=== Pull an artifact
+
+----
+$ oras pull --plain-http myZotRegistry.com:5000/hello-artifact:v2 -d -v
+----
+
