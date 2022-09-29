@@ -3,11 +3,11 @@
 https://github.com/containers/skopeo[`skopeo`] is a command line
 client that performs various operations on OCI container images and image repositories.
 
-====
-This example pushes the latest container image for the `busybox` application to a zot server. The image is then copied to a local OCI-layout directory (`/oci/images`) and to a private (localhost) registry. A manifest is printed from the local OCI-layout directory.
-====
+NOTE: For detailed information about using skopeo, see the https://github.com/containers/skopeo/blob/main/docs/skopeo.1.md[skopeo man page]. 
 
 === Push an OCI image
+
+This example pushes the latest container image for the `busybox` application to a zot registry.
 
 ----
 $ skopeo --insecure-policy copy --dest-tls-verify=false --multi-arch=all \
@@ -17,6 +17,8 @@ $ skopeo --insecure-policy copy --dest-tls-verify=false --multi-arch=all \
 
 === Pull an OCI image
 
+This example pulls the latest container image for the `busybox` application and stores the image to a local OCI-layout directory (`/oci/images`).
+
 ----
 $ skopeo --insecure-policy copy --src-tls-verify=false --multi-arch=all \
    docker://myZotRegistry.com:5000/busybox:latest \
@@ -25,26 +27,26 @@ $ skopeo --insecure-policy copy --src-tls-verify=false --multi-arch=all \
 
 === Pull an OCI image to a private docker registry
 
+This example pulls the latest container image for the `busybox` application and stores the image to a local private docker registry.
+
 ----
 $ skopeo --insecure-policy copy --src-tls-verify=false --multi-arch=all \
    docker://myZotRegistry.com:5000/busybox:latest \
    docker://localhost:5000/busybox:latest
 ----
 
-=== View manifest
+=== Authentication
+
+In these examples, authentication is disabled for the source and destination. You can enable authentication by changing the command line options as follows:
 
 ----
-$ cat /oci/images/index.json | jq .
-{ "schemaVersion": 2,
-  "manifests": [
-    {
-      "mediaType": "application/vnd.oci.image.manifest.v1+json",
-      "digest": "sha256:asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf",
-      "size": 347,
-      "annotations": {
-        "org.opencontainers.image/ref.name": "busybox:latest"
-      }
-    }
-  ]
-}
+--src-tls-verify=true
+--dest-tls-verify=true
+----
+
+You can also add credentials for authenticating with a source or destination repository:
+----
+
+--src-creds username:password
+--dest-creds username:password
 ----

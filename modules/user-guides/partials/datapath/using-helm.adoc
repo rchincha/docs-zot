@@ -2,11 +2,11 @@
 
 https://helm.sh/[Helm] is a package manager for Kubernetes. Among many other capabilities, helm can store and retrieve helm charts on OCI image repositories.
 
-====
-This example pushes and then pulls version 1.2.3 of a zot Helm chart to a `zot-chart` repository within the registry.
-====
+NOTE: For detailed information about the `helm` commands in these examples, see https://helm.sh/docs/topics/registries/[Commands for working with registries] in the helm documentation.
 
 === Push a helm chart
+
+This example pushes version 1.2.3 of a zot helm chart to a `zot-chart` repository within the registry.
 
 ----
 $ helm package path/to/helm-charts/charts/zot
@@ -15,7 +15,18 @@ $ helm push zot-1.2.3.tgz oci://myZotRegistry.com:5000/zot-chart
 
 === Pull a helm chart
 
+This example pulls version 1.2.3 of a zot helm chart from a `zot-chart` repository within the registry.
+
 ----
 $ helm pull oci://myZotRegistry.com:5000/zot-chart/zot --version 1.2.3
 ----
 
+=== Authentication
+
+To authenticate with the zot server, log in at the start of your session using the following command:
+
+----
+$ helm registry login -u myUsername myZotRegistry.com:5000
+----
+
+You will be prompted to manually enter a password.

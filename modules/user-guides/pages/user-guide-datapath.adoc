@@ -1,24 +1,24 @@
-= Using zot with Datapath Clients
+= Push and Pull Image Content
 :doctype: book
 :icons: font
 :source-highlighter: highlight.js
 :sectlinks:
 
-Revised: 2022-09-28
+Revised: 2022-09-29
 
-You can interact with a zot registry using either the zot GUI or using one of several available third-party client tools. A zot registry can store and serve a variety of content, but the type of content may dictate your choice of a client tool.  
+A zot registry can store and serve a variety of content, but the type of content may dictate your choice of a client tool.  
 
-The following table lists the clients shown in this document along with the type of content supported by the client.
+For various content types, this document shows examples of using a third-party client tool that supports the content. The following table shows which content and client tools are demonstrated.
 
 [third-party-clients-table-zot]
-//[%autowidth]
+[%autowidth]
 |===
-| Client | Datatype
+| Content type | Client 
 
-| xref:using-skopeo[skopeo] | OCI images
-| xref:using-regedit[regedit] (`regctl`) | OCI images
-| xref:using-oras[oras] | OCI artifacts
-| xref:using-helm[helm] | helm charts
+| OCI images | xref:using-skopeo[skopeo] 
+| OCI images | xref:using-regedit[regclient] (`regctl`) 
+| OCI artifacts | xref:using-oras[ORAS] 
+| Helm charts | xref:using-helm[helm]  
 |===
 
 NOTE: In the following examples, the zot registry is located at myZotRegistry.com, using port number 5000.

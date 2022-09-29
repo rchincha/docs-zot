@@ -8,7 +8,7 @@ images stored in the OCI image format and with the OCI distribution specificatio
 minimal deployment using a single binary image, built-in authentication and
 authorization, and inline garbage collection and storage deduplication.
 
-image::504224.jpg[width=300]
+image::504566.jpg[width=300]
 
 Some of the principal advantages of {zotLowerName} are:
 

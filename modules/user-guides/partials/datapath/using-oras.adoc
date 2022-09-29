@@ -2,11 +2,11 @@
 
 https://oras.land/cli/[ORAS] (OCI Registry As Storage) is a command line client for storing OCI artifacts on OCI repositories.
 
-====
-This example pushes and then pulls version 2 of an artifact file named `hello-artifact`. 
-====
+NOTE: For detailed information about the `oras` commands in these examples, see the https://oras.land/cli/[ORAS CLI documentation].
 
 === Push an artifact
+
+This example pushes version 2 of an artifact file named `hello-artifact` to a zot registry.
 
 ----
 $ oras push --plain-http myZotRegistry.com:5000/hello-artifact:v2 \
@@ -16,7 +16,26 @@ $ oras push --plain-http myZotRegistry.com:5000/hello-artifact:v2 \
 
 === Pull an artifact
 
+This example pulls version 2 of an artifact file named `hello-artifact` from a zot registry.
+
 ----
 $ oras pull --plain-http myZotRegistry.com:5000/hello-artifact:v2 -d -v
 ----
+
+=== Authentication
+
+To authenticate with the zot server, log in at the start of your session using the following command:
+
+----
+$ oras login -u myUsername -p myPassword myZotRegistry.com:5000
+----
+
+You can also add credentials in the push or pull commands as in this example:
+
+----
+$ oras pull -u myUsername -p myPassword \
+myZotRegistry.com:5000/hello-artifact:v2 -d -v
+----
+
+NOTE: For additional authentication options, including interactive credential entry and disabling TLS, see the https://github.com/oras-project/oras/blob/main/cmd/oras/login.go[ORAS login documentation].
 
