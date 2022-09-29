@@ -56,9 +56,3 @@ include::partial$datapath/using-helm.adoc[]
 
 :leveloffset: -1
 
-
-.MIKE'S QUESTIONS
-****
-. Some sections show more tasks than others.  Should we add/remove tasks to make the sections more consistent?
-. I was able to run skopeo tasks on my localhost, but not the other tools.  Someone should probably verify these. 
-****
