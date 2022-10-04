@@ -1,4 +1,5 @@
 * Articles
 ** xref:building-ci-cd-pipeline.adoc[]
+** xref:authn-authz.adoc[]
 ** xref:security-posture.adoc[]
 ** xref:storage.adoc[]
