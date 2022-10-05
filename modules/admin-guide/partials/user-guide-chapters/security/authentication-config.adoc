@@ -7,11 +7,5 @@
 - LDAP authentication
 - Bearer (OAuth2) authentication using an HTTP Bearer token
 
-{zotUpperName} also provides these additional security features:
 
-- Ability to delay response to an authentication
-failure in order to prevent automated attacks.
-See <<#_failure_delay>>.
-
-- Ability to limit the rate of API calls from users in order to prevent
-denial-of-service attacks. See <<#_rate_limiting>>.
+For detailed information about configuring authentication for your `zot` registry, see xref:kb:authn-authz.adoc[User Authentication and Authorization with zot].

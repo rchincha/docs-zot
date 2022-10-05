@@ -67,18 +67,6 @@ include::partial$user-guide-chapters/server-configuration/storage-config.adoc[]
 
 include::partial$user-guide-chapters/security/authentication-config.adoc[]
 
-:leveloffset: +1
-
-include::partial$user-guide-chapters/security/security-tls-auth.adoc[]
-
-include::partial$user-guide-chapters/security/security-basic-auth.adoc[]
-
-include::partial$user-guide-chapters/security/security-ldap-auth.adoc[]
-
-include::partial$user-guide-chapters/security/security-bearer-auth.adoc[]
-
-:leveloffset: -1
-
 include::partial$user-guide-chapters/server-configuration/authorization-config.adoc[]
 
 include::partial$user-guide-chapters/security/security-fail-delay.adoc[]
