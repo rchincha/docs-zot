@@ -107,13 +107,13 @@ include::partial$user-guide-chapters/server-configuration/clustering.adoc[]
 :leveloffset: -1
 
 
-== Advanced topics
+//== Advanced topics
 
-:leveloffset: +1
+//:leveloffset: +1
 
-include::partial$user-guide-chapters/cookbook/pipeline.adoc[]
+//include::partial$user-guide-chapters/cookbook/pipeline.adoc[]
 
-:leveloffset: -1
+//:leveloffset: -1
 
 == Maintenance
 
