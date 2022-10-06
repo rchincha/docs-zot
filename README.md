@@ -29,5 +29,16 @@ content:
   - url: ./
 ```
 Note: remove the branch reference in order to generate based on local files.
+Note: read following subsection if planning on building locally
+
+## Building local UI bundle
+The project is configured to use a custom ui bundle, available in this repository inside the /ui directory, the ci/cd pipeline will set up everything on merge, however, if you want to use our custom bundle for local builds, you first have to run the following commands once, before generating the website with `npm start` 
+```bash
+npm run install:ui
+npm run build:ui
+```
+Note: Once the ui bundle is built, it doesn't need to be built on each subsequent `npm start` generation.
+Note: If the ui bundle is not built locally when generating the website, it will use the default antora ui bundle instead.
+
 ## Github pages
 The site is automatically generated and deployed to github pages after every push to the main brach of the `project-zot/docs-zot` repository and is hosted at [zotregistry.io](https://zotregistry.io/docs-zot/)
