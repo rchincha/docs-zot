@@ -3,3 +3,4 @@
 ** xref:authn-authz.adoc[]
 ** xref:security-posture.adoc[]
 ** xref:storage.adoc[]
+** xref:benchmarking-with-zb.adoc[]
