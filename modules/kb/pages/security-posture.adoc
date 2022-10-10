@@ -10,8 +10,8 @@ Revised: 2022-08-30
 ====
 An overview of `zot` build-time and runtime security hardening features, including:
 
-* Position-independent code
-* Minimal-build option
+* Build-time hardening suech as PIE-mode builds
+* Minimal-build option for smaller attack surface
 * Open Source Security Foundation best practices for CI/CD
 * Non-root deployment
 * Robust authentication/authorization options
