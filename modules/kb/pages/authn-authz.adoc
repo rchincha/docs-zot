@@ -7,6 +7,19 @@
 
 Revised: 2022-10-3
 
+====
+A robust set of authentication/authorization options are supported:
+
+* Authentication
+** TLS, including mTLS
+** Username/password or token-based user authentication
+** LDAP
+** htpasswd
+* Authorization
+** Powerful identity-based access controls for repositories or specific repository paths
+
+====
+
 The `zot` configuration model supports both authentication and authorization. Authentication credentials allow access to `zot` HTTP APIs. Authorization policies provide fine-grained control of the actions each authenticated user can perform in the registry.
 
 == Authentication
