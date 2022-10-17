@@ -49,4 +49,6 @@ server based purely on OCI standards.
 
 * xref:kb:storage.adoc[Storage Planning]
 
+* xref:kb:clustering.adoc[zot Clustering]
+
 * xref:kb:benchmarking-with-zb.adoc[Benchmarking zot with zb]
