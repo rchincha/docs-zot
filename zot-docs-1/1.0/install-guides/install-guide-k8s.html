@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Installing zot with Kubernetes and Helm :: Zot Docs</title>
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+    <link rel="icon" href="../../../favicon.ico" type="image/x-icon">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item navbar-logo" href="../../.."></a>
+      <a class="navbar-item" href="../../..">Zot Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://zotregistry.io/">Home</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="zot-docs-1" data-version="1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../toc/zot-toc.html">Zot Documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../toc/zot-toc.html">Documentation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">General</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../general/zot-concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../general/artifacts.html">Released Artifacts for zot</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">User Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guides/user-guide-datapath.html">Push and Pull Image Content</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../admin-guide/admin-guide.html">Zot Administrator Guide</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../developer-guide/developer-guide.html">Zot Developer Guide</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Installation Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="install-guide-linux.html">Installing zot on Bare Metal Linux</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="install-guide-k8s.html">Installing zot with Kubernetes and Helm</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Articles</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/building-ci-cd-pipeline.html">Building an OCI-native Container Image CI/CD Pipeline</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/authn-authz.html">User Authentication and Authorization with zot</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/security-posture.html">zot Security Posture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/storage.html">Storage Planning with zot</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/clustering.html">zot Clustering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/benchmarking-with-zb.html">Benchmarking zot with zb</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Zot Documentation</span>
+    <span class="version">1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../toc/zot-toc.html">Zot Documentation</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../toc/zot-toc.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../toc/zot-toc.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../toc/zot-toc.html">Zot Documentation</a></li>
+    <li>Installation Guides</li>
+    <li><a href="install-guide-k8s.html">Installing zot with Kubernetes and Helm</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Installing zot with Kubernetes and Helm</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Revised: 2022-09-12</p>
+</div>
+<div class="paragraph">
+<p>Using Kubernetes with Helm charts for zot, you can easily deploy zot as an application in a Kubernetes cluster.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_before_you_begin"><a class="anchor" href="#_before_you_begin"></a><a class="link" href="#_before_you_begin">Before you begin</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a><a class="link" href="#_prerequisites">Prerequisites</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>kubectl must be installed and a Kubernetes cluster must be ready.</p>
+</li>
+<li>
+<p><a href="https://helm.sh/">Helm</a> must be installed.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supported_platforms"><a class="anchor" href="#_supported_platforms"></a><a class="link" href="#_supported_platforms">Supported platforms</a></h3>
+<div class="paragraph">
+<p>You can install zot on standard Linux platforms with Intel or ARM processors and with systemd installed.</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 1. Supported platforms and architectures</caption>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">OS</th>
+<th class="tableblock halign-left valign-top">ARCH</th>
+<th class="tableblock halign-left valign-top">Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">linux</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">amd64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intel-based Linux servers</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">linux</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">arm64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ARM-based servers and Raspberry Pi4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_about_binary_images"><a class="anchor" href="#_about_binary_images"></a><a class="link" href="#_about_binary_images">About binary images</a></h3>
+<div class="paragraph">
+<p>Refer to <a href="../general/artifacts.html" class="xref page"><em>Released Artifacts for zot</em></a> for information about available zot images along with information about image variations, image locations, and image naming formats.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installing_zot"><a class="anchor" href="#_installing_zot"></a><a class="link" href="#_installing_zot">Installing zot</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_step_1_locate_the_helm_charts_in_a_remote_repository"><a class="anchor" href="#_step_1_locate_the_helm_charts_in_a_remote_repository"></a><a class="link" href="#_step_1_locate_the_helm_charts_in_a_remote_repository">Step 1: Locate the Helm charts in a remote repository</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Specify a remote repository that contains the Helm charts for zot.  Give the repo a local name, such as <strong>project-zot</strong>, as in this example:</p>
+<div class="paragraph">
+<p><code>$ <strong>helm repo add project-zot <a href="http://zotregistry.io/helm-charts" class="bare">http://zotregistry.io/helm-charts</a></strong></code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>"project-zot" has been added to your repositories</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+ The Helm charts for zot are currently hosted in these publicly-accessible repositories:
+<br>
+ - zotregistry.io
+<br>
+ - artifacthub.io
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Search the repository to see the Helm charts for zot installation.
+Search using the keyword 'project-zot' or 'zot', as in this example:</p>
+<div class="paragraph">
+<p><code>$ <strong>helm search repo project-zot</strong></code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAME             CHART VERSION  APP VERSION  DESCRIPTION
+project-zot/zot  0.1.0          v1.4.1       A Helm chart for Kubernetes</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The APP VERSION is the version/tag of the zot image used for the deployment.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Update to the latest information of available charts from the chart repository, as shown in this example:</p>
+<div class="paragraph">
+<p><code>$ <strong>helm repo update project-zot</strong></code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "project-zot" chart repository
+Update Complete. ⎈Happy Helming!⎈</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Display the default information of the Helm chart, as shown in this example:</p>
+<div class="paragraph">
+<p><code>$ <strong>helm show all project-zot/zot</strong></code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: v2
+appVersion: v1.4.2-rc5
+description: A Helm chart for Kubernetes
+name: zot
+type: application
+version: 0.1.4
+
+---
+# Default values for zot.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 1
+image:
+  repository: ghcr.io/project-zot/zot-linux-amd64
+  pullPolicy: IfNotPresent
+  tag: "v1.4.2-rc5"
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+service:
+  type: NodePort
+  port: 5000</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_step_2_determine_any_needed_changes_from_the_helm_charts_defaults"><a class="anchor" href="#_step_2_determine_any_needed_changes_from_the_helm_charts_defaults"></a><a class="link" href="#_step_2_determine_any_needed_changes_from_the_helm_charts_defaults">Step 2: Determine any needed changes from the Helm chart&#8217;s defaults</a></h3>
+<div class="paragraph">
+<p>Inspect the default information of the Helm chart, as shown in the previous step. In many cases, the default chart values may be acceptable. If your installation requires any non-default settings, you may be able to specify them during the installation. Not all chart values are configurable, but you can display those that are configurable using the command in the following example:</p>
+</div>
+<div class="paragraph">
+<p><code>$ <strong>helm show values project-zot/zot</strong></code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">  # Default values for zot.
+  # This is a YAML-formatted file.
+  # Declare variables to be passed into your templates.
+  replicaCount: 1
+  image:
+    repository: ghcr.io/project-zot/zot-linux-amd64
+    pullPolicy: IfNotPresent
+    tag: "v1.4.2-rc5"
+  serviceAccount:
+    create: true
+    annotations: {}
+    name: ""
+  service:
+    type: NodePort
+    port: 5000</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The configurable settings in the chart are listed in the following table:</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">parameter</th>
+<th class="tableblock halign-left valign-top">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">replicaCount</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Desired number of replicas of the application</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">image.repository</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Repository and image name for the application</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">image.pullPolicy</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Whether to pull the image from the repository.
+If not specified, the policy depends on <code>image.tag</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If tag is <code>:latest</code> or no tag: <code>Always</code></p>
+</li>
+<li>
+<p>If tag is other than <code>:latest</code>: <code>IfNotPresent</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">image.tag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifies different versions the image. default is the chart
+<code>appVersion</code>.</p>
+<p class="tableblock">Examples: <code>:latest</code> (the default) or <code>:v1.4.2-rc5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">serviceAccount.create</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies whether a service account should be created</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">serviceAccount.annotations</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Annotations to add to the service account</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">serviceAccount.name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the service account to use. If <code>name</code> is not set
+and <code>create</code> is true, a name is generated using the fullname template.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">service.type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ClusterIP (default), NodePort, LoadBalancer, ExternalName, or
+Headless</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">service.port</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Port number for calling the service</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_customizing_the_helm_chart_using_set"><a class="anchor" href="#_customizing_the_helm_chart_using_set"></a><a class="link" href="#_customizing_the_helm_chart_using_set">Customizing the Helm chart using 'set'</a></h4>
+<div class="paragraph">
+<p>To override the default values in the chart, you can pass your custom values by adding the <code>--set</code> flag in the <code>helm install</code> command.</p>
+</div>
+<div class="paragraph">
+<p>For example, if your servers use an ARM processor instead of Intel, you must change the <code>image.repository</code> name from <strong>zot-linux-amd64</strong> to <strong>zot-linux-arm64</strong>:</p>
+</div>
+<div class="paragraph">
+<p><code>--set image.repository=ghcr.io/project-zot/zot-linux-arm64</code></p>
+</div>
+<div class="paragraph">
+<p>You can change multiple settings with one <code>--set</code> statement. For example, you might want your installation to have more replicas or a different port number:</p>
+</div>
+<div class="paragraph">
+<p><code>--set replicaCount=2,service.port=5050</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_customizing_the_helm_chart_using_a_file"><a class="anchor" href="#_customizing_the_helm_chart_using_a_file"></a><a class="link" href="#_customizing_the_helm_chart_using_a_file">Customizing the Helm chart using a file</a></h4>
+<div class="paragraph">
+<p>You can also create a YAML file with your overrides and then add the new file by adding the <code>-f</code> flag to the <code>helm install</code> command. For example, to override the replica count and port number, the contents of your YAML file (for example, "myfile.yaml") would be:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">replicaCount: 2
+service:
+  port: 5050</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and the following flag would be added to the <code>helm install</code> command:</p>
+</div>
+<div class="paragraph">
+<p><code>-f myfile.yaml</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_additional_information"><a class="anchor" href="#_additional_information"></a><a class="link" href="#_additional_information">Additional information</a></h4>
+<div class="paragraph">
+<p>See the <a href="https://helm.sh/docs/">Helm documentation</a> for further information about modifying the Helm chart.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_step_3_install_zot"><a class="anchor" href="#_step_3_install_zot"></a><a class="link" href="#_step_3_install_zot">Step 3: Install zot</a></h3>
+<div class="paragraph">
+<p>Install zot using the <code>helm install</code> command.  The first example shows how to perform a default installation. The additional examples show different ways to modify the <code>helm install</code> command to override default settings in the Helm chart:</p>
+</div>
+<div class="paragraph">
+<div class="title">Example 1: use default chart parameters</div>
+<p><code>$ <strong>helm install zot project-zot/zot</strong></code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAME: zot
+LAST DEPLOYED: Thu Aug 11 19:13:02 2022
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+NOTES:
+ Get the application URL by running these commands:
+ export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services zot)
+ export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")
+ echo http://$NODE_IP:$NODE_PORT</pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Example 2: modify specific chart parameters with 'set'</div>
+<p><code>$ <strong>helm install --set replicaCount=2,service.port=5050 zot project-zot/zot</strong></code></p>
+</div>
+<div class="paragraph">
+<div class="title">Example 3: modify specific chart parameters with a file</div>
+<p><code>$ <strong>helm install -f myfile.yaml zot project-zot/zot</strong></code></p>
+</div>
+<div class="paragraph">
+<div class="title">Example 4: use a specific version of the Helm chart</div>
+<p><code>$ <strong>helm install zot project-zot/zot --version 0.1.0</strong></code></p>
+</div>
+<div class="paragraph">
+<div class="title">Example 5: link to a kubeconfig file</div>
+<p><code>$ <strong>helm install zot project-zot/zot --kubeconfig $HOME/.kube/config</strong></code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_after_the_installation"><a class="anchor" href="#_after_the_installation"></a><a class="link" href="#_after_the_installation">After the installation</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_verify_the_installation"><a class="anchor" href="#_verify_the_installation"></a><a class="link" href="#_verify_the_installation">Verify the installation</a></h3>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>List all releases that are either deployed or failed.</p>
+<div class="paragraph">
+<p><code>$ <strong>helm list</strong></code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAME  NAMESPACE  REVISION  UPDATED    STATUS    CHART      APP VERSION
+zot   default    1         &lt;datetime&gt; deployed  zot-0.1.0  v1.4.1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This response indicates that zot is deployed.</p>
+</div>
+</li>
+<li>
+<p>After making sure that your pods are up and running, execute the following commands:</p>
+<div class="listingblock">
+<div class="content">
+<pre>$ export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services zot)
+$ export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")
+$ echo http://$NODE_IP:$NODE_PORT
+$ curl http://$NODE_IP:$NODE_PORT/v2/_catalog</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The response should display the current contents of your zot repository, which should be empty immediately after installation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{"repositories":[]}</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_edit_the_zot_configuration_file"><a class="anchor" href="#_edit_the_zot_configuration_file"></a><a class="link" href="#_edit_the_zot_configuration_file">Edit the zot configuration file</a></h3>
+<div class="paragraph">
+<p>The zot configuration file is a JSON or YAML file that contains all configuration settings for zot functions such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>network</p>
+</li>
+<li>
+<p>storage</p>
+</li>
+<li>
+<p>authentication</p>
+</li>
+<li>
+<p>authorization</p>
+</li>
+<li>
+<p>logging</p>
+</li>
+<li>
+<p>metrics</p>
+</li>
+<li>
+<p>synchronization with other registries</p>
+</li>
+<li>
+<p>clustering</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Helm chart installs a minimal JSON configuration file as shown below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "storage":
+    {
+        "rootDirectory": "/var/lib/registry"
+    },
+    "http":
+    {
+        "address": "0.0.0.0",
+        "port": "5000"
+    },
+    "log":
+    {
+        "level": "debug"
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The zot configuration file is located at <code>/etc/zot/config.json</code>.</p>
+</div>
+<div class="paragraph">
+<p>Refer to the <a href="../admin-guide/admin-guide.html" class="xref page"><em>Zot Administrator Guide</em></a> for complete information on configuring the zot server with the zot configuration file.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_uninstalling_zot"><a class="anchor" href="#_uninstalling_zot"></a><a class="link" href="#_uninstalling_zot">Uninstalling zot</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Should you need to uninstall zot, use the <code>helm uninstall</code> command, as in this example:</p>
+</div>
+<div class="paragraph">
+<p><code>$ <strong>helm uninstall zot</strong></code></p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Documentation :: Zot Docs</title>
+    <title>zot Clustering :: Zot Docs</title>
     <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -33,12 +33,12 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="zot-toc.html">Zot Documentation</a></h3>
+    <h3 class="title"><a href="../toc/zot-toc.html">Zot Documentation</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="zot-toc.html">Documentation</a>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../toc/zot-toc.html">Documentation</a>
   </li>
 </ul>
   </li>
@@ -108,22 +108,22 @@
     <span class="nav-text">Articles</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../kb/building-ci-cd-pipeline.html">Building an OCI-native Container Image CI/CD Pipeline</a>
+    <a class="nav-link" href="building-ci-cd-pipeline.html">Building an OCI-native Container Image CI/CD Pipeline</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../kb/authn-authz.html">User Authentication and Authorization with zot</a>
+    <a class="nav-link" href="authn-authz.html">User Authentication and Authorization with zot</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../kb/security-posture.html">zot Security Posture</a>
+    <a class="nav-link" href="security-posture.html">zot Security Posture</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../kb/storage.html">Storage Planning with zot</a>
+    <a class="nav-link" href="storage.html">Storage Planning with zot</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="clustering.html">zot Clustering</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../kb/clustering.html">zot Clustering</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../kb/benchmarking-with-zb.html">Benchmarking zot with zb</a>
+    <a class="nav-link" href="benchmarking-with-zb.html">Benchmarking zot with zb</a>
   </li>
 </ul>
   </li>
@@ -139,10 +139,10 @@
   </div>
   <ul class="components">
     <li class="component is-current">
-      <a class="title" href="zot-toc.html">Zot Documentation</a>
+      <a class="title" href="../toc/zot-toc.html">Zot Documentation</a>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="zot-toc.html">1.0</a>
+          <a href="../toc/zot-toc.html">1.0</a>
         </li>
       </ul>
     </li>
@@ -154,11 +154,12 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="zot-toc.html" class="home-link is-current"></a>
+  <a href="../toc/zot-toc.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="zot-toc.html">Zot Documentation</a></li>
-    <li><a href="zot-toc.html">Documentation</a></li>
+    <li><a href="../toc/zot-toc.html">Zot Documentation</a></li>
+    <li>Articles</li>
+    <li><a href="clustering.html">zot Clustering</a></li>
   </ul>
 </nav>
 </div>
@@ -167,101 +168,125 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Documentation</h1>
+<h1 class="page">zot Clustering</h1>
 <div id="preamble">
 <div class="sectionbody">
+<div class="paragraph">
+<p>Revised: 2022-10-17</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>High availability of the <code>zot</code> registry is supported by the following features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Stateless <code>zot</code> instances to simplify scale out</p>
+</li>
+<li>
+<p>Bare-metal and Kubernetes deployments</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>To ensure high-availability of the registry,<code>zot</code> supports a clustering scheme with stateless <code>zot</code> instances/replicas fronted by a loadbalancer and a shared remote backend storage. This scheme allows the registry service to remain available even if a few replicas fail or become unavailable. Loadbalancing across many zot replicas can also increase aggregate network throughput.</p>
+</div>
 <div class="imageblock">
 <div class="content">
-<img src="_images/zot-logo-192x192.png" alt="zot logo 192x192" width="60">
+<img src="_images/504569.jpg" alt="504569">
 </div>
 </div>
-<div class="quoteblock">
-<blockquote>
 <div class="paragraph">
-<p>Zot is a production-ready, open-source, vendor-neutral container image registry
-server based purely on OCI standards.</p>
+<p>Clustering is supported in both bare-metal and Kubernetes environments.</p>
 </div>
-</blockquote>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_general"><a class="anchor" href="#_general"></a><a class="link" href="#_general">General</a></h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="../general/zot-concepts.html" class="xref page">Concepts</a></p>
-</li>
-<li>
-<p><a href="../general/artifacts.html" class="xref page">Released Artifacts</a></p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The remote backend storage must be <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html">S3 API-compatible</a>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_guides"><a class="anchor" href="#_guides"></a><a class="link" href="#_guides">Guides</a></h2>
+<h2 id="_bare_metal_deployment"><a class="anchor" href="#_bare_metal_deployment"></a><a class="link" href="#_bare_metal_deployment">Bare-metal deployment</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a><a class="link" href="#_prerequisites">Prerequisites</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p>User Guides</p>
-<div class="ulist">
-<ul>
+<p>A highly-available loadbalancer such as <code>HAProxy</code> configured to direct traffic to <code>zot</code> replicas.</p>
+</li>
 <li>
-<p><a href="../user-guides/user-guide-datapath.html" class="xref page">Using zot with Datapath Clients</a></p>
+<p>Multiple <code>zot</code> replicas as <code>systemd</code> services hosted on mutiple hosts or VMs.</p>
+</li>
+<li>
+<p>AWS S3 API-compatible remote backend storage.</p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p><a href="../admin-guide/admin-guide.html" class="xref page">Administrator Guide</a></p>
-</li>
-<li>
-<p><a href="../developer-guide/developer-guide.html" class="xref page">Developer Guide</a></p>
-</li>
-<li>
-<p>Installation Guides</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="../install-guides/install-guide-linux.html" class="xref page">Bare Metal Linux</a></p>
-</li>
-<li>
-<p><a href="../install-guides/install-guide-k8s.html" class="xref page">Kubernetes Deployment</a></p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_articles"><a class="anchor" href="#_articles"></a><a class="link" href="#_articles">Articles</a></h2>
+<h2 id="_kubernetes_deployment"><a class="anchor" href="#_kubernetes_deployment"></a><a class="link" href="#_kubernetes_deployment">Kubernetes deployment</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_prerequisites_2"><a class="anchor" href="#_prerequisites_2"></a><a class="link" href="#_prerequisites_2">Prerequisites</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="../kb/building-ci-cd-pipeline.html" class="xref page">Building an OCI-native Container Image CI/CD Pipeline</a></p>
+<p>A <code>zot</code> Kubernetes <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Deployment</a> with required number of replicas.</p>
 </li>
 <li>
-<p><a href="../kb/authn-authz.html" class="xref page">User Authentication and Authorization with zot</a></p>
+<p>AWS S3 API-compatible remote backend storage.</p>
 </li>
 <li>
-<p><a href="../kb/security-posture.html" class="xref page">Security Posture</a></p>
+<p>A <code>zot</code> Kubernetes <a href="https://kubernetes.io/docs/concepts/services-networking/service/">Service</a>.</p>
 </li>
 <li>
-<p><a href="../kb/storage.html" class="xref page">Storage Planning</a></p>
-</li>
-<li>
-<p><a href="../kb/clustering.html" class="xref page">zot Clustering</a></p>
-</li>
-<li>
-<p><a href="../kb/benchmarking-with-zb.html" class="xref page">Benchmarking zot with zb</a></p>
+<p>A <code>zot</code> Kubernetes <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Ingress Gateway</a> if the service needs to be exposed outside.</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_implementing_stateless_zot"><a class="anchor" href="#_implementing_stateless_zot"></a><a class="link" href="#_implementing_stateless_zot">Implementing stateless zot</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>zot</code> maintains two types of durable state:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the actual image data itself</p>
+</li>
+<li>
+<p>the image metadata in the registry&#8217;s cache</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In a stateless clustering scheme, the image data is stored in the remote storage backend and the registry cache is disabled by turning off both deduplication and garbage collection.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ecosystem_tools"><a class="anchor" href="#_ecosystem_tools"></a><a class="link" href="#_ecosystem_tools">Ecosystem tools</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <a href="https://github.com/opencontainers/distribution-spec">OCI Distribution Specification</a> imposes certain rules about the HTTP URI paths to which various ecosystem tools must conform.  Consider these rules when setting the HTTP prefixes during loadbalancing and ingress gateway configuration.</p>
 </div>
 </div>
 </div>

@@ -7,11 +7,12 @@
     <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
-  </head>
+    <link rel="icon" href="../../../favicon.ico" type="image/x-icon">  </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="navbar-item navbar-logo" href="../../.."></a>
       <a class="navbar-item" href="../../..">Zot Docs</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -21,28 +22,7 @@
     </div>
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
-        <a class="navbar-item" href="#">Home</a>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Products</a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Product A</a>
-            <a class="navbar-item" href="#">Product B</a>
-            <a class="navbar-item" href="#">Product C</a>
-          </div>
-        </div>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Services</a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Service A</a>
-            <a class="navbar-item" href="#">Service B</a>
-            <a class="navbar-item" href="#">Service C</a>
-          </div>
-        </div>
-        <div class="navbar-item">
-          <span class="control">
-            <a class="button is-primary" href="#">Download</a>
-          </span>
-        </div>
+        <a class="navbar-item" href="https://zotregistry.io/">Home</a>
       </div>
     </div>
   </nav>
@@ -65,7 +45,16 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../concepts/zot-concepts.html">Concepts</a>
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">General</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../general/zot-concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../general/artifacts.html">Released Artifacts for zot</a>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
@@ -73,10 +62,10 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Installation Guides</span>
+    <span class="nav-text">User Guides</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../install-guides/install-guide-linux.html">Installation Guide for Bare Metal Linux</a>
+    <a class="nav-link" href="../user-guides/user-guide-datapath.html">Push and Pull Image Content</a>
   </li>
 </ul>
   </li>
@@ -92,7 +81,51 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../developer-guide/draft-developer-guide-chapters.html">Zot Developer Guide</a>
+    <a class="nav-link" href="../developer-guide/developer-guide.html">Zot Developer Guide</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Installation Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../install-guides/install-guide-linux.html">Installing zot on Bare Metal Linux</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../install-guides/install-guide-k8s.html">Installing zot with Kubernetes and Helm</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Articles</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/building-ci-cd-pipeline.html">Building an OCI-native Container Image CI/CD Pipeline</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/authn-authz.html">User Authentication and Authorization with zot</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/security-posture.html">zot Security Posture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/storage.html">Storage Planning with zot</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/clustering.html">zot Clustering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/benchmarking-with-zb.html">Benchmarking zot with zb</a>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
@@ -128,8 +161,7 @@
     <li><a href="admin-guide.html">Zot Administrator Guide</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/project-zot/docs-zot/edit/main/modules/admin-guide/pages/admin-guide.adoc">Edit this Page</a></div>
-  </div>
+</div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
@@ -149,15 +181,12 @@
 <div class="sect2">
 <h3 id="_how_to_get_zot"><a class="anchor" href="#_how_to_get_zot"></a><a class="link" href="#_how_to_get_zot">How to get zot</a></h3>
 <div class="paragraph">
-<p>The zot project is hosted on GitHub at <a href="https://github.com/project-zot/zot">project-zot</a>.
-From GitHub, you can download zot executable binary images or full source code.</p>
+<p>The zot project is hosted on GitHub at <a href="https://github.com/project-zot/zot">project-zot</a>. From GitHub, you can download zot executable binary images or full source code.</p>
 </div>
 <div class="sect3">
 <h4 id="_supported_platforms"><a class="anchor" href="#_supported_platforms"></a><a class="link" href="#_supported_platforms">Supported platforms</a></h4>
 <div class="paragraph">
-<p>Zot is officially supported on Linux and Apple MacOS platforms, using
-Intel or ARM processors. However, development
-should be possible on any platform that supports the <code>golang</code> toolchain.</p>
+<p>Zot is officially supported on Linux and Apple MacOS platforms, using Intel or ARM processors. However, development should be possible on any platform that supports the <code>golang</code> toolchain.</p>
 </div>
 <table class="tableblock frame-all grid-all fit-content">
 <caption class="title">Table 1. Supported platforms and architectures</caption>
@@ -198,56 +227,12 @@ should be possible on any platform that supports the <code>golang</code> toolcha
 </table>
 </div>
 <div class="sect3">
-<h4 id="_full_and_minimal_binary_images"><a class="anchor" href="#_full_and_minimal_binary_images"></a><a class="link" href="#_full_and_minimal_binary_images">Full and minimal binary images</a></h4>
+<h4 id="_about_binary_images"><a class="anchor" href="#_about_binary_images"></a><a class="link" href="#_about_binary_images">About binary images</a></h4>
 <div class="paragraph">
-<p>In addition to variations for specific platforms and architectures, images
-are also available in full and minimal implementations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A full zot binary image is compiled with all extensions. Extensions
-include functions such as metrics, registry synchronization, search, and scrub.</p>
-</li>
-<li>
-<p>A minimal distribution-spec conformant zot binary image is compiled with
-only a minimal set of code and libraries, reducing the attack surface. This
-option might be optimal for a registry embedded in a shipping product.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_binary_image_file_naming"><a class="anchor" href="#_binary_image_file_naming"></a><a class="link" href="#_binary_image_file_naming">Binary image file naming</a></h4>
-<div class="paragraph">
-<p>An executable binary image for zot is named using the target platform and
-architecture from the
- <a href="#supported-platforms-and-architectures-table-zot">Supported platforms and architectures</a>
- table. The general format of a binary image file name is one of these two:</p>
+<p>Executable binary zot images are available for multiple platforms and architectures and with full or minimal implementations.</p>
 </div>
 <div class="paragraph">
-<p><code>zot-<em>os</em>-<em>architecture</em></code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A full zot binary image with all extensions has a filename of the
-form <code>zot-<em>os</em>-<em>architecture</em>.</code> For example, the full binary image for an
-Intel-based linux server is <code>zot-linux-amd64</code>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><code>zot-<em>os</em>-<em>architecture</em>-minimal</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A minimal distribution-spec conformant zot binary image has a filename of
-the form <code>zot-<em>os</em>-<em>architecture</em>-minimal</code>. For example, the minimal binary
-image for an Intel-based linux server is <code>zot-linux-amd64-minimal</code>.</p>
-</li>
-</ul>
+<p>Refer to <a href="../general/artifacts.html" class="xref page"><em>Released Artifacts for zot</em></a> for information about available zot images along with information about image variations, image locations, and image naming formats.</p>
 </div>
 </div>
 <div class="sect3">
@@ -258,16 +243,13 @@ image for an Intel-based linux server is <code>zot-linux-amd64-minimal</code>.</
 <div class="ulist">
 <ul>
 <li>
-<p>You can launch a zot binary as a container service using a container
-management tool such as Podman, Docker, or Helm.</p>
+<p>You can launch a zot binary as a container service using a container management tool such as Podman, Docker, or Helm.</p>
 </li>
 <li>
-<p>You can launch zot as a host-level service by downloading a binary image
-and running it as a systemd service.</p>
+<p>You can launch zot as a host-level service by downloading a binary image and running it as a systemd service.</p>
 </li>
 <li>
-<p>You can copy or clone the full zot source code and build an image
-with custom build flags.</p>
+<p>You can copy or clone the full zot source code and build an image with custom build flags.</p>
 </li>
 </ul>
 </div>
@@ -276,15 +258,10 @@ with custom build flags.</p>
 <div class="sect2">
 <h3 id="_deploying_a_zot_binary_image"><a class="anchor" href="#_deploying_a_zot_binary_image"></a><a class="link" href="#_deploying_a_zot_binary_image">Deploying a zot binary image</a></h3>
 <div class="paragraph">
-<p>Executable binary images for supported server platforms and architectures are
-available from the
-<a href="https://github.com/orgs/project-zot/packages?repo_name=zot">zot package repository</a>
-in GitHub.</p>
+<p>Executable binary images for supported server platforms and architectures are available from the <a href="https://github.com/orgs/project-zot/packages?repo_name=zot">zot package repository</a> in GitHub.</p>
 </div>
 <div class="paragraph">
-<p>You can download the appropriate binary image and run it directly on your server, or
-you can use a container management tool such as Podman, runc, Helm, or Docker to
-fetch and deploy the image in a container on your server.</p>
+<p>You can download the appropriate binary image and run it directly on your server, or you can use a container management tool such as Podman, runc, Helm, or Docker to fetch and deploy the image in a container on your server.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -301,8 +278,7 @@ For convenience, you can rename the binary image file to simply <code>zot.</code
 <div class="sect3">
 <h4 id="_example_deploying_with_a_container_manager"><a class="anchor" href="#_example_deploying_with_a_container_manager"></a><a class="link" href="#_example_deploying_with_a_container_manager">Example: Deploying with a container manager</a></h4>
 <div class="paragraph">
-<p>Using a container manager such as Podman, runc, Helm, or Docker, you can install
-a zot binary image, as in the following examples.</p>
+<p>Using a container manager such as Podman, runc, Helm, or Docker, you can install a zot binary image, as in the following examples.</p>
 </div>
 <div class="listingblock">
 <div class="title">Using Podman</div>
@@ -322,9 +298,7 @@ a zot binary image, as in the following examples.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Each of these example commands pulls a zot binary image from the GitHub
-Container Registry (ghcr.io) and launches a zot image registry
-at <a href="http://localhost:5000" class="bare">http://localhost:5000</a>.</p>
+<p>Each of these example commands pulls a zot binary image from the GitHub Container Registry (ghcr.io) and launches a zot image registry at <a href="http://localhost:5000" class="bare">http://localhost:5000</a>.</p>
 </div>
 </div>
 </div>
@@ -336,18 +310,14 @@ at <a href="http://localhost:5000" class="bare">http://localhost:5000</a>.</p>
 <h5 id="_install_golang_1_17"><a class="anchor" href="#_install_golang_1_17"></a><a class="link" href="#_install_golang_1_17">Install golang (1.17+)</a></h5>
 <div class="paragraph">
 <p>The zot project requires <code>golang 1.17</code> or newer. You can follow
-<a href="https://go.dev/learn/">these instructions</a> to install the <code>golang</code> toolchain.  After
-installation, make sure that the <code>path</code> environment variable or your IDE can find
-the toolchain.</p>
+<a href="https://go.dev/learn/">these instructions</a> to install the <code>golang</code> toolchain.  After installation, make sure that the <code>path</code> environment variable or your IDE can find the toolchain.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_building_an_executable_binary_from_source"><a class="anchor" href="#_building_an_executable_binary_from_source"></a><a class="link" href="#_building_an_executable_binary_from_source">Building an executable binary from source</a></h4>
 <div class="paragraph">
-<p>Download or clone the full zot project from GitHub at
-<a href="https://github.com/project-zot/zot">project-zot</a>.
-To clone the zot project from GitHub, use this command:</p>
+<p>Download or clone the full zot project from GitHub at <a href="https://github.com/project-zot/zot">project-zot</a>. To clone the zot project from GitHub, use this command:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -355,8 +325,7 @@ To clone the zot project from GitHub, use this command:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>To build zot, execute the <code>make</code> command in the zot directory
-using the following general syntax:</p>
+<p>To build zot, execute the <code>make</code> command in the zot directory using the following general syntax:</p>
 </div>
 <div class="paragraph">
 <p><code>make OS=<em>os</em> ARCH=<em>architecture</em> {binary | binary-minimal}</code></p>
@@ -366,24 +335,20 @@ using the following general syntax:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The operating system and architecture options are listed in the
-<a href="#supported-platforms-and-architectures-table-zot">Supported platforms and architectures</a>
-table. If an option is not specified, the defaults are <code>linux</code> and <code>amd64</code>.</p>
+<p>The operating system and architecture options are listed in the  <a href="#supported-platforms-and-architectures-table-zot">Supported platforms and architectures</a> table. If an option is not specified, the defaults are <code>linux</code> and <code>amd64</code>.</p>
 </li>
 <li>
 <p>The <code>binary</code> option builds the full zot binary image with all extensions.</p>
 </li>
 <li>
-<p>The <code>binary-minimal</code> option builds the minimal distribution-spec conformant zot
-binary image without extensions, reducing the attack surface.</p>
+<p>The <code>binary-minimal</code> option builds the minimal distribution-spec conformant zot binary image without extensions, reducing the attack surface.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>For example, to build a zot image with extensions for an Intel-based
-linux server, use the following command:</p>
+<p>For example, to build a zot image with extensions for an Intel-based linux server, use the following command:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -391,10 +356,7 @@ linux server, use the following command:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>make</code> command builds an executable image in the <code>zot/bin</code> directory.
-The original filename of the zot executable image will indicate the
-build options. For example, the filename of an Intel-based linux minimal image is
-<code>zot-linux-amd64-minimal</code>.</p>
+<p>The <code>make</code> command builds an executable image in the <code>zot/bin</code> directory. The original filename of the zot executable image will indicate the build options. For example, the filename of an Intel-based linux minimal image is <code>zot-linux-amd64-minimal</code>.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -410,11 +372,19 @@ For convenience, you can rename the binary image file to simply <code>zot</code>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_building_and_deploying_a_zot_container_image_from_source"><a class="anchor" href="#_building_and_deploying_a_zot_container_image_from_source"></a><a class="link" href="#_building_and_deploying_a_zot_container_image_from_source">Building and deploying a zot container image from source</a></h4>
+<h4 id="_building_a_zot_container_image_from_source"><a class="anchor" href="#_building_a_zot_container_image_from_source"></a><a class="link" href="#_building_a_zot_container_image_from_source">Building a zot container image from source</a></h4>
 <div class="paragraph">
-<p>A sample Dockerfile is provided on the <a href="https://github.com/project-zot/zot/blob/main/Dockerfile">zot project page</a>
-in GitHub. You can edit the sample file with your specific values, such as the desired
-operating system, hardware architecture, and full or minimal build, as in this example:</p>
+<div class="title">with Stacker</div>
+<p>Using the settings in stacker.yaml, you can build a container image that runs the latest zot by running the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>make binary-stacker</pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">with Docker</div>
+<p>A sample Dockerfile is provided on the <a href="https://github.com/project-zot/zot/blob/main/Dockerfile">zot project page</a> in GitHub. You can edit the sample file with your specific values, such as the desired operating system, hardware architecture, and full or minimal build, as in this example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -425,17 +395,18 @@ RUN make COMMIT=$COMMIT OS=$OS ARCH=$ARCH clean binary-minimal</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Using your edited Dockerfile, you can build a container image that runs
-the latest zot by running the following command:</p>
+<p>Using your edited Dockerfile, you can build a container image that runs the latest zot by running the following command:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>make image</pre>
 </div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_deploying_the_container_image"><a class="anchor" href="#_deploying_the_container_image"></a><a class="link" href="#_deploying_the_container_image">Deploying the container image</a></h4>
 <div class="paragraph">
-<p>Deploy the image using your container manager, such as Podman, runc, Helm, or Docker,
-as in these examples:</p>
+<p>Deploy the image using your container manager, such as Podman, runc, Helm, or Docker, as in these examples:</p>
 </div>
 <div class="listingblock">
 <div class="title">with Podman</div>
@@ -450,15 +421,10 @@ as in these examples:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>A container image built with the sample Dockerfile and deployed with the example
-command results in a running registry at <code><a href="http://localhost:5000" class="bare">http://localhost:5000</a></code>.  Registry content
-is stored at <code>.registry</code>, which is bind mounted to <code>/var/lib/registry</code> in
-the container. By default, auth is disabled.  As part of the build, a YAML
-configuration file is created at <code>/etc/zot/config.yml</code> in the container.</p>
+<p>A container image built with the sample Dockerfile and deployed with the example command results in a running registry at <code><a href="http://localhost:5000" class="bare">http://localhost:5000</a></code>.  Registry content is stored at <code>.registry</code>, which is bind mounted to <code>/var/lib/registry</code> in the container. By default, auth is disabled.  As part of the build, a YAML configuration file is created at <code>/etc/zot/config.yml</code> in the container.</p>
 </div>
 <div class="paragraph">
-<p>You can override the configuration file with custom configuration settings in the
-deployment command and in a local configuration file as shown in this example:</p>
+<p>You can override the configuration file with custom configuration settings in the deployment command and in a local configuration file as shown in this example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -469,23 +435,7 @@ deployment command and in a local configuration file as shown in this example:</
 </div>
 </div>
 <div class="paragraph">
-<p>This command causes the registry to listen on port 8080 and to use <code>/tmp/zot</code> for
-content storage.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">MIKE&#8217;S QUESTIONS</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Does the 'make image' command use the Dockerfile?  Wouldn&#8217;t we use a docker command?</p>
-</li>
-<li>
-<p>How do we specify the inclusion of zli and zb binaries in the container?</p>
-</li>
-</ol>
-</div>
-</div>
+<p>This command causes the registry to listen on port 8080 and to use <code>/tmp/zot</code> for content storage.</p>
 </div>
 </div>
 </div>
@@ -816,6 +766,22 @@ c3/openjdk-dev    commit-bd5cc94    0ab7fc76</pre>
 IMAGE NAME        TAG                       DIGEST    SIZE
 c3/openjdk-dev    commit-2674e8a-squashfs   b545b8ba  321MB
 c3/openjdk-dev    commit-d5024ec-squashfs   cd45f8cf  321MB</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_listing_repositories"><a class="anchor" href="#_listing_repositories"></a><a class="link" href="#_listing_repositories">Listing repositories</a></h4>
+<div class="paragraph">
+<p>You can list all repositories hosted on a zot server using the <a href="#_zli-repos"><code>zli repos</code></a> command with
+the server&#8217;s alias:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Searching... 🌍
+
+REPOSITORY NAME
+alpine
+busybox</pre>
 </div>
 </div>
 </div>
@@ -1164,13 +1130,13 @@ to reclaim this space. Set to <code>false</code> to disable garbage collection.<
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>gcDelay</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">(Optional) If garbage collection is enabled, causes it to run once after
-the specified delay time. Requires the <code>gc</code> attribute to be <code>true</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Optional) If garbage collection is enabled, causes it to run once after the specified delay time. The default is 1 hour.
+Requires the <code>gc</code> attribute to be <code>true</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>gcInterval</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">(Optional) If garbage collection is enabled, causes it to run periodically
-at the specified interval. Requires the <code>gc</code> attribute to be <code>true</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Optional) If garbage collection is enabled, causes periodic collection at the specified interval. Must be set based on use cases and user workloads. If no value is specified, there is no periodic collection.
+Requires the <code>gc</code> attribute to be <code>true</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>subpaths</code></p></td>
@@ -1202,21 +1168,6 @@ their own repository paths and settings. The following example shows three subpa
 </tr>
 </tbody>
 </table>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">MIKE&#8217;S QUESTIONS</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Are these the only attributes?</p>
-</li>
-<li>
-<p>What values and ranges are allowed for gcDelay and gcInterval?</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_s3_storage_config"><a class="anchor" href="#_s3_storage_config"></a><a class="link" href="#_s3_storage_config">Configuring S3 storage</a></h3>
@@ -1358,370 +1309,16 @@ application.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Zot also provides these additional security features:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Ability to delay response to an authentication
-failure in order to prevent automated attacks.
-See <a href="#_failure_delay">Preventing automated attacks with failure delay</a>.</p>
-</li>
-<li>
-<p>Ability to limit the rate of API calls from users in order to prevent
-denial-of-service attacks. See <a href="#_rate_limiting">Rate limiting</a>.</p>
-</li>
-</ul>
-</div>
-<div class="sect3">
-<h4 id="_tls_authentication"><a class="anchor" href="#_tls_authentication"></a><a class="link" href="#_tls_authentication">TLS mutual authentication</a></h4>
-<div class="paragraph">
-<p>Use the <code>tls</code> attribute under <code>http</code> in the configuration file to enable and
-configure TLS mutual authentication, as shown in the following example.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
-  "tls": {
-    "cert":"test/data/server.cert",
-    "key":"test/data/server.key",
-    "cacert":"test/data/cacert.cert"
-  }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The following table lists the configurable attributes.</p>
-</div>
-<table class="tableblock frame-all grid-all fit-content">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Attribute</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cert</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The path and filename of the server&#8217;s SSL/TLS certificate.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>key</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The path and filename of the server&#8217;s registry key.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cacert</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The path and filename of the server&#8217;s <code>cacerts</code> file, which contains
-trusted certificate authority (CA) certificates. Specifying a <code>cacert</code> file
-enables TLS mutual authentication.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_basic_authentication"><a class="anchor" href="#_basic_authentication"></a><a class="link" href="#_basic_authentication">Basic authentication</a></h4>
-<div class="paragraph">
-<p>Use the <code>auth</code> and <code>htpasswd</code> attributes under <code>http</code> in the configuration file
-to enable and configure local authentication, as shown in the following example.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
-  "auth": {
-    "htpasswd": {
-      "path": "test/data/htpasswd"
-    }
-  }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The <code>path</code> attribute specifies the path and filename of the <code>.htpasswd</code> file, which
-contains user names and hashed passwords.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-When both htpasswd and LDAP configuration are specified, LDAP authentication
-is given preference.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_ldap_authentication"><a class="anchor" href="#_ldap_authentication"></a><a class="link" href="#_ldap_authentication">LDAP authentication</a></h4>
-<div class="paragraph">
-<p>Use the <code>auth</code> and <code>ldap</code> attributes under <code>http</code> in the configuration file
-to enable and configure LDAP authentication, as shown in the following example.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
-  "auth": {
-    "ldap": {
-      "address": "ldap.example.org",
-      "port": 389,
-      "startTLS": false,
-      "baseDN": "ou=Users,dc=example,dc=org",
-      "userAttribute": "uid",
-      "bindDN": "cn=ldap-searcher,ou=Users,dc=example,dc=org",
-      "bindPassword": "ldap-searcher-password",
-      "skipVerify": false,
-      "subtreeSearch": true
-    }
-  }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The following table lists the configurable attributes for LDAP authentication.</p>
-</div>
-<table class="tableblock frame-all grid-all fit-content">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Attribute</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>address</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The IP address or hostname of the LDAP server.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>port</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The port number used by the LDAP service.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>startTLS</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to enable TLS communication with the LDAP server.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>baseDN</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Starting location within the LDAP directory for performing user searches.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>userAttribute</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Attribute name used for a user.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bindDN</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Base Distinguished Name for the LDAP search.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bindPassword</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Password of the bind LDAP user.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>skipVerify</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Skip TLS verification.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>subtreeSearch</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to expand the scope for search to include subtrees of the base DN.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-When both htpasswd and LDAP configuration are specified, LDAP authentication
-is given preference.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_bearer_authentication"><a class="anchor" href="#_bearer_authentication"></a><a class="link" href="#_bearer_authentication">Bearer authentication</a></h4>
-<div class="paragraph">
-<p>Zot supports OAuth2 by using a Bearer Token.  Use the <code>auth</code> and <code>bearer</code>
-attributes under <code>http</code> in the configuration file to enable and configure OAuth2
-authentication, as shown in the following example.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
-  "auth": {
-    "bearer": {
-      "realm": "https://auth.myreg.io/auth/token",
-      "service": "myauth",
-      "cert": "/etc/zot/auth.crt"
-    }
-  }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The following table lists the configurable attributes.</p>
-</div>
-<table class="tableblock frame-all grid-all fit-content">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Attribute</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>realm</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>service</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cert</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The path and filename of the server&#8217;s SSL/TLS certificate.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">MIKE&#8217;S QUESTIONS</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Need attribute definitions</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
+<p>For detailed information about configuring authentication for your <code>zot</code> registry, see <a href="../kb/authn-authz.html" class="xref page">User Authentication and Authorization with zot</a>.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_identity_based_authorization"><a class="anchor" href="#_identity_based_authorization"></a><a class="link" href="#_identity_based_authorization">Identity-based authorization</a></h3>
 <div class="paragraph">
-<p>User identity can be used as an authorization criterion for allowing actions on
-one or more repository paths.  For specific users, you can choose to allow any
-combination of read, create, update, or delete actions on specific paths.</p>
+<p>User identity can be used as an authorization criterion for allowing actions on one or more repository paths.  For specific users, you can choose to allow any combination of read, create, update, or delete actions on specific repository paths.</p>
 </div>
 <div class="paragraph">
-<p>For defining policies for specific repository paths, the paths can be specified
-explicitly or by using <code>glob</code> patterns with simple or recursive wildcards.
-When a repository path matches more than one path description, authorization
-is granted based on the policy of the longest (most specific) path matched.  For
-example, if policies are defined for path descriptions <strong>**</strong> and <code>repos2/repo,</code>
-the <code>repos2/repo</code> path will match both <strong>**</strong> and <code>repos2/repo</code> descriptions.
-In this case, the <code>repos2/repo</code> policy will be applied because it is longer.</p>
-</div>
-<div class="paragraph">
-<p>Note that <strong>**</strong> effectively defines the default policy, as it matches any path
-not matched by any other per-repository policy. To override all other policies,
-you can specify a global admin policy.</p>
-</div>
-<div class="paragraph">
-<p>Use the <code>accessControl</code> attribute in the configuration file to define a set of
-identity-based authorization policies, as shown in the following example.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"accessControl": {
-  "**": {
-    "policies": [{
-      "users": ["charlie"],
-      "actions": ["read", "create", "update"]
-    }],
-    "defaultPolicy": ["read", "create"]
-  },
-  "tmp/**": {
-    "defaultPolicy": ["read", "create", "update"]
-  },
-  "infra/*": {
-    "policies": [{
-        "users": ["alice", "bob"],
-        "actions": ["create", "read", "update", "delete"]
-      },
-      {
-        "users": ["mallory"],
-        "actions": ["create", "read"]
-      }
-    ],
-    "defaultPolicy": ["read"]
-  },
-  "repos2/repo": {
-    "policies": [{
-        "users": ["bob"],
-        "actions": ["read", "create"]
-      },
-      {
-        "users": ["mallory"],
-        "actions": ["create", "read"]
-      }
-    ],
-    "defaultPolicy": ["read"]
-  },
-  "adminPolicy": {
-    "users": ["admin"],
-    "actions": ["read", "create", "update", "delete"]
-  }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>In this example, five policies are defined:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The default policy (<strong>**</strong>) gives all users the ability to
-read or create content, while giving user "charlie" the additional ability to
-update content.</p>
-</li>
-<li>
-<p>The policy for <code>tmp/**</code> matches all repositories under <code>tmp</code> recursively
-and allows all users to read, create, or update content in those repositories.</p>
-</li>
-<li>
-<p>The policy for <code>infra/*</code> matches all repositories directly under <code>infra.</code>
-Separate policies are defined for specific users, along with a default
-read-only policy for all other users.</p>
-</li>
-<li>
-<p>The policy for <code>repos2/repo</code> matches only that specific repository.</p>
-</li>
-<li>
-<p>An admin policy (<code>adminPolicy</code>) gives the user "admin" global authorization to
-read, create, update, or delete content in any repository, overriding all other
-policies.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Always include the read action in any policy that you define.  The create,
-update, and delete actions cannot be used without the read action.
-</td>
-</tr>
-</table>
+<p>For detailed information about configuring access control policies for your <code>zot</code> registry, see <a href="../kb/authn-authz.html" class="xref page">User Authentication and Authorization with zot</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2238,25 +1835,10 @@ of the <code><em>zxp-config-file</em></code> contents:</p>
 <div class="sect2">
 <h3 id="_zb_chapter"><a class="anchor" href="#_zb_chapter"></a><a class="link" href="#_zb_chapter">Benchmarking zot with zb</a></h3>
 <div class="paragraph">
-<p>With the <code>zb</code> tool, you can benchmark a zot registry or any other container
-image registry that conforms to the
-<a href="https://github.com/opencontainers/distribution-spec">OCI Distribution Specification</a>
-published by the Open Container Initiative (OCI).</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-We recommend installing and benchmarking with zb when you install zot.
-</td>
-</tr>
-</table>
+<p>The <a href="https://github.com/project-zot/zot">zot project</a> includes the <code>zb</code> tool, which allows you to benchmark a <code>zot</code> registry or any other container image registry that conforms to the <a href="https://github.com/opencontainers/distribution-spec">OCI Distribution Specification</a> published by the Open Container Initiative (OCI).</p>
 </div>
 <div class="paragraph">
-<p>The zb tool is useful for testing workloads in scenarios such as the following:</p>
+<p>The <code>zb</code> tool is useful for benchmarking <code>zot</code> registry workloads in scenarios such as the following:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2274,210 +1856,8 @@ We recommend installing and benchmarking with zb when you install zot.
 </li>
 </ul>
 </div>
-<div class="sect3">
-<h4 id="_how_to_get_zb"><a class="anchor" href="#_how_to_get_zb"></a><a class="link" href="#_how_to_get_zb">How to get zb</a></h4>
 <div class="paragraph">
-<p>The zb project is hosted with zot on GitHub at
-<a href="https://github.com/project-zot/zot">project-zot</a>.
-From GitHub, you can download the zb binary or you can build zb from the source.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_supported_platforms_3"><a class="anchor" href="#_supported_platforms_3"></a><a class="link" href="#_supported_platforms_3">Supported platforms</a></h4>
-<div class="paragraph">
-<p><code>zb</code> is supported for the following operating systems and platform architectures:</p>
-</div>
-<table id="supported-platforms-and-architectures-table-zb" class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 3. Supported platforms and architectures</caption>
-<colgroup>
-<col>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">OS</th>
-<th class="tableblock halign-left valign-top">ARCH</th>
-<th class="tableblock halign-left valign-top">Platform</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">linux</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">amd64</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Intel-based Linux servers</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">linux</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">arm64</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ARM-based servers and Raspberry Pi4</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">darwin</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">amd64</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Intel-based MacOS</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">darwin</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">arm64</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ARM-based MacOS</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_downloading_zb_binaries"><a class="anchor" href="#_downloading_zb_binaries"></a><a class="link" href="#_downloading_zb_binaries">Downloading zb binaries</a></h4>
-<div class="paragraph">
-<p>Download the executable binary for your server platform and architecture under
-"Assets" on the GitHub
-<a href="https://github.com/project-zot/zot/releases">zot releases</a> page.</p>
-</div>
-<div class="paragraph">
-<p>The binary image is named using the target platform and architecture from the
- <a href="#supported-platforms-and-architectures-table-zb">Supported platforms and architectures</a>
- table.  For example, the binary for an Intel-based MacOS server is
- <code>zb-darwin-amd64</code>.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_building_zb_from_source"><a class="anchor" href="#_building_zb_from_source"></a><a class="link" href="#_building_zb_from_source">Building zb from source</a></h4>
-<div class="paragraph">
-<p>To build the zb binary, copy or clone the zot project from GitHub
-and execute the <code>make bench</code> command in the zot directory.
-Use the same command options that you used to build zot, as shown:</p>
-</div>
-<div class="paragraph">
-<p><code>make OS=<em>os</em> ARCH=<em>architecture</em> bench</code></p>
-</div>
-<div class="paragraph">
-<p>For example, the following command builds zb for an Intel-based MacOS server:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>make OS=darwin ARCH=amd64 bench</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>In this example, the resulting executable file is <code>zb-darwin-amd64</code> in the
-zot/bin directory.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-A sample Dockerfile for zb is available at
-<a href="https://github.com/project-zot/zot/blob/main/Dockerfile-zb">Dockerfile-zb</a>.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_running_zb"><a class="anchor" href="#_running_zb"></a><a class="link" href="#_running_zb">Running zb</a></h4>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The instructions and examples in this guide use <code>zb</code> as the name of the executable file.</p>
-</div>
-<div class="paragraph">
-<p>The original filename of the executable file will reflect the build options, such as
-<code>zb-linux-amd64.</code> For convenience, you can rename the executable to simply <code>zb.</code></p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>To view the usage and options of <code>zb</code>, run the command with the <code>--help</code> option:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>bin/zb --help</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Command output:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>`zb`
-
-Usage:
-  zb &lt;url&gt; [flags]
-
-Flags:
-  -A, --auth-creds string      Use colon-separated BASIC auth creds
-  -c, --concurrency int        Number of multiple requests to make at a time (default 1)
-  -h, --help                   help for zb
-  -o, --output-format string   Output format of test results: stdout (default), json, ci-cd
-  -r, --repo string            Use specified repo on remote registry for test data
-  -n, --requests int           Number of requests to perform (default 1)
-  -v, --version                Show the version and exit
-  -d, --working-dir string     Use specified directory to store test data</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The following example executes a benchmark operation using zb.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>bin/zb http://localhost:8080 -c 10 -n 1000</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Command output:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>Registry URL: http://localhost:8080
-
-Concurrency Level: 2
-Total requests:    100
-Working dir:
-
-============
-Test name:            Get Catalog
-Time taken for tests: 45.397205ms
-Complete requests:    100
-Failed requests:      0
-Requests per second:  2202.7788
-
-2xx responses: 100
-
-min: 402.259µs
-max: 3.295887ms
-p50: 855.045µs
-p75: 971.709µs
-p90: 1.127389ms
-p99: 3.295887ms
-
-============
-Test name:            Push Monolith 1MB
-Time taken for tests: 952.336383ms
-Complete requests:    100
-Failed requests:      0
-Requests per second:  105.00491
-
-2xx responses: 100
-
-min: 11.125673ms
-max: 26.375356ms
-p50: 18.917253ms
-p75: 21.753441ms
-p90: 24.02137ms
-p99: 26.375356ms
-
-...</pre>
-</div>
-</div>
+<p>For detailed information about benchmarking with <code>zb</code>, see <a href="../kb/benchmarking-with-zb.html" class="xref page">Benchmarking zot with zb</a>.</p>
 </div>
 </div>
 </div>
@@ -2488,193 +1868,10 @@ p99: 26.375356ms
 <div class="sect2">
 <h3 id="_clustering_zot"><a class="anchor" href="#_clustering_zot"></a><a class="link" href="#_clustering_zot">Clustering zot</a></h3>
 <div class="paragraph">
-<p>Zot supports a clustering scheme with stateless zot instances/replicas and a
-shared remote storage to ensure high-availability of the zot registry.  With
-this scheme, should a few replicas fail or become unavailable, the registry
-service remains available. In addition, this scheme can increase
-aggregate network throughput by load balancing across the many zot replicas.</p>
+<p>To ensure high-availability of the registry,<code>zot</code> supports a clustering scheme with stateless <code>zot</code> instances/replicas fronted by a loadbalancer and a shared remote backend storage. This scheme allows the registry service to remain available even if a few replicas fail or become unavailable. Loadbalancing across many zot replicas can also increase aggregate network throughput.</p>
 </div>
 <div class="paragraph">
-<p>Clustering is supported both in bare-metal and Kubernetes environments.</p>
-</div>
-<div class="sect3">
-<h4 id="_bare_metal_deployment"><a class="anchor" href="#_bare_metal_deployment"></a><a class="link" href="#_bare_metal_deployment">Bare-metal deployment</a></h4>
-<div class="sect4">
-<h5 id="_prerequisites_2"><a class="anchor" href="#_prerequisites_2"></a><a class="link" href="#_prerequisites_2">Prerequisites</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>A highly-available loadbalancer such as HaProxy configured to point to backend
-zot replicas</p>
-</li>
-<li>
-<p>Remote storage (mounted locally or S3-compatible)</p>
-</li>
-<li>
-<p>Zot configuration using above remote storage and with deduplication
-and garbage-collection disabled</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_kubernetes_deployment"><a class="anchor" href="#_kubernetes_deployment"></a><a class="link" href="#_kubernetes_deployment">Kubernetes deployment</a></h4>
-<div class="sect4">
-<h5 id="_prerequisites_3"><a class="anchor" href="#_prerequisites_3"></a><a class="link" href="#_prerequisites_3">Prerequisites</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>Helm (latest stable release)</p>
-</li>
-<li>
-<p>Kubernetes (latest stable release)</p>
-</li>
-<li>
-<p>Ingress controller</p>
-</li>
-<li>
-<p>Remote storage (S3-compatible)</p>
-</li>
-<li>
-<p>Zot configuration file specifying the above remote storage and
-with deduplication and garbage-collection disabled</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If authentication is enabled on zot itself, that configuration
-must also be identical across all replicas.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_solution_overview"><a class="anchor" href="#_solution_overview"></a><a class="link" href="#_solution_overview">Solution overview</a></h4>
-<div class="paragraph">
-<p>clients &#8592;&#8594; loadbalancer &#8592;&#8594; [zot replicas] &#8592;&#8594; [[remote storage]]</p>
-</div>
-<div class="paragraph">
-<p>All incoming requests from clients are first intercepted at the load balancer
-and are then routed to one of the zot replicas, which then interfaces
-with the remote storage.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_advanced_topics"><a class="anchor" href="#_advanced_topics"></a><a class="link" href="#_advanced_topics">Advanced topics</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_creating_a_trusted_image_pipeline_with_zot_cosign_and_notation"><a class="anchor" href="#_creating_a_trusted_image_pipeline_with_zot_cosign_and_notation"></a><a class="link" href="#_creating_a_trusted_image_pipeline_with_zot_cosign_and_notation">Creating a trusted image pipeline with zot, cosign, and notation</a></h3>
-<div class="sect3">
-<h4 id="_install_and_start_a_zot_server"><a class="anchor" href="#_install_and_start_a_zot_server"></a><a class="link" href="#_install_and_start_a_zot_server">Install and start a zot server</a></h4>
-<div class="paragraph">
-<p>This example uses podman to install and start a zot server at
-<a href="http://localhost:5000" class="bare">http://localhost:5000</a>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ podman run -p 5000:5000 ghcr.io/project-zot/zot-linux-amd64:latest</pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_push_or_pull_using_skopeo"><a class="anchor" href="#_push_or_pull_using_skopeo"></a><a class="link" href="#_push_or_pull_using_skopeo">Push or pull using skopeo</a></h4>
-<div class="paragraph">
-<p><a href="https://github.com/containers/skopeo">Skopeo</a>
-is a command line tool for performing operations on container images and
-image repositories. In this example, skopeo copies the latest container
-image for the <code>busybox</code> application from docker.io to the local zot server.
-The image is then copied to a local OCI-layout directory, where it is added
-to the manifest.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ skopeo --insecure-policy copy --format=oci --dest-tls-verify=false \
-      docker://busybox:latest docker://localhost:5000/busybox:latest
-Getting image source signatures
-Copying blob 554879bc3004 done
-Copying config 02611c034a done
-Writing manifest to image destination
-Storing signatures
-
-$ skopeo --insecure-policy copy --src-tls-verify=false \
-      docker://localhost:5000/busybox:latest oci:/tmp/images:busybox:latest
-Getting image source signatures
-Copying blob 554879bc3004 done
-Copying config 02611c034a done
-Writing manifest to image destination
-Storing signatures
-
-$ cat /tmp/images/index.json | jq .
-{ "schemaVersion": 2,
-  "manifests": [
-    {
-      "mediaType": "application/vnd.oci.image.manifest.v1+json",
-      "digest": "sha256:asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf",
-      "size": 347,
-      "annotations": {
-        "org.opencontainers.image/ref.name": "busybox:latest"
-      }
-    }
-  ]
-}</pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_image_signatures"><a class="anchor" href="#_image_signatures"></a><a class="link" href="#_image_signatures">Image signatures</a></h4>
-<div class="paragraph">
-<p>For signing container images, zot supports two open-source signing tools&#8201;&#8212;&#8201;<a href="http://github.com/sigstore/cosign">cosign</a> and
-<a href="http://github.com/notaryproject">notation</a>. In the following examples, a key pair
-is generated and an image file in the registry is signed using the private key.</p>
-</div>
-<div class="listingblock">
-<div class="title">Using cosign</div>
-<div class="content">
-<pre>$ cosign generate-key-pair
-Enter password for private key:
-Enter password for private key again:
-Private key written to cosign.key
-Public key written to cosign.pub
-
-$ cosign sign --key cosign.key localhost:5000/busybox:latest
-Enter password for private key:
-Pushing signature to: localhost:5000/busybox</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Using notation</div>
-<div class="content">
-<pre>$ notation cert generate-test --default --trust "zot-demo"
-generating RSA Key with 2048 bits
-generated certificates expiring on 2023-04-11T08:02:48Z
-wrote key: /home/user1/.config/notation/key/zot-demo.key
-wrote certificate /home/user1/.config/notation/certificate/zot-demo.cert
-zot-demo: added to the key list
-zot-demo: marked as default
-zot-demo: added to the certificate list
-
-$ notation sign --plain-http localhost:5000/busybox:latest
-sha256:asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
-
-$ notation list --plain-http localhost:5000/busybox:latest
-sha256:1234567812345678123456781234567812345678123456781234567812345678
-
-$ notation verify --plain-http localhost:5000/busybox:latest
-sha256:asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</pre>
-</div>
-</div>
+<p>For detailed information about clustering with <code>zot</code>, see <a href="../kb/clustering.html" class="xref page">zot Clustering</a>.</p>
 </div>
 </div>
 </div>
@@ -2930,6 +2127,27 @@ Run 'zli config -h' for details on [config-name] argument</pre>
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_zli-repos"><a class="anchor" href="#_zli-repos"></a><a class="link" href="#_zli-repos">zli repos</a></h4>
+<div class="paragraph">
+<p>This command lists all repositories in the zot registry.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ ./zli repos --help
+
+Usage:
+  zli repos [config-name] [flags]
+
+Flags:
+  -h, --help          help for repos
+      --url string    Specify zot server URL if config-name is not mentioned
+  -u, --user string   User Credentials of zot server in "username:password" format
+
+Run 'zli config -h' for details on [config-name] argument</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2955,10 +2173,8 @@ documentation, or language that is used by a referenced third-party product.</p>
 </main>
 </div>
 <footer class="footer">
-  <p>This page was built using the Antora default UI.</p>
-  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
 </footer>
-<script src="../../../_/js/site.js"></script>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
 <script async src="../../../_/js/vendor/highlight.js"></script>
   </body>
 </html>

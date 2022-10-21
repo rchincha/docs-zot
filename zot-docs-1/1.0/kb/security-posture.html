@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>zot Security Posture :: Zot Docs</title>
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+    <link rel="icon" href="../../../favicon.ico" type="image/x-icon">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item navbar-logo" href="../../.."></a>
+      <a class="navbar-item" href="../../..">Zot Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://zotregistry.io/">Home</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="zot-docs-1" data-version="1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../toc/zot-toc.html">Zot Documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../toc/zot-toc.html">Documentation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">General</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../general/zot-concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../general/artifacts.html">Released Artifacts for zot</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">User Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guides/user-guide-datapath.html">Push and Pull Image Content</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../admin-guide/admin-guide.html">Zot Administrator Guide</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../developer-guide/developer-guide.html">Zot Developer Guide</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Installation Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../install-guides/install-guide-linux.html">Installing zot on Bare Metal Linux</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../install-guides/install-guide-k8s.html">Installing zot with Kubernetes and Helm</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Articles</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="building-ci-cd-pipeline.html">Building an OCI-native Container Image CI/CD Pipeline</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="authn-authz.html">User Authentication and Authorization with zot</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="security-posture.html">zot Security Posture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="storage.html">Storage Planning with zot</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="clustering.html">zot Clustering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="benchmarking-with-zb.html">Benchmarking zot with zb</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Zot Documentation</span>
+    <span class="version">1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../toc/zot-toc.html">Zot Documentation</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../toc/zot-toc.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../toc/zot-toc.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../toc/zot-toc.html">Zot Documentation</a></li>
+    <li>Articles</li>
+    <li><a href="security-posture.html">zot Security Posture</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">zot Security Posture</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Revised: 2022-08-30</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>An overview of <code>zot</code> build-time and runtime security hardening features, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Build-time hardening such as PIE-mode builds</p>
+</li>
+<li>
+<p>Minimal-build option for smaller attack surface</p>
+</li>
+<li>
+<p>Open Source Security Foundation best practices for CI/CD</p>
+</li>
+<li>
+<p>Non-root deployment</p>
+</li>
+<li>
+<p>Robust authentication/authorization options</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>zot</code> project takes a defense-in-depth approach to security, applying industry-standard best practices at various stages. Recognizing that security hardening and product features are sometimes in conflict with each other, we also provide flexibility both at build and deployment time.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_time_hardening"><a class="anchor" href="#_build_time_hardening"></a><a class="link" href="#_build_time_hardening">Build-time hardening</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following are the steps taken during build-time.</p>
+</div>
+<div class="sect2">
+<h3 id="_pie_build_mode"><a class="anchor" href="#_pie_build_mode"></a><a class="link" href="#_pie_build_mode">PIE build-mode</a></h3>
+<div class="paragraph">
+<p>The <code>zot</code> binary is built with PIE build-mode <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup> enabled to take advantage of ASLR support in modern operating systems such as Linux <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup> <sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup>. While <code>zot</code> is intended to be a long-running service (without frequent restarts), it prevents attackers from developing a generic attack that depends on predictable memory addresses <em>across</em> multiple <code>zot</code> deployments.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conditional_builds"><a class="anchor" href="#_conditional_builds"></a><a class="link" href="#_conditional_builds">Conditional builds</a></h3>
+<div class="paragraph">
+<p>Functionality in <code>zot</code> is broadly organized as a <em>core</em> Distribution Specification <sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup> implementation and additional features as <em>extensions</em>. The rationale behind this approach is to minimize or control library dependencies that get included in the binary and consequently the attack surface.</p>
+</div>
+<div class="paragraph">
+<p>We currently build and release two image flavors:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>minimal</strong>, which is a minimal Distribution Specification conformant registry, and</p>
+</li>
+<li>
+<p><strong>full</strong>, which incorporates the <em>minimal</em> build <strong>and</strong> all extensions</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <em>minimal</em> flavor is for the security-minded and minimizes the number of dependencies and libraries. The <em>full</em> flavor is for the functionality-minded with the caveat that the attack surface of the binary is potentially broader. However by no means are these the only options. Our build (via the <code>Makefile</code>) provides the flexibility to pick and choose extensions in order to build a binary between <em>minimal</em> and <em>full</em>. For example,</p>
+</div>
+<div class="paragraph">
+<p><code>make EXTENSIONS=search binary</code></p>
+</div>
+<div class="paragraph">
+<p>produces a <code>zot</code> binary with only the <em>search</em> feature enabled.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cicd_pipeline"><a class="anchor" href="#_cicd_pipeline"></a><a class="link" href="#_cicd_pipeline">CI/CD pipeline</a></h3>
+<div class="paragraph">
+<p><code>zot</code> CI/CD process attempts to align with the Open Source Security Foundation (OSSF) best practices guidelines <sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup> to achieve high code quality.</p>
+</div>
+<div class="sect3">
+<h4 id="_code_reviews"><a class="anchor" href="#_code_reviews"></a><a class="link" href="#_code_reviews">Code reviews</a></h4>
+<div class="paragraph">
+<p><code>zot</code> is an open source project and all code submissions are open and transparent. Every pull request (PR) submitted to the project repository must be reviewed by the code owners. We have additional CI/CD workflows monitoring for unreviewed commits.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cicd_checks"><a class="anchor" href="#_cicd_checks"></a><a class="link" href="#_cicd_checks">CI/CD checks</a></h4>
+<div class="paragraph">
+<p>All PRs must pass the full CI/CD pipeline checks including unit, functional, and integration tests, code quality and style checks, and performance regressions. In addition, all binaries produced are subjected to further security scans to detect any known vulnerabilities.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_runtime_hardening"><a class="anchor" href="#_runtime_hardening"></a><a class="link" href="#_runtime_hardening">Runtime hardening</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following steps can be taken to harden a <code>zot</code> deployment.</p>
+</div>
+<div class="sect2">
+<h3 id="_unprivileged_runtime_process"><a class="anchor" href="#_unprivileged_runtime_process"></a><a class="link" href="#_unprivileged_runtime_process">Unprivileged runtime process</a></h3>
+<div class="paragraph">
+<p>Running <code>zot</code> doesn&#8217;t require <em>root</em> privileges. In fact, the recommended approach is to create a separate user/group ID for the <code>zot</code> process.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_authentication"><a class="anchor" href="#_authentication"></a><a class="link" href="#_authentication">Authentication</a></h3>
+<div class="paragraph">
+<p>All interactions with <code>zot</code> are over HTTP APIs, and <code>htpasswd</code>-based local authentication, LDAP, mutual TLS, and token-based authentication mechanisms are supported. We strongly recommend enabling a suitable mechanism for your deployment use case in order to prevent unauthorized access.
+See the provided authentication examples <sup class="footnote" id="_footnote_fn-examples">[<a id="_footnoteref_6" class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_access_control"><a class="anchor" href="#_access_control"></a><a class="link" href="#_access_control">Access control</a></h3>
+<div class="paragraph">
+<p>Following authentication, it is further possible to allow or deny actions by a user on a particular repository stored on the <code>zot</code> registry.
+See the provided access control examples <sup class="footnoteref">[<a class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vulnerability_scans"><a class="anchor" href="#_vulnerability_scans"></a><a class="link" href="#_vulnerability_scans">Vulnerability scans</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Apart from hardening the deployment itself, <code>zot</code> also supports security scanning of stored container images.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reporting_security_issues"><a class="anchor" href="#_reporting_security_issues"></a><a class="link" href="#_reporting_security_issues">Reporting security issues</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We understand that no software is perfect and in spite of our best efforts, security bugs may be found. Refer to our <a href="https://github.com/project-zot/zot/blob/main/SECURITY.md">security policy</a> for taking a responsible course of action when reporting security bugs.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a><a class="link" href="#_references">References</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. <a href="https://en.wikipedia.org/wiki/Position-independent_code" class="bare">https://en.wikipedia.org/wiki/Position-independent_code</a>
+</div>
+<div class="footnote" id="_footnotedef_2">
+<a href="#_footnoteref_2">2</a>. <a href="https://en.wikipedia.org/wiki/Address_space_layout_randomization" class="bare">https://en.wikipedia.org/wiki/Address_space_layout_randomization</a>
+</div>
+<div class="footnote" id="_footnotedef_3">
+<a href="#_footnoteref_3">3</a>. <a href="https://lwn.net/Articles/569635/" class="bare">https://lwn.net/Articles/569635/</a>
+</div>
+<div class="footnote" id="_footnotedef_4">
+<a href="#_footnoteref_4">4</a>. <a href="https://github.com/opencontainers/distribution-spec" class="bare">https://github.com/opencontainers/distribution-spec</a>
+</div>
+<div class="footnote" id="_footnotedef_5">
+<a href="#_footnoteref_5">5</a>. <a href="https://bestpractices.coreinfrastructure.org/en" class="bare">https://bestpractices.coreinfrastructure.org/en</a>
+</div>
+<div class="footnote" id="_footnotedef_6">
+<a href="#_footnoteref_6">6</a>. <a href="https://github.com/project-zot/zot/tree/main/examples" class="bare">https://github.com/project-zot/zot/tree/main/examples</a>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

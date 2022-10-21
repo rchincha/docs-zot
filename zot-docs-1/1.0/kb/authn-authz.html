@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>User Authentication and Authorization with zot :: Zot Docs</title>
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+    <link rel="icon" href="../../../favicon.ico" type="image/x-icon">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item navbar-logo" href="../../.."></a>
+      <a class="navbar-item" href="../../..">Zot Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://zotregistry.io/">Home</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="zot-docs-1" data-version="1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../toc/zot-toc.html">Zot Documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../toc/zot-toc.html">Documentation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">General</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../general/zot-concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../general/artifacts.html">Released Artifacts for zot</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">User Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guides/user-guide-datapath.html">Push and Pull Image Content</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../admin-guide/admin-guide.html">Zot Administrator Guide</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../developer-guide/developer-guide.html">Zot Developer Guide</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Installation Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../install-guides/install-guide-linux.html">Installing zot on Bare Metal Linux</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../install-guides/install-guide-k8s.html">Installing zot with Kubernetes and Helm</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Articles</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="building-ci-cd-pipeline.html">Building an OCI-native Container Image CI/CD Pipeline</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="authn-authz.html">User Authentication and Authorization with zot</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="security-posture.html">zot Security Posture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="storage.html">Storage Planning with zot</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="clustering.html">zot Clustering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="benchmarking-with-zb.html">Benchmarking zot with zb</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Zot Documentation</span>
+    <span class="version">1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../toc/zot-toc.html">Zot Documentation</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../toc/zot-toc.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../toc/zot-toc.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../toc/zot-toc.html">Zot Documentation</a></li>
+    <li>Articles</li>
+    <li><a href="authn-authz.html">User Authentication and Authorization with zot</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">User Authentication and Authorization with zot</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Revised: 2022-10-3</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>A robust set of authentication/authorization options are supported:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Authentication</p>
+<div class="ulist">
+<ul>
+<li>
+<p>TLS, including mTLS</p>
+</li>
+<li>
+<p>Username/password or token-based user authentication</p>
+</li>
+<li>
+<p>LDAP</p>
+</li>
+<li>
+<p>htpasswd</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Authorization</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Powerful identity-based access controls for repositories or specific repository paths</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>zot</code> configuration model supports both authentication and authorization. Authentication credentials allow access to <code>zot</code> HTTP APIs. Authorization policies provide fine-grained control of the actions each authenticated user can perform in the registry.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authentication"><a class="anchor" href="#_authentication"></a><a class="link" href="#_authentication">Authentication</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_tls_authentication"><a class="anchor" href="#_tls_authentication"></a><a class="link" href="#_tls_authentication">TLS authentication</a></h3>
+<div class="paragraph">
+<p>Because authentication credentials are passed over HTTP, it is imperative that TLS be enabled. You can enable and configure TLS authentication in the <code>zot</code> configuration file, as shown in the following example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
+...
+  "tls": {
+    "cert": "/etc/zot/certs/server.cert",
+    "key": "/etc/zot/certs/server.key"
+  }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See <a href="#_mtls_authentication">Mutual TLS authentication</a> for additional information about TLS.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_http_basic_authentication"><a class="anchor" href="#_http_basic_authentication"></a><a class="link" href="#_http_basic_authentication">HTTP basic authentication</a></h3>
+<div class="paragraph">
+<p>When <a href="https://www.rfc-editor.org/rfc/rfc7617.html">basic HTTP authentication</a> is used, the username and password credentials are joined by a colon (<code>:</code>), base64 encoded, and passed in the HTTP Authorization header.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_http_bearer_authentication"><a class="anchor" href="#_http_bearer_authentication"></a><a class="link" href="#_http_bearer_authentication">HTTP bearer authentication</a></h3>
+<div class="paragraph">
+<p>To avoid passing the username and password credentials for every HTTP request, a <code>zot</code> client can use <a href="https://www.rfc-editor.org/rfc/rfc6750">token-based authentication</a>. In this method, the client first authenticates with a token server and receives a short-lived token. The client then passes this token in the HTTP Authorization header, specifying <code>Bearer</code> as the authentication scheme.</p>
+</div>
+<div class="paragraph">
+<p>Configure bearer authentication in the <code>zot</code> configuration file as shown in this example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>"http": {
+...
+  "auth": {
+    "bearer": {
+      "realm": "https://auth.myreg.io/auth/token",
+        "service": "myauth",
+        "cert": "/etc/zot/auth.crt"
+    }
+  }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following table lists the configurable attributes.</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>realm</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A string typically related to the authentication scheme (<em>BASIC</em> and <em>BEARER</em>).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>service</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the authentication service.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cert</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The path and filename of the server&#8217;s SSL/TLS certificate.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_mtls_authentication"><a class="anchor" href="#_mtls_authentication"></a><a class="link" href="#_mtls_authentication">Mutual TLS authentication</a></h3>
+<div class="paragraph">
+<p><code>zot</code> supports basic TLS and password-less mutual TLS authentication (mTLS). Specifying a <code>cacert</code> file in the TLS section of the <code>zot</code> configuration file enables mTLS. The <code>cacert</code> parameter is used to validate the client-side TLS certificates.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>"http": {
+...
+  "tls": {
+    "cert": "/etc/zot/certs/server.cert",
+    "key": "/etc/zot/certs/server.key",
+    "cacert": "/etc/zot/certs/ca.cert"
+  }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following table lists the configurable attributes.</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cert</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The path and filename of the server&#8217;s SSL/TLS certificate.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>key</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The path and filename of the server&#8217;s registry key.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cacert</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The path and filename of the server&#8217;s <code>cacerts</code> file, which contains trusted certificate authority (CA) certificates.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_preventing_automated_attacks_with_failure_delay"><a class="anchor" href="#_preventing_automated_attacks_with_failure_delay"></a><a class="link" href="#_preventing_automated_attacks_with_failure_delay">Preventing automated attacks with failure delay</a></h3>
+<div class="paragraph">
+<p>To help prevent automated attacks, you can add a delayed response to an authentication failure. Configure the <code>failDelay</code> attribute in the configuration file as shown in the following example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
+  "auth": {
+    "failDelay": 5
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>failDelay</code> attribute specifies a waiting time, in seconds, before <code>zot</code> sends a failure notification to an authenticating user who has been denied access.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_server_side_authentication"><a class="anchor" href="#_server_side_authentication"></a><a class="link" href="#_server_side_authentication">Server-side authentication</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can implement server-side authentication for <code>zot</code> using <code>htpasswd</code> or LDAP or both.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When both <code>htpasswd</code> and LDAP configuration are specified, LDAP authentication is given preference. Because <code>htpasswd</code> authentication is strictly local and requires no remote service, <code>htpasswd</code> serves as a fail-safe authentication mechanism should LDAP become unavailable.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_ldap"><a class="anchor" href="#_ldap"></a><a class="link" href="#_ldap">LDAP</a></h3>
+<div class="paragraph">
+<p><code>zot</code> supports integration with an LDAP-based authentication service such as Microsoft Windows Active Directory (AD). Enable and configure LDAP authentication in the <code>zot</code> configuration file, as shown in the following example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
+...
+  "auth": {
+    "ldap": {
+      "address": "ldap.example.org",
+      "port": 389,
+      "startTLS": false,
+      "baseDN": "ou=Users,dc=example,dc=org",
+      "userAttribute": "uid",
+      "bindDN": "cn=ldap-searcher,ou=Users,dc=example,dc=org",
+      "bindPassword": "ldap-searcher-password",
+      "skipVerify": false,
+      "subtreeSearch": true
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following table lists the configurable attributes for LDAP authentication.</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>address</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The IP address or hostname of the LDAP server.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>port</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The port number used by the LDAP service.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>startTLS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to enable TLS communication with the LDAP server.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>baseDN</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Starting location within the LDAP directory for performing user searches.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>userAttribute</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attribute name used for a user.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bindDN</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Base Distinguished Name for the LDAP search.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bindPassword</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password of the bind LDAP user.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>skipVerify</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Skip TLS verification.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>subtreeSearch</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to expand the scope for search to include subtrees of the base DN.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_htpasswd"><a class="anchor" href="#_htpasswd"></a><a class="link" href="#_htpasswd">htpasswd</a></h3>
+<div class="paragraph">
+<p>Enable and configure <code>htpasswd</code> authentication in the <code>zot</code> configuration file, as shown in the following example.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create and store an <code>htpasswd</code> file on the server.</p>
+<div class="listingblock">
+<div class="content">
+<pre>$ htpasswd -bBn &lt;username&gt; &lt;password&gt; &gt;&gt; /etc/zot/htpasswd</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable <code>htpasswd</code> authentication and configure the path to the  <code>htpasswd</code> authentication in the <code>zot</code> configuration file.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
+...
+  "auth": {
+      "htpasswd": {
+        "path": "/etc/zot/htpasswd"
+      },</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>path</code> attribute specifies the path and filename of the <code>htpasswd</code> file, which contains user names and hashed passwords.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authorization"><a class="anchor" href="#_authorization"></a><a class="link" href="#_authorization">Authorization</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>With an access scheme that relies solely on authentication, any authenticated user would be given complete access to the registry. To better control access, <code>zot</code> supports identity-based repository-level access control (authorization) policies.</p>
+</div>
+<div class="sect2">
+<h3 id="_access_control_policies"><a class="anchor" href="#_access_control_policies"></a><a class="link" href="#_access_control_policies">Access control policies</a></h3>
+<div class="paragraph">
+<p>Four types of access control policies are supported:</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Policy type</th>
+<th class="tableblock halign-left valign-top">Access allowed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Anonymous</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An anonymous policy specifies what an unauthenticated user is allowed to do. This is an appropriate policy when you want to grant open read-only access to one or more repositories.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User-specific</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A user-specific policy specifies access and actions for explicitly named users.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The default policy specifies what actions are allowed if a user is authenticated but does match any user-specific policy.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Admin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The admin policy is a global access control policy that grants privileges to perform actions on any repository.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_configuring_access_control"><a class="anchor" href="#_configuring_access_control"></a><a class="link" href="#_configuring_access_control">Configuring access control</a></h3>
+<div class="paragraph">
+<p>User identity can be used as an authorization criterion for allowing actions on one or more repository paths.  For specific users, you can choose to allow any combination of read, create, update, or delete actions on specific paths.</p>
+</div>
+<div class="paragraph">
+<p>When you define policies for specific repository paths, the paths can be specified explicitly or by using <code>glob</code> patterns with simple or recursive wildcards. When a repository path matches more than one path description, authorization is granted based on the policy of the longest (most specific) path matched.  For example, if policies are defined for path descriptions <code><strong>**</strong></code> and <code>repos2/repo,</code> the <code>repos2/repo</code> path will match both <code><strong>**</strong></code> and <code>repos2/repo</code> descriptions. In this case, the <code>repos2/repo</code> policy will be applied because it is longer.</p>
+</div>
+<div class="paragraph">
+<p>Note that <code><strong>**</strong></code> effectively defines the default policy, as it matches any path not matched by any other per-repository policy. To override all other policies, you can specify a global admin policy.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Always include the read action in any policy that you define.  The create, update, and delete actions cannot be used without the read action.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_access_control_configuration"><a class="anchor" href="#_example_access_control_configuration"></a><a class="link" href="#_example_access_control_configuration">Example: Access control configuration</a></h3>
+<div class="paragraph">
+<p>Use the <code>accessControl</code> attribute in the configuration file to define a set of identity-based authorization policies, as shown in the following example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"http": {
+...
+  "accessControl": {
+    "**": {
+      "policies": [{
+        "users": ["charlie"],
+        "actions": ["read", "create", "update"]
+      }],
+      "defaultPolicy": ["read", "create"]
+    },
+    "tmp/**": {
+      "defaultPolicy": ["read", "create", "update"]
+    },
+    "infra/*": {
+      "policies": [{
+          "users": ["alice", "bob"],
+          "actions": ["create", "read", "update", "delete"]
+        },
+        {
+          "users": ["mallory"],
+          "actions": ["create", "read"]
+        }
+      ],
+      "defaultPolicy": ["read"]
+    },
+    "repos2/repo": {
+      "policies": [{
+          "users": ["bob"],
+          "actions": ["read", "create"]
+        },
+        {
+          "users": ["mallory"],
+          "actions": ["create", "read"]
+        }
+      ],
+      "defaultPolicy": ["read"]
+    },
+    "adminPolicy": {
+      "users": ["admin"],
+      "actions": ["read", "create", "update", "delete"]
+    }
+  }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, five policies are defined:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The default policy (<code><strong>**</strong></code>) gives all users the ability to read or create content, while giving user "charlie" the additional ability to update content.</p>
+</li>
+<li>
+<p>The policy for <code>tmp/**</code> matches all repositories under <code>tmp</code> recursively and allows all users to read, create, or update content in those repositories.</p>
+</li>
+<li>
+<p>The policy for <code>infra/*</code> matches all repositories directly under <code>infra.</code> Separate policies are defined for specific users, along with a default read-only policy for all other users.</p>
+</li>
+<li>
+<p>The policy for <code>repos2/repo</code> matches only that specific repository.</p>
+</li>
+<li>
+<p>An admin policy (<code>adminPolicy</code>) gives the user "admin" global authorization to read, create, update, or delete content in any repository, overriding all other policies.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

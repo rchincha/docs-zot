@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Push and Pull Image Content :: Zot Docs</title>
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+    <link rel="icon" href="../../../favicon.ico" type="image/x-icon">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item navbar-logo" href="../../.."></a>
+      <a class="navbar-item" href="../../..">Zot Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://zotregistry.io/">Home</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="zot-docs-1" data-version="1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../toc/zot-toc.html">Zot Documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../toc/zot-toc.html">Documentation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">General</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../general/zot-concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../general/artifacts.html">Released Artifacts for zot</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">User Guides</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="user-guide-datapath.html">Push and Pull Image Content</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../admin-guide/admin-guide.html">Zot Administrator Guide</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../developer-guide/developer-guide.html">Zot Developer Guide</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Installation Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../install-guides/install-guide-linux.html">Installing zot on Bare Metal Linux</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../install-guides/install-guide-k8s.html">Installing zot with Kubernetes and Helm</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Articles</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/building-ci-cd-pipeline.html">Building an OCI-native Container Image CI/CD Pipeline</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/authn-authz.html">User Authentication and Authorization with zot</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/security-posture.html">zot Security Posture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/storage.html">Storage Planning with zot</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/clustering.html">zot Clustering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/benchmarking-with-zb.html">Benchmarking zot with zb</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Zot Documentation</span>
+    <span class="version">1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../toc/zot-toc.html">Zot Documentation</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../toc/zot-toc.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../toc/zot-toc.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../toc/zot-toc.html">Zot Documentation</a></li>
+    <li>User Guides</li>
+    <li><a href="user-guide-datapath.html">Push and Pull Image Content</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Push and Pull Image Content</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Revised: 2022-09-29</p>
+</div>
+<div class="paragraph">
+<p>A zot registry can store and serve a variety of content, but the type of content may dictate your choice of a client tool.</p>
+</div>
+<div class="paragraph">
+<p>For various content types, this document shows examples of using a third-party client tool that supports the content. The following table shows which content and client tools are demonstrated.</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Content type</th>
+<th class="tableblock halign-left valign-top">Client</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OCI images</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#using-skopeo">skopeo</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OCI images</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#using-regedit">regclient</a> (<code>regctl</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OCI artifacts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#using-oras">ORAS</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Helm charts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#using-helm">helm</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In the following examples, the zot registry is located at myZotRegistry.com, using port number 5000.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_skopeo_for_oci_images"><a class="anchor" href="#_using_skopeo_for_oci_images"></a><a class="link" href="#_using_skopeo_for_oci_images">Using skopeo for OCI images</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_common_tasks_with_skopeo"><a class="anchor" href="#_common_tasks_with_skopeo"></a><a class="link" href="#_common_tasks_with_skopeo">Common tasks with skopeo</a></h3>
+<div class="paragraph">
+<p><a href="https://github.com/containers/skopeo"><code>skopeo</code></a> is a command line
+client that performs various operations on OCI container images and image repositories.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For detailed information about using skopeo, see the <a href="https://github.com/containers/skopeo/blob/main/docs/skopeo.1.md">skopeo man page</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_push_an_oci_image"><a class="anchor" href="#_push_an_oci_image"></a><a class="link" href="#_push_an_oci_image">Push an OCI image</a></h4>
+<div class="paragraph">
+<p>This example pushes the latest container image for the <code>busybox</code> application to a zot registry.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ skopeo --insecure-policy copy --dest-tls-verify=false --multi-arch=all \
+   --format=oci docker://busybox:latest \
+   docker://myZotRegistry.com:5000/busybox:latest</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pull_an_oci_image"><a class="anchor" href="#_pull_an_oci_image"></a><a class="link" href="#_pull_an_oci_image">Pull an OCI image</a></h4>
+<div class="paragraph">
+<p>This example pulls the latest container image for the <code>busybox</code> application and stores the image to a local OCI-layout directory (<code>/oci/images</code>).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ skopeo --insecure-policy copy --src-tls-verify=false --multi-arch=all \
+   docker://myZotRegistry.com:5000/busybox:latest \
+   oci:/oci/images:busybox:latest</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pull_an_oci_image_to_a_private_docker_registry"><a class="anchor" href="#_pull_an_oci_image_to_a_private_docker_registry"></a><a class="link" href="#_pull_an_oci_image_to_a_private_docker_registry">Pull an OCI image to a private docker registry</a></h4>
+<div class="paragraph">
+<p>This example pulls the latest container image for the <code>busybox</code> application and stores the image to a local private docker registry.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ skopeo --insecure-policy copy --src-tls-verify=false --multi-arch=all \
+   docker://myZotRegistry.com:5000/busybox:latest \
+   docker://localhost:5000/busybox:latest</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_authentication"><a class="anchor" href="#_authentication"></a><a class="link" href="#_authentication">Authentication</a></h4>
+<div class="paragraph">
+<p>In these examples, authentication is disabled for the source and destination. You can enable authentication by changing the command line options as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>--src-tls-verify=true
+--dest-tls-verify=true</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also add credentials for authenticating with a source or destination repository:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>--src-creds username:password
+--dest-creds username:password</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_regclient_for_oci_images"><a class="anchor" href="#_using_regclient_for_oci_images"></a><a class="link" href="#_using_regclient_for_oci_images">Using regclient for OCI images</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_common_tasks_with_regclient"><a class="anchor" href="#_common_tasks_with_regclient"></a><a class="link" href="#_common_tasks_with_regclient">Common tasks with regclient</a></h3>
+<div class="paragraph">
+<p><a href="https://github.com/regclient/regclient">regclient</a> is a client interface that performs various operations on OCI container images and image repositories.  The command line interface for regclient is <code>regctl.</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For detailed information about <code>regctl</code> commands, see the <a href="https://github.com/regclient/regclient/blob/main/docs/regctl.md">regctl Documentation</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_push_an_oci_image_2"><a class="anchor" href="#_push_an_oci_image_2"></a><a class="link" href="#_push_an_oci_image_2">Push an OCI image</a></h4>
+<div class="paragraph">
+<p>This example pushes version 1.18 of <code>golang</code> to a <code>tools</code> repository within the registry.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ regctl registry set --tls=disabled myZotRegistry.com:5000
+$ regctl image copy ocidir://path/to/golang:1.18 myZotRegistry.com:5000/tools</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pull_an_oci_image_2"><a class="anchor" href="#_pull_an_oci_image_2"></a><a class="link" href="#_pull_an_oci_image_2">Pull an OCI image</a></h4>
+<div class="paragraph">
+<p>This example pulls version 1.18 of <code>golang</code> to a local OCI-layout directory.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ regctl image copy myZotRegistry.com:5000/tools ocidir://path/to/golang:1.18</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_list_all_repositories_in_registry"><a class="anchor" href="#_list_all_repositories_in_registry"></a><a class="link" href="#_list_all_repositories_in_registry">List all repositories in registry</a></h4>
+<div class="paragraph">
+<p>This example list all repositories in the registry.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ regctl repo ls myZotRegistry.com:5000</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_list_tags"><a class="anchor" href="#_list_tags"></a><a class="link" href="#_list_tags">List tags</a></h4>
+<div class="paragraph">
+<p>This example lists all tags in the <code>tools</code> repository within the registry.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ regctl tag ls myZotRegistry.com:5000/tools</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pull_and_push_manifest"><a class="anchor" href="#_pull_and_push_manifest"></a><a class="link" href="#_pull_and_push_manifest">Pull and push manifest</a></h4>
+<div class="paragraph">
+<p>This example pulls and pushes the manifest in the <code>tools</code> repository within the registry.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ regctl manifest get myZotRegistry.com:5000/tools --format=raw-body
+$ regctl manifest put myZotRegistry.com:5000/tools:1.0.0 \
+--format oci --content-type application/vnd.oci.image.manifest.v1+json \
+--format oci</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_authentication_2"><a class="anchor" href="#_authentication_2"></a><a class="link" href="#_authentication_2">Authentication</a></h4>
+<div class="paragraph">
+<p>In the preceding examples, TLS authentication with the zot registry was disabled by the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ regctl registry set --tls=disabled myZotRegistry.com:5000</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command allows <code>regctl</code> to accept an HTTP response from the zot server. If TLS authentication is enabled on the zot registry server, you can omit this command from your <code>regctl</code> session.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_oras_for_oci_artifacts"><a class="anchor" href="#_using_oras_for_oci_artifacts"></a><a class="link" href="#_using_oras_for_oci_artifacts">Using oras for OCI artifacts</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_common_tasks_with_oras"><a class="anchor" href="#_common_tasks_with_oras"></a><a class="link" href="#_common_tasks_with_oras">Common tasks with oras</a></h3>
+<div class="paragraph">
+<p><a href="https://oras.land/cli/">ORAS</a> (OCI Registry As Storage) is a command line client for storing OCI artifacts on OCI repositories.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For detailed information about the <code>oras</code> commands in these examples, see the <a href="https://oras.land/cli/">ORAS CLI documentation</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_push_an_artifact"><a class="anchor" href="#_push_an_artifact"></a><a class="link" href="#_push_an_artifact">Push an artifact</a></h4>
+<div class="paragraph">
+<p>This example pushes version 2 of an artifact file named <code>hello-artifact</code> to a zot registry.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ oras push --plain-http myZotRegistry.com:5000/hello-artifact:v2 \
+        --config config.json:application/vnd.acme.rocket.config.v1+json \
+        artifact.txt:text/plain -d -v</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pull_an_artifact"><a class="anchor" href="#_pull_an_artifact"></a><a class="link" href="#_pull_an_artifact">Pull an artifact</a></h4>
+<div class="paragraph">
+<p>This example pulls version 2 of an artifact file named <code>hello-artifact</code> from a zot registry.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ oras pull --plain-http myZotRegistry.com:5000/hello-artifact:v2 -d -v</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_authentication_3"><a class="anchor" href="#_authentication_3"></a><a class="link" href="#_authentication_3">Authentication</a></h4>
+<div class="paragraph">
+<p>To authenticate with the zot server, log in at the start of your session using the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ oras login -u myUsername -p myPassword myZotRegistry.com:5000</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also add credentials in the push or pull commands as in this example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ oras pull -u myUsername -p myPassword \
+myZotRegistry.com:5000/hello-artifact:v2 -d -v</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For additional authentication options, including interactive credential entry and disabling TLS, see the <a href="https://github.com/oras-project/oras/blob/main/cmd/oras/login.go">ORAS login documentation</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_helm_for_helm_charts"><a class="anchor" href="#_using_helm_for_helm_charts"></a><a class="link" href="#_using_helm_for_helm_charts">Using helm for helm charts</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_common_tasks_with_helm"><a class="anchor" href="#_common_tasks_with_helm"></a><a class="link" href="#_common_tasks_with_helm">Common tasks with helm</a></h3>
+<div class="paragraph">
+<p><a href="https://helm.sh/">Helm</a> is a package manager for Kubernetes. Among many other capabilities, helm can store and retrieve helm charts on OCI image repositories.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For detailed information about the <code>helm</code> commands in these examples, see <a href="https://helm.sh/docs/topics/registries/">Commands for working with registries</a> in the helm documentation.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_push_a_helm_chart"><a class="anchor" href="#_push_a_helm_chart"></a><a class="link" href="#_push_a_helm_chart">Push a helm chart</a></h4>
+<div class="paragraph">
+<p>This example pushes version 1.2.3 of a zot helm chart to a <code>zot-chart</code> repository within the registry.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ helm package path/to/helm-charts/charts/zot
+$ helm push zot-1.2.3.tgz oci://myZotRegistry.com:5000/zot-chart</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pull_a_helm_chart"><a class="anchor" href="#_pull_a_helm_chart"></a><a class="link" href="#_pull_a_helm_chart">Pull a helm chart</a></h4>
+<div class="paragraph">
+<p>This example pulls version 1.2.3 of a zot helm chart from a <code>zot-chart</code> repository within the registry.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ helm pull oci://myZotRegistry.com:5000/zot-chart/zot --version 1.2.3</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_authentication_4"><a class="anchor" href="#_authentication_4"></a><a class="link" href="#_authentication_4">Authentication</a></h4>
+<div class="paragraph">
+<p>To authenticate with the zot server, log in at the start of your session using the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ helm registry login -u myUsername myZotRegistry.com:5000</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You will be prompted to manually enter a password.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

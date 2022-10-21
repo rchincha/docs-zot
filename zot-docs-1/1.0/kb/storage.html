@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Storage Planning with zot :: Zot Docs</title>
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+    <link rel="icon" href="../../../favicon.ico" type="image/x-icon">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item navbar-logo" href="../../.."></a>
+      <a class="navbar-item" href="../../..">Zot Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://zotregistry.io/">Home</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="zot-docs-1" data-version="1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../toc/zot-toc.html">Zot Documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../toc/zot-toc.html">Documentation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">General</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../general/zot-concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../general/artifacts.html">Released Artifacts for zot</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">User Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guides/user-guide-datapath.html">Push and Pull Image Content</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../admin-guide/admin-guide.html">Zot Administrator Guide</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../developer-guide/developer-guide.html">Zot Developer Guide</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Installation Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../install-guides/install-guide-linux.html">Installing zot on Bare Metal Linux</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../install-guides/install-guide-k8s.html">Installing zot with Kubernetes and Helm</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Articles</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="building-ci-cd-pipeline.html">Building an OCI-native Container Image CI/CD Pipeline</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="authn-authz.html">User Authentication and Authorization with zot</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="security-posture.html">zot Security Posture</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="storage.html">Storage Planning with zot</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="clustering.html">zot Clustering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="benchmarking-with-zb.html">Benchmarking zot with zb</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Zot Documentation</span>
+    <span class="version">1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../toc/zot-toc.html">Zot Documentation</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../toc/zot-toc.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../toc/zot-toc.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../toc/zot-toc.html">Zot Documentation</a></li>
+    <li>Articles</li>
+    <li><a href="storage.html">Storage Planning with zot</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Storage Planning with zot</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Revised: 2022-09-16</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code>zot</code> supports the following features to provide OCI standards-based, vendor-agnostic image storage:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Local and remote file storage</p>
+</li>
+<li>
+<p>Inline deduplication and garbage collection</p>
+</li>
+<li>
+<p>Data scrubbing in background</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_storage_model"><a class="anchor" href="#_storage_model"></a><a class="link" href="#_storage_model">Storage model</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Data handling in <code>zot</code> revolves around two main principles: that data and APIs on the wire conform to the OCI Distribution Specification and that data on the disk conforms to the OCI Image Layout Specification. As a result, any client that is compliant with the Distribution Specification can read from or write to a <code>zot</code> registry. Furthermore, the actual storage is simply an OCI Image Layout. With only these two specification documents in hand, the entire data flow inside can be easily understood.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>zot</code> does not implement, support, or require any vendor-specific protocols, including that of Docker.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_hosting_an_oci_image_layout"><a class="anchor" href="#_hosting_an_oci_image_layout"></a><a class="link" href="#_hosting_an_oci_image_layout">Hosting an OCI image layout</a></h3>
+<div class="paragraph">
+<p>Because <code>zot</code> supports the OCI image layout, it can readily host and serve any directories holding a valid OCI image layout even when those directories have been created elsewhere. This property of <code>zot</code> is suitable for use cases in which container images are independently built, stored, and transferred, but later need to be served over the network.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_storage_backends"><a class="anchor" href="#_storage_backends"></a><a class="link" href="#_storage_backends">Storage backends</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following types of storage backends are supported.</p>
+</div>
+<div class="sect2">
+<h3 id="_local_filesystem"><a class="anchor" href="#_local_filesystem"></a><a class="link" href="#_local_filesystem">Local filesystem</a></h3>
+<div class="paragraph">
+<p><code>zot</code> can store and serve files from one or more local directories (folders). A minimum of one root directory is required for local hosting, but additional hosted directories can be added.  When accessed by HTTP APIs, all directories can appear as a single data store.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Remote filesystems that are mounted and accessible locally such as <code>NFS</code> or <code>fuse</code> are treated as local filesystems.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_remote_filesystem"><a class="anchor" href="#_remote_filesystem"></a><a class="link" href="#_remote_filesystem">Remote filesystem</a></h3>
+<div class="paragraph">
+<p><code>zot</code> can also store data remotely in the cloud, using the storage APIs of the cloud service.  Currently, <code>zot</code> supports only the AWS S3 storage service.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_storage_configuration"><a class="anchor" href="#_storage_configuration"></a><a class="link" href="#_storage_configuration">Storage configuration</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Exposing flexibility in storage capabilities is a key tenet for catering to the requirements of varied environments ranging from cloud to on-premises to IoT.</p>
+</div>
+<div class="sect2">
+<h3 id="_commit"><a class="anchor" href="#_commit"></a><a class="link" href="#_commit">Commit</a></h3>
+<div class="paragraph">
+<p>Most modern filesystems buffer and flush RAM data to disk after a delay. The purpose of this function is to improve performance at the cost of higher disk memory usage. In embedded devices such as Raspberry Pi, for example, where RAM may be very limited and at a premium, it is desirable to flush data to disk more frequently. The <code>zot</code> storage configuration exposes an option called <code>commit</code> which, when enabled, causes data writes to be committed to disk immediately. This option is disabled by default.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deduplication"><a class="anchor" href="#_deduplication"></a><a class="link" href="#_deduplication">Deduplication</a></h3>
+<div class="paragraph">
+<p>Deduplication is a storage space saving feature wherein only a single copy of specific content is maintained on disk while many different image manifests may hold references to that same content. The deduplication feature is also available for supported cloud storage backends.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_garbage_collection"><a class="anchor" href="#_garbage_collection"></a><a class="link" href="#_garbage_collection">Garbage collection</a></h3>
+<div class="paragraph">
+<p>After an image is deleted by deleting an image manifest, the
+corresponding blobs can be purged to free up space. However, since Distribution Specification APIs are not transactional between blob and manifest lifecycle, care must be taken so as not to put the storage in an inconsistent state. Garbage collection in <code>zot</code> is an inline feature meaning that it is <strong>not</strong> necessary to take the registry offline. The <code>zot</code> configuration model allows for enabling and disabling garbage collection. The model also allows the configuration of a tunable delay, which can be set depending on client network speeds and the size of blobs.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scrub"><a class="anchor" href="#_scrub"></a><a class="link" href="#_scrub">Scrub</a></h3>
+<div class="paragraph">
+<p>The scrub function, available as an <em>extension</em>, makes it possible to ascertain data validity by computing hashes on blobs periodically and continuously so that any bit rot is caught and reported early.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -3,15 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Installation Guide for Bare Metal Linux :: Zot Docs</title>
+    <title>Installing zot on Bare Metal Linux :: Zot Docs</title>
     <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
-  </head>
+    <link rel="icon" href="../../../favicon.ico" type="image/x-icon">  </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="navbar-item navbar-logo" href="../../.."></a>
       <a class="navbar-item" href="../../..">Zot Docs</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -21,28 +22,7 @@
     </div>
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
-        <a class="navbar-item" href="#">Home</a>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Products</a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Product A</a>
-            <a class="navbar-item" href="#">Product B</a>
-            <a class="navbar-item" href="#">Product C</a>
-          </div>
-        </div>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Services</a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Service A</a>
-            <a class="navbar-item" href="#">Service B</a>
-            <a class="navbar-item" href="#">Service C</a>
-          </div>
-        </div>
-        <div class="navbar-item">
-          <span class="control">
-            <a class="button is-primary" href="#">Download</a>
-          </span>
-        </div>
+        <a class="navbar-item" href="https://zotregistry.io/">Home</a>
       </div>
     </div>
   </nav>
@@ -65,7 +45,16 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../concepts/zot-concepts.html">Concepts</a>
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">General</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../general/zot-concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../general/artifacts.html">Released Artifacts for zot</a>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
@@ -73,10 +62,10 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Installation Guides</span>
+    <span class="nav-text">User Guides</span>
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="install-guide-linux.html">Installation Guide for Bare Metal Linux</a>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guides/user-guide-datapath.html">Push and Pull Image Content</a>
   </li>
 </ul>
   </li>
@@ -92,7 +81,51 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../developer-guide/draft-developer-guide-chapters.html">Zot Developer Guide</a>
+    <a class="nav-link" href="../developer-guide/developer-guide.html">Zot Developer Guide</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Installation Guides</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="install-guide-linux.html">Installing zot on Bare Metal Linux</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="install-guide-k8s.html">Installing zot with Kubernetes and Helm</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Articles</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/building-ci-cd-pipeline.html">Building an OCI-native Container Image CI/CD Pipeline</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/authn-authz.html">User Authentication and Authorization with zot</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/security-posture.html">zot Security Posture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/storage.html">Storage Planning with zot</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/clustering.html">zot Clustering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../kb/benchmarking-with-zb.html">Benchmarking zot with zb</a>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
@@ -126,17 +159,16 @@
   <ul>
     <li><a href="../toc/zot-toc.html">Zot Documentation</a></li>
     <li>Installation Guides</li>
-    <li><a href="install-guide-linux.html">Installation Guide for Bare Metal Linux</a></li>
+    <li><a href="install-guide-linux.html">Installing zot on Bare Metal Linux</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/project-zot/docs-zot/edit/main/modules/install-guides/pages/install-guide-linux.adoc">Edit this Page</a></div>
-  </div>
+</div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Installation Guide for Bare Metal Linux</h1>
+<h1 class="page">Installing zot on Bare Metal Linux</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
@@ -148,90 +180,15 @@
 <h2 id="_before_you_begin"><a class="anchor" href="#_before_you_begin"></a><a class="link" href="#_before_you_begin">Before you begin</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_supported_platforms"><a class="anchor" href="#_supported_platforms"></a><a class="link" href="#_supported_platforms">Supported platforms</a></h3>
+<h3 id="_about_binary_images"><a class="anchor" href="#_about_binary_images"></a><a class="link" href="#_about_binary_images">About binary images</a></h3>
 <div class="paragraph">
-<p>You can install zot on standard Linux platforms with
-Intel or ARM processors and with systemd installed.</p>
-</div>
-<table class="tableblock frame-all grid-all fit-content">
-<caption class="title">Table 1. Supported platforms and architectures</caption>
-<colgroup>
-<col>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">OS</th>
-<th class="tableblock halign-left valign-top">ARCH</th>
-<th class="tableblock halign-left valign-top">Platform</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">linux</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">amd64</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Intel-based Linux servers</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">linux</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">arm64</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ARM-based servers and Raspberry Pi4</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_full_and_minimal_binary_images"><a class="anchor" href="#_full_and_minimal_binary_images"></a><a class="link" href="#_full_and_minimal_binary_images">Full and minimal binary images</a></h3>
-<div class="paragraph">
-<p>In addition to variations for specific platforms and architectures, binary images
-are also available in full and minimal implementations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A full zot binary image is compiled with all extensions. Extensions
-include functions such as metrics, registry synchronization, search, and scrub.</p>
-</li>
-<li>
-<p>A minimal distribution-spec conformant zot binary image is compiled with
-only a minimal set of code and libraries, reducing the attack surface. This
-option might be optimal for a registry embedded in a shipping product.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_binary_image_file_naming"><a class="anchor" href="#_binary_image_file_naming"></a><a class="link" href="#_binary_image_file_naming">Binary image file naming</a></h3>
-<div class="paragraph">
-<p>An executable binary image for zot is named using the target platform and
-architecture from the
- <a href="#supported-platforms-zot">Supported platforms and architectures</a>
- table. The general format of a binary image file name is one of these two:</p>
+<p>Executable binary zot images are available for multiple platforms and
+architectures and with full or minimal implementations.</p>
 </div>
 <div class="paragraph">
-<p><code>zot-<em>os</em>-<em>architecture</em></code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A full zot binary image with all extensions has a filename of the
-form <code>zot-<em>os</em>-<em>architecture</em>.</code> For example, the full binary image for an
-Intel-based linux server is <code>zot-linux-amd64</code>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><code>zot-<em>os</em>-<em>architecture</em>-minimal</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A minimal distribution-spec conformant zot binary image has a filename of
-the form <code>zot-<em>os</em>-<em>architecture</em>-minimal</code>. For example, the minimal binary
-image for an Intel-based linux server is <code>zot-linux-amd64-minimal</code>.</p>
-</li>
-</ul>
+<p>Refer to <a href="../general/artifacts.html" class="xref page"><em>Released Artifacts for zot</em></a>
+for information about available zot images along with information about
+image variations, image locations, and image naming formats.</p>
 </div>
 </div>
 </div>
@@ -251,21 +208,6 @@ to the`/usr/bin/` directory and rename it to <code>zot,</code> as in this exampl
 <pre>$ wget -O /usr/bin/zot  https://github.com/project-zot/zot/releases/download/v1.4.2-rc2/zot-linux-amd64</pre>
 </div>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">MIKE&#8217;S QUESTIONS</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Do we need to rename the binary or to chmod it to be executable?</p>
-</li>
-<li>
-<p>What does -N do?</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_step_2_create_a_zot_configuration_file"><a class="anchor" href="#_step_2_create_a_zot_configuration_file"></a><a class="link" href="#_step_2_create_a_zot_configuration_file">Step 2: Create a zot configuration file</a></h3>
@@ -276,7 +218,8 @@ to the`/usr/bin/` directory and rename it to <code>zot,</code> as in this exampl
 <p>See <a href="#config_file">Configuration file options</a> for an example file with
 options and recommendations. You can find other configuration file
 <a href="https://github.com/project-zot/zot/tree/main/examples">examples</a> in
-the zot GitHub project and in the <em>Zot Administrator Guide</em>.</p>
+the zot GitHub project and in the
+<a href="../admin-guide/admin-guide.html" class="xref page"><em>Zot Administrator Guide</em></a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -402,7 +345,8 @@ your TLS configuration using a service such as
 the <a href="https://www.ssllabs.com/ssltest/">Qualys SSL Server Test</a>.</p>
 </div>
 <div class="paragraph">
-<p>Refer to the <em>Zot Administrator Guide</em> for further information about maintaining your
+<p>Refer to the <a href="../admin-guide/admin-guide.html" class="xref page"><em>Zot Administrator Guide</em></a>
+for further information about maintaining your
 zot registry server.</p>
 </div>
 </div>
@@ -415,8 +359,8 @@ zot registry server.</p>
 for your own installation. You can modify this file to suit your own environment.</p>
 </div>
 <div class="paragraph">
-<p>Refer to the <em>Zot Administrator Guide</em> for more details about configuration file
-options.</p>
+<p>Refer to the <a href="../admin-guide/admin-guide.html" class="xref page"><em>Zot Administrator Guide</em></a>
+for more details about configuration file options.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -531,10 +475,8 @@ and Docker container registries, as shown here:</p>
 </main>
 </div>
 <footer class="footer">
-  <p>This page was built using the Antora default UI.</p>
-  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
 </footer>
-<script src="../../../_/js/site.js"></script>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
 <script async src="../../../_/js/vendor/highlight.js"></script>
   </body>
 </html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Building an OCI-native Container Image CI/CD Pipeline :: Zot Docs</title>
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+    <link rel="icon" href="../../../favicon.ico" type="image/x-icon">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item navbar-logo" href="../../.."></a>
+      <a class="navbar-item" href="../../..">Zot Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://zotregistry.io/">Home</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="zot-docs-1" data-version="1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../toc/zot-toc.html">Zot Documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../toc/zot-toc.html">Documentation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">General</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../general/zot-concepts.html">Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../general/artifacts.html">Released Artifacts for zot</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">User Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guides/user-guide-datapath.html">Push and Pull Image Content</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../admin-guide/admin-guide.html">Zot Administrator Guide</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../developer-guide/developer-guide.html">Zot Developer Guide</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Installation Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../install-guides/install-guide-linux.html">Installing zot on Bare Metal Linux</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../install-guides/install-guide-k8s.html">Installing zot with Kubernetes and Helm</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Articles</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="building-ci-cd-pipeline.html">Building an OCI-native Container Image CI/CD Pipeline</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="authn-authz.html">User Authentication and Authorization with zot</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="security-posture.html">zot Security Posture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="storage.html">Storage Planning with zot</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="clustering.html">zot Clustering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="benchmarking-with-zb.html">Benchmarking zot with zb</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Zot Documentation</span>
+    <span class="version">1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../toc/zot-toc.html">Zot Documentation</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../toc/zot-toc.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../toc/zot-toc.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../toc/zot-toc.html">Zot Documentation</a></li>
+    <li>Articles</li>
+    <li><a href="building-ci-cd-pipeline.html">Building an OCI-native Container Image CI/CD Pipeline</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Building an OCI-native Container Image CI/CD Pipeline</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Revised: 2022-09-30</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>An <strong>OCI-native</strong> secure container image build/delivery pipeline using the following tools:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/project-stacker/stacker"><code>stacker</code></a>
+for building OCI images</p>
+</li>
+<li>
+<p><a href="https://github.com/project-zot/zot"><code>zot</code></a>
+as a vendor-neutral OCI image registry server</p>
+</li>
+<li>
+<p><a href="https://github.com/containers/skopeo"><code>skopeo</code></a>
+for performing repository interactions</p>
+</li>
+<li>
+<p><a href="https://github.com/sigstore/cosign"><code>cosign</code></a>
+for container signing and verification</p>
+</li>
+<li>
+<p><a href="https://github.com/cri-o/cri-o"><code>cri-o</code></a>
+for deploying container images</p>
+</li>
+<li>
+<p><a href="https://artifacthub.io/packages/helm/sigstore/cosigned#deploy-cosigned-helm-chart"><code>cosigned</code></a>
+for validating container images before deployment</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The <a href="https://opencontainers.org/">Open Container Initiative (OCI)</a><sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup> is an open governance structure for the express purpose of creating open industry standards around container formats and runtimes.</p>
+</div>
+<div class="paragraph">
+<p>This document describes a step-by-step procedure towards achieving an OCI-native secure software supply chain using <a href="https://github.com/project-zot/zot"><code>zot</code></a><sup class="footnote" id="_footnote_fn-zot">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup> in collaboration with other opensource tools. The following diagram shows a portion of the CI/CD pipeline.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/504568.jpg" alt="504568">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_images"><a class="anchor" href="#_build_images"></a><a class="link" href="#_build_images">Build images</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/project-stacker/stacker"><code>stacker</code></a><sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup> is a standalone tool for building OCI images via a declarative <code>yaml</code> format. The output of the build process is a container image in an OCI layout.</p>
+</div>
+<div class="listingblock">
+<div class="title">example: stacker build command</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">stacker build -f &lt;stackerfile.yaml&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_image_registry"><a class="anchor" href="#_image_registry"></a><a class="link" href="#_image_registry">Image registry</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/project-zot/zot"><code>zot</code></a><sup class="footnoteref">[<a class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup> is a production-ready vendor-neutral OCI image registry server purely based on the <a href="https://github.com/opencontainers/distribution-spec">OCI Distribution Specification</a><sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup>. If <code>stacker</code> is used to build the OCI image, it can also be used to publish the built image to an OCI registry.</p>
+</div>
+<div class="listingblock">
+<div class="title">example: stacker publish command</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">stacker publish --url &lt;url&gt; --username &lt;user&gt; --password &lt;password&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can use <a href="https://github.com/containers/skopeo"><code>skopeo</code></a><sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup>, a command line utility that performs various operations on container images and image repositories.</p>
+</div>
+<div class="listingblock">
+<div class="title">example: skopeo copies an image to a registry</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">skopeo copy --format=oci oci:&lt;oci-dir&gt;/image:tag \
+  docker://&lt;zot-server&gt;/image:tag</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_signing_images"><a class="anchor" href="#_signing_images"></a><a class="link" href="#_signing_images">Signing images</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/sigstore/cosign"><code>cosign</code></a><sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup> is a tool that performs container signing, verification, and storage in an OCI registry.</p>
+</div>
+<div class="listingblock">
+<div class="title">example: cosign generates keys and signs an image in the registry</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">cosign generate-key-pair
+
+cosign sign --key cosign.key &lt;zot-server&gt;/image:tag</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deploying_container_images"><a class="anchor" href="#_deploying_container_images"></a><a class="link" href="#_deploying_container_images">Deploying container images</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/cri-o/cri-o"><code>cri-o</code></a><sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup> is an implementation of the <a href="https://kubernetes.io/docs/concepts/architecture/cri/">Kubernetes Container Runtime Interface (CRI)</a><sup class="footnote">[<a id="_footnoteref_8" class="footnote" href="#_footnotedef_8" title="View footnote.">8</a>]</sup> to enable using OCI compatible runtimes. It is a lightweight alternative to using Docker as the runtime for Kubernetes.</p>
+</div>
+<div class="listingblock">
+<div class="title">example: kubelet configuration file</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">apiVersion: v1
+kind: Pod
+metadata:
+  name: example-pod
+spec:
+  containers:
+  - name: example-container
+    image: &lt;zot-server&gt;/image:tag</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_container_image_verification"><a class="anchor" href="#_container_image_verification"></a><a class="link" href="#_container_image_verification">Container image verification</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://artifacthub.io/packages/helm/sigstore/cosigned#deploy-cosigned-helm-chart"><code>cosigned</code></a><sup class="footnote">[<a id="_footnoteref_9" class="footnote" href="#_footnotedef_9" title="View footnote.">9</a>]</sup> is an image admission controller that validates container images before deploying them.</p>
+</div>
+<div class="listingblock">
+<div class="title">example: install cosigned using Helm</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">kubectl create namespace cosign-system
+
+kubectl create secret generic mysecret -n \
+  cosign-system --from-file=cosign.pub=./cosign.pub
+
+helm repo add sigstore https://sigstore.github.io/helm-charts
+
+helm repo update
+
+helm install cosigned -n cosign-system sigstore/cosigned \
+  --devel --set cosign.secretKeyRef.name=mysecret</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a><a class="link" href="#_references">References</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. <a href="https://opencontainers.org/" class="bare">https://opencontainers.org/</a>
+</div>
+<div class="footnote" id="_footnotedef_2">
+<a href="#_footnoteref_2">2</a>. <a href="https://github.com/project-zot/zot" class="bare">https://github.com/project-zot/zot</a>
+</div>
+<div class="footnote" id="_footnotedef_3">
+<a href="#_footnoteref_3">3</a>. <a href="https://github.com/project-stacker/stacker" class="bare">https://github.com/project-stacker/stacker</a>
+</div>
+<div class="footnote" id="_footnotedef_4">
+<a href="#_footnoteref_4">4</a>. <a href="https://github.com/opencontainers/distribution-spec" class="bare">https://github.com/opencontainers/distribution-spec</a>
+</div>
+<div class="footnote" id="_footnotedef_5">
+<a href="#_footnoteref_5">5</a>. <a href="https://github.com/containers/skopeo" class="bare">https://github.com/containers/skopeo</a>
+</div>
+<div class="footnote" id="_footnotedef_6">
+<a href="#_footnoteref_6">6</a>. <a href="https://github.com/sigstore/cosign" class="bare">https://github.com/sigstore/cosign</a>
+</div>
+<div class="footnote" id="_footnotedef_7">
+<a href="#_footnoteref_7">7</a>. <a href="https://github.com/cri-o/cri-o" class="bare">https://github.com/cri-o/cri-o</a>
+</div>
+<div class="footnote" id="_footnotedef_8">
+<a href="#_footnoteref_8">8</a>. <a href="https://kubernetes.io/docs/concepts/architecture/cri/" class="bare">https://kubernetes.io/docs/concepts/architecture/cri/</a>
+</div>
+<div class="footnote" id="_footnotedef_9">
+<a href="#_footnoteref_9">9</a>. <a href="https://artifacthub.io/packages/helm/sigstore/cosigned#deploy-cosigned-helm-chart" class="bare">https://artifacthub.io/packages/helm/sigstore/cosigned#deploy-cosigned-helm-chart</a>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
